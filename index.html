@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
     <body>
            <div id="fader" >
                </div>
-           <div id="friendsPage" class="page right" style="background-color: transparent">
+           <div id="friendsPage" class="page right" style="background-color: transparent"  >
                 <h1>Page 1</h1>
                 <a href="javascript:slidePageFrom(homePage);">Back</a>
            </div>
@@ -110,16 +110,19 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
                 <h1>Page 1</h1>
                 <a href="javascript:slidePageFrom(homePage);">Back</a>
            </div>
-           <div id="favsPage" class="page right" style="background-color: blueviolet">
-                <h1>Page 1</h1>
-                <a href="javascript:slidePageFrom(homePage);">Back</a>
-           </div>
+           
           <div id="homePage" class="page center" style="background: transparent" data-role="page">
               <div data-role="content">   
           <div id="wrapper">
            <div id="scroller">
 		<ul id="thelist" >
-                    <li ><div class="event"><img class="avatar" src="images/avatar.jpg"  />
+                    <li >
+                           
+                        <div class="event">
+                            <a href="#favsPage" data-transition="slide">
+                            <img class="avatar" src="images/avatar.jpg"  />
+                            </a>   
+                            
                         <img class="location" src="images/location.png"  />
                         <img class="time" src="images/time.png"  />
                         <h2>Business diner</h2>
@@ -127,7 +130,6 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
                         <span class="time">20:40</span>
                         </div>
                         <div class="eventinfo">
-                            <input type="submit" value="Join" data-inline="true" data-theme="b">
                            <h2>The info!!</h2> 
                         </div>
                     </li>
@@ -228,6 +230,10 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
                 <img src="images/logo.png" class="logo_image"/>
             </div>
            </div>
+           </div>
+        <div id="favsPage" class="page right" style="background-color: blueviolet" data-role="page">
+                <h1>Page 1</h1>
+                <a href="javascript:slidePageFrom(homePage);">Back</a>
            </div>
          <div  id="nav_bar">
           <div id="menu" >
