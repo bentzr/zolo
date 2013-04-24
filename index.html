@@ -1,0 +1,312 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta name="viewport" content="user-scalable=0, initial-scale=1.0">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.js"></script>
+        <script src="js/libs/iscroll/iscroll.js"></script>
+        <script type="text/javascript">
+        // When the DOM is ready, initialize the scripts.
+        jQuery(function( $ ){
+
+        // Get a reference to the container.
+        var container = $( "section" );
+        // Bind the link to toggle the slide.
+        $( "#logo" ).click(
+        function( event ){
+        // Prevent the default event.
+        event.preventDefault();
+        
+        // Toggle the slide based on its current
+        if(container.css('-webkit-transform') === "matrix(1, 0, 0, 1, 0, 0)") {
+            container.css('-webkit-transform', 'translate3d(0, -135px, 0)');
+            
+        }else {
+                container.css('-webkit-transform', 'translate3d(0, 0, 0)');
+              }
+         }
+        );
+        
+        $("ul li").click(function(event) {
+            event.preventDefault();
+            var index = $(this).index();
+            var listItem = $($("ul li").get(index)).find(".event");
+            
+            if(listItem.css('-webkit-transform') === "matrix(1, 0, 0, 1, 0, 0)") {
+                listItem.css('-webkit-transform', 'translate3d(-100%, 0, 0)');
+            }else {
+                listItem.css('-webkit-transform', 'translate3d(0, 0, 0)');
+            }
+//            if(listItem.css('margin-left') === '0px') {
+//                listItem.animate({'margin-left': '-800px'}, 500);
+//            }else {
+//                listItem.animate({'margin-left': '0px'}, 500);
+//            }
+           
+        });
+
+        });
+        </script>
+        <script type="text/javascript">
+
+var myScroll;
+function loaded() {
+	myScroll = new iScroll('wrapper');
+}
+
+document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+
+/* * * * * * * *
+ *
+ * Use this for high compatibility (iDevice + Android)
+ *
+ */
+document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 200); }, false);
+/*
+ * * * * * * * */
+
+
+/* * * * * * * *
+ *
+ * Use this for iDevice only
+ *
+ */
+//document.addEventListener('DOMContentLoaded', loaded, false);
+/*
+ * * * * * * * */
+
+
+/* * * * * * * *
+ *
+ * Use this if nothing else works
+ *
+ */
+//window.addEventListener('load', setTimeout(function () { loaded(); }, 200), false);
+/*
+ * * * * * * * */
+
+</script>
+
+        
+
+    </head>
+    <body>
+       
+       <section id="main">
+           <div data-role="page">
+               
+           </div>
+           <div id="fader" >
+               </div>
+           <div id="friendsPage" class="page right" style="background-color: transparent">
+                <h1>Page 1</h1>
+                <a href="javascript:slidePageFrom(homePage);">Back</a>
+           </div>
+           <div id="loozePage" class="page right" style="background-color: black">
+                <h1>Page 2</h1>
+                <a href="javascript:slidePageFrom(homePage);">Back</a>
+           </div>
+           <div id="myPage" class="page right" style="background-color: blue">
+                <h1>Page 1</h1>
+                <a href="javascript:slidePageFrom(homePage);">Back</a>
+           </div>
+            <div id="favsPage" class="page right" style="background-color: blueviolet">
+                <h1>Page 1</h1>
+                <a href="javascript:slidePageFrom(homePage);">Back</a>
+            </div>
+           <div id="homePage" class="page center" style="background: transparent">
+               
+          <div id="wrapper">
+           <div id="scroller">
+		<ul id="thelist">
+                    <li ><div class="event"><img class="avatar" src="images/avatar.jpg"  />
+                        <img class="location" src="images/location.png"  />
+                        <img class="time" src="images/time.png"  />
+                        <h2>Business diner</h2>
+                        <h1>Dov airport, Tel Aviv</h1>
+                        <span class="time">20:40</span>
+                        </div>
+                        <div class="eventinfo">
+                           <h2>The info!!</h2> 
+                        </div>
+                    </li>
+                     <li ><div class="event"><img class="avatar" src="images/avatar.jpg"  />
+                        <img class="location" src="images/location.png"  />
+                        <img class="time" src="images/time.png"  />
+                        <h2>Business diner</h2>
+                        <h1>Dov airport, Tel Aviv</h1>
+                        <span class="time">20:40</span>
+                        </div>
+                        <div class="eventinfo">
+                           <h2>The info!!</h2> 
+                        </div>
+                    </li>
+                     <li ><div class="event"><img class="avatar" src="images/avatar.jpg"  />
+                        <img class="location" src="images/location.png"  />
+                        <img class="time" src="images/time.png"  />
+                        <h2>Business diner</h2>
+                        <h1>Dov airport, Tel Aviv</h1>
+                        <span class="time">20:40</span>
+                        </div>
+                        <div class="eventinfo">
+                           <h2>The info!!</h2> 
+                        </div>
+                    </li>
+                     <li ><div class="event"><img class="avatar" src="images/avatar.jpg"  />
+                        <img class="location" src="images/location.png"  />
+                        <img class="time" src="images/time.png"  />
+                        <h2>Business diner</h2>
+                        <h1>Dov airport, Tel Aviv</h1>
+                        <span class="time">20:40</span>
+                        </div>
+                        <div class="eventinfo">
+                           <h2>The info!!</h2> 
+                        </div>
+                    </li>
+                     <li ><div class="event"><img class="avatar" src="images/avatar.jpg"  />
+                        <img class="location" src="images/location.png"  />
+                        <img class="time" src="images/time.png"  />
+                        <h2>Business diner</h2>
+                        <h1>Dov airport, Tel Aviv</h1>
+                        <span class="time">20:40</span>
+                        </div>
+                        <div class="eventinfo">
+                           <h2>The info!!</h2> 
+                        </div>
+                    </li>
+                     <li ><div class="event"><img class="avatar" src="images/avatar.jpg"  />
+                        <img class="location" src="images/location.png"  />
+                        <img class="time" src="images/time.png"  />
+                        <h2>Business diner</h2>
+                        <h1>Dov airport, Tel Aviv</h1>
+                        <span class="time">20:40</span>
+                        </div>
+                        <div class="eventinfo">
+                           <h2>The info!!</h2> 
+                        </div>
+                    </li>
+                     <li ><div class="event"><img class="avatar" src="images/avatar.jpg"  />
+                        <img class="location" src="images/location.png"  />
+                        <img class="time" src="images/time.png"  />
+                        <h2>Business diner</h2>
+                        <h1>Dov airport, Tel Aviv</h1>
+                        <span class="time">20:40</span>
+                        </div>
+                        <div class="eventinfo">
+                           <h2>The info!!</h2> 
+                        </div>
+                    </li>
+                     <li ><div class="event"><img class="avatar" src="images/avatar.jpg"  />
+                        <img class="location" src="images/location.png"  />
+                        <img class="time" src="images/time.png"  />
+                        <h2>Business diner</h2>
+                        <h1>Dov airport, Tel Aviv</h1>
+                        <span class="time">20:40</span>
+                        </div>
+                        <div class="eventinfo">
+                           <h2>The info!!</h2> 
+                        </div>
+                    </li>
+                     <li ><div class="event"><img class="avatar" src="images/avatar.jpg"  />
+                        <img class="location" src="images/location.png"  />
+                        <img class="time" src="images/time.png"  />
+                        <h2>Business diner</h2>
+                        <h1>Dov airport, Tel Aviv</h1>
+                        <span class="time">20:40</span>
+                        </div>
+                        <div class="eventinfo">
+                           <h2>The info!!</h2> 
+                        </div>
+                    </li>
+		</ul>
+	</div>
+          </div>
+           </div>
+            <div id="logo">
+                <h1> Balooze </h1>
+            </div>
+	</section> 
+        
+        <div id="menu">
+            <div>
+                <a href="javascript:slidePageFrom(homePage);">
+                    <img id="list" src="images/list_btn.png"  />
+                </a>
+            </div>
+            <div>
+                <a href="javascript:slidePageFrom(favsPage);">
+                    <img id="favs" src="images/heart_btn.png"  />
+                </a>
+            </div>
+            <div>
+                <a href="javascript:slidePageFrom(myPage);">
+                    <img id="me" src="images/me_btn.png"  />
+                </a>
+            </div>
+            <div>
+                <a href="javascript:slidePageFrom(loozePage);">
+                <img id="looze" src="images/time_btn.png"  />
+                </a>
+            </div>
+            <div>
+                <a href="javascript:slidePageFrom(friendsPage);">
+                <img id="friends" src="images/friends_btn.png" />
+                </a>
+            </div>
+        </div>
+           <div id="searchcontain" data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+               <div id="searchwrap" class="ui-input-search ui-shadow-inset ui-btn-corner-all ui-btn-shadow ui-icon-searchfield ui-body-c ui-mini">
+                   <input name="" id="searchinput" placeholder="" value="" type="text" data-type="search" data-mini="true" class="ui-input-text ui-body-c">
+                   <a href="index.html#" class="ui-input-clear ui-btn ui-shadow ui-btn-corner-all ui-mini ui-btn-icon-notext ui-btn-up-c ui-input-clear-hidden" title="clear text" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-icon="delete" data-iconpos="notext" data-theme="c" data-mini="true"><span class="ui-btn-inner ui-btn-corner-all">
+                           <span class="ui-btn-text">clear text</span>
+                           <span class="ui-icon ui-icon-delete ui-icon-shadow">&nbsp;</span>
+                           
+                       </span></a>
+               </div>
+           </div>
+        
+        
+        <script>
+
+var homePage = document.getElementById("homePage"),
+    friendsPage = document.getElementById("friendsPage"),
+    loozePage = document.getElementById("loozePage"),
+    myPage = document.getElementById("myPage"),
+    favsPage = document.getElementById("favsPage"),
+    currentPage = homePage;
+
+    function slidePageFrom(page) {
+        if(page === currentPage) {
+            return;
+        }
+        if(page.className === "page transition right" || page.className === "page right"){
+            page.className = "page right"
+            page.className ="page transition center";
+            
+            currentPage.className = "page transition " + "left" //(from === "left" ? "right" : "left");
+            currentPage = page;
+            return;
+        }
+        if(page.className === "page transition left" || page.className === "page left"){
+            page.className = "page left"
+            page.className ="page transition center";
+            
+            currentPage.className = "page transition " + "right" //(from === "left" ? "right" : "left");
+            currentPage = page;
+            return;
+        }
+    }
+
+</script>
+    </body>
+</html>
