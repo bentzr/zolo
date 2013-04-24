@@ -19,9 +19,9 @@ and open the template in the editor.
         <script type="text/javascript">
         // When the DOM is ready, initialize the scripts.
         jQuery(function( $ ){
-
+        
         // Get a reference to the container.
-        var container = $( "section" );
+        var container = $( "#homePage" );
         // Bind the link to toggle the slide.
         $( "#logo" ).click(
         function( event ){
@@ -96,11 +96,6 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
 
     </head>
     <body>
-       
-       <section id="main" data-role="page">
-           <div >
-               
-           </div>
            <div id="fader" >
                </div>
            <div id="friendsPage" class="page right" style="background-color: transparent">
@@ -119,8 +114,8 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
                 <h1>Page 1</h1>
                 <a href="javascript:slidePageFrom(homePage);">Back</a>
            </div>
-           <div id="homePage" class="page center" style="background: transparent">
-              
+          <div id="homePage" class="page center" style="background: transparent" data-role="page">
+              <div data-role="content">   
           <div id="wrapper">
            <div id="scroller">
 		<ul id="thelist" >
@@ -227,13 +222,15 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
 		</ul>
 	</div>
           </div>
-           </div>
+              </div>
+           <div data-role="footer">
             <div id="logo">
                 <h1> Balooze </h1>
             </div>
-	</section> 
-        
-        <div id="menu">
+           </div>
+           </div>
+         <div  id="nav_bar">
+          <div id="menu" >
             <div onclick="javascript:slidePageFrom(homePage);">
                 <img id="list" src="images/list_btn.png"  />
             </div>
@@ -249,8 +246,8 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
             <div onclick="javascript:slidePageFrom(friendsPage);">
                 <img id="friends" src="images/friends_btn.png" />
             </div>
-        </div>
-           <div id="searchcontain" data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+            </div>
+                  <div id="searchcontain" data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
                <div id="searchwrap" class="ui-input-search ui-shadow-inset ui-btn-corner-all ui-btn-shadow ui-icon-searchfield ui-body-c ui-mini">
                    <input name="" id="searchinput" placeholder="" value="" type="text" data-type="search" data-mini="true" class="ui-input-text ui-body-c">
                    <a href="index.html#" class="ui-input-clear ui-btn ui-shadow ui-btn-corner-all ui-mini ui-btn-icon-notext ui-btn-up-c ui-input-clear-hidden" title="clear text" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-icon="delete" data-iconpos="notext" data-theme="c" data-mini="true"><span class="ui-btn-inner ui-btn-corner-all">
@@ -260,8 +257,7 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
                        </span></a>
                </div>
            </div>
-        
-        
+         </div>
         <script>
 
 var homePage = document.getElementById("homePage"),
