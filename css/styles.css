@@ -249,6 +249,10 @@ min-height: 10px;
    -webkit-box-shadow: inset 0px 13px 20px -17px black;
 }
 
+.ui-body-c, .ui-overlay-c {
+    text-shadow: none !important; 
+}
+
 #searchwrap {
     background: #303030;
     border-color: #5C5C5C;
