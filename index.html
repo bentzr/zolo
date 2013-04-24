@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
                 <a href="javascript:slidePageFrom(homePage);">Back</a>
            </div>
            <div id="homePage" class="page center" style="background: transparent">
-               
+              
           <div id="wrapper">
            <div id="scroller">
 		<ul id="thelist">
@@ -232,30 +232,20 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
 	</section> 
         
         <div id="menu">
-            <div>
-                <a href="javascript:slidePageFrom(homePage);">
-                    <img id="list" src="images/list_btn.png"  />
-                </a>
+            <div onclick="javascript:slidePageFrom(homePage);">
+                <img id="list" src="images/list_btn.png"  />
             </div>
-            <div>
-                <a href="javascript:slidePageFrom(favsPage);">
-                    <img id="favs" src="images/heart_btn.png"  />
-                </a>
+            <div onclick="javascript:slidePageFrom(favsPage);">
+                <img id="favs" src="images/heart_btn.png"  />
             </div>
-            <div>
-                <a href="javascript:slidePageFrom(myPage);">
-                    <img id="me" src="images/me_btn.png"  />
-                </a>
+            <div onclick="javascript:slidePageFrom(myPage);">
+                <img id="me" src="images/me_btn.png"  />
             </div>
-            <div>
-                <a href="javascript:slidePageFrom(loozePage);">
+            <div onclick="javascript:slidePageFrom(loozePage);">
                 <img id="looze" src="images/time_btn.png"  />
-                </a>
             </div>
-            <div>
-                <a href="javascript:slidePageFrom(friendsPage);">
+            <div onclick="javascript:slidePageFrom(friendsPage);">
                 <img id="friends" src="images/friends_btn.png" />
-                </a>
             </div>
         </div>
            <div id="searchcontain" data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
