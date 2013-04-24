@@ -8,10 +8,11 @@ and open the template in the editor.
         <title></title>
         <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
         
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="css/styles.css">
-        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.css" />
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.js"></script>
         <script src="js/libs/iscroll/iscroll.js"></script>
@@ -96,8 +97,8 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
     </head>
     <body>
        
-       <section id="main">
-           <div data-role="page">
+       <section id="main" data-role="page">
+           <div >
                
            </div>
            <div id="fader" >
@@ -122,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
               
           <div id="wrapper">
            <div id="scroller">
-		<ul id="thelist">
+		<ul id="thelist" >
                     <li ><div class="event"><img class="avatar" src="images/avatar.jpg"  />
                         <img class="location" src="images/location.png"  />
                         <img class="time" src="images/time.png"  />
@@ -131,6 +132,7 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
                         <span class="time">20:40</span>
                         </div>
                         <div class="eventinfo">
+                            <input class="joinButton" type="button" value="Join" data-inline="true" data-theme="b">
                            <h2>The info!!</h2> 
                         </div>
                     </li>

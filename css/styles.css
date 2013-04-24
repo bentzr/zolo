@@ -135,6 +135,7 @@
         left: 0%;
         position: relative;
 	padding: 10px;
+        padding-left: 0px;
 	height:55px;
 	border-bottom:1px solid #393939;
 	border-top:1px solid #393939;
@@ -238,3 +239,12 @@ min-height: 10px;
     border-color: #5C5C5C;
     -webkit-box-shadow: inset 0px 13px 20px -17px black;
 }
+
+.ui-btn { 
+          height: 30px;
+          width: 80px;
+          font-size: 9px; 
+          position: absolute;
+          left: 10px;
+        }
+ .ui
