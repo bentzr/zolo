@@ -207,13 +207,6 @@
     height:100%;
 }
 
-#scroller div.eventinfo a {
-    position: absolute;
-    left: 150px;
-    margin-bottom: 0px;
-    margin-top: 0px;
-}
-
 #scroller div.eventinfo table img.avain{
     position: relative;
     bottom: 0px;
@@ -233,7 +226,7 @@
     color: #828282;
     font-size: 0.8em;
 }
-#scroller li span {
+#scroller li .time {
     position: absolute;
     right: 48px;
     top: -7px;
@@ -318,6 +311,56 @@ min-height: 10px;
 }
 
 .whosin {
-    
     left: 10px;
+}
+
+#scroller div.eventinfo a {
+    position: absolute;
+    width: 50px;
+    left: 150px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+#scroller div.eventinfo a .ui-btn-text {
+        z-index: 0;
+        margin-right: 0px;
+        position: absolute;
+        font-size: 12px;
+        top: 6px;
+        left: 0.1px;
+        right: 3px;
+        color: gray;
+}
+
+.inputloze .lozeabove {
+    width: 100%;
+    position: absolute;
+    top: 5px;
+    z-index: 2;
+    height: 35px;
+}
+
+.inputloze .lozedowna {
+    width: 100%;
+    position: absolute;
+    top: 45px;
+    z-index: 0;
+    height: 35px;
+}
+
+.inputloze .lozedownb {
+    width: 100%;
+    position: absolute;
+    top: 85px;
+    z-index: 0;
+    height: 35px;
+}
+
+.inputloze .lozedownc {
+    width: 100%;
+    position: absolute;
+    top: 125px;
+    z-index: 0;
+    height: 35px;
 }

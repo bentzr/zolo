@@ -65,6 +65,22 @@ and open the template in the editor.
                 listItem.css('-webkit-transform', 'translate3d(0, 0, 0)');
             }
         });
+        
+        $("#whatupto").click(function(event) {
+            var index = $(this).index();
+            var container = $( ".goesUp" );
+            var pageId = $.mobile.activePage[0].id;
+            if(pageId === "homePage")
+                subContainer = $(container[0]);
+        
+            if(subContainer.css('-webkit-transform') === "matrix(1, 0, 0, 1, 0, 0)") {
+                subContainer.css('-webkit-transform', 'translate3d(0, +180px, 0)');
+            
+            }else {
+                    subContainer.css('-webkit-transform', 'translate3d(0, 0, 0)');
+              }
+           
+        });
 
         });
         </script>
@@ -121,7 +137,15 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
           <div id="homePage" class="page center" style="background: transparent" data-role="page">
               <div id="fader" >
                </div>
-              <div class="goesUp">    
+              <div class="inputloze">
+                  <div class="lozeabove"><input type="search" name="whatupto" id="whatupto" value="What are you up to?" /></div>
+                  <div class="lozedowna">
+                      <input type="search" name="whenupto" id="whenupto" value="5 more min" /></div><div class="lozedownb">
+                      <input type="search" name="whosinto" id="whoisinto" value="Who's in" /></div><div class="lozedownc">
+                      <input type="search" name="whereat" id="whereat" value="Where at?" />
+                  </div>
+              </div>
+                 <div class="goesUp">    
               <div  data-role="content">   
           <div id="wrapper1" class="wrapperStyle">
            <div id="scroller">
@@ -148,7 +172,7 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
                                        <td><img class="avain" src="images/avatar4.jpg"  /></td>
                                    </tr>
                                </table>
-                               <a href="#" data-role="button" data-inline="true" id="joinbutton" data-theme="a">Join</a>
+                               <a href="#" data-role="button" data-inline="true"  data-theme="a">Join</a>
                            </div>
                         </div>
                     </li>
