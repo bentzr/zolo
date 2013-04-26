@@ -21,7 +21,7 @@ and open the template in the editor.
         jQuery(function( $ ){
         
         // Get a reference to the container.
-        var container = $( "#homePage" );
+        var container = $( "#goesUp" );
         // Bind the link to toggle the slide.
         $( "#logo" ).click(
         function( event ){
@@ -112,7 +112,8 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
            </div>
            
           <div id="homePage" class="page center" style="background: transparent" data-role="page">
-              <div data-role="content">   
+              <div id="goesUp">    
+              <div  data-role="content">   
           <div id="wrapper">
            <div id="scroller">
 		<ul id="thelist" >
@@ -230,29 +231,33 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
                 <img src="images/logo.png" class="logo_image"/>
             </div>
            </div>
+          </div>
+               <div id="menu" >
+              <ul>
+            <li onclick="javascript:slidePageFrom(homePage);">
+                <img id="list" src="images/list_btn.png"  />
+            </li>
+            <li onclick="javascript:slidePageFrom(favsPage);">
+                <img id="favs" src="images/heart_btn.png"  />
+            </li>
+            <li onclick="javascript:slidePageFrom(myPage);">
+                <img id="me" src="images/me_btn.png"  />
+            </li>
+            <li onclick="javascript:slidePageFrom(loozePage);">
+                <img id="looze" src="images/time_btn.png"  />
+            </li>
+            <li onclick="javascript:slidePageFrom(friendsPage);">
+                <img id="friends" src="images/friends_btn.png" />
+            </li>
+                  </ul>
+            </div>
            </div>
         <div id="favsPage" class="page right" style="background-color: blueviolet" data-role="page">
                 <h1>Page 1</h1>
                 <a href="javascript:slidePageFrom(homePage);">Back</a>
            </div>
-         <div  id="nav_bar">
-          <div id="menu" >
-            <div onclick="javascript:slidePageFrom(homePage);">
-                <img id="list" src="images/list_btn.png"  />
-            </div>
-            <div onclick="javascript:slidePageFrom(favsPage);">
-                <img id="favs" src="images/heart_btn.png"  />
-            </div>
-            <div onclick="javascript:slidePageFrom(myPage);">
-                <img id="me" src="images/me_btn.png"  />
-            </div>
-            <div onclick="javascript:slidePageFrom(loozePage);">
-                <img id="looze" src="images/time_btn.png"  />
-            </div>
-            <div onclick="javascript:slidePageFrom(friendsPage);">
-                <img id="friends" src="images/friends_btn.png" />
-            </div>
-            </div>
+         <div  id="nav_bar" >
+         
                   <div id="searchcontain" data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
                <div id="searchwrap" class="ui-input-search ui-shadow-inset ui-btn-corner-all ui-btn-shadow ui-icon-searchfield ui-body-c ui-mini">
                    <input name="" id="searchinput" placeholder="" value="" type="text" data-type="search" data-mini="true" class="ui-input-text ui-body-c">
