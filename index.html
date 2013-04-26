@@ -19,6 +19,7 @@ and open the template in the editor.
         <script type="text/javascript">
         // When the DOM is ready, initialize the scripts.
         jQuery(function( $ ){
+            
         
         // Get a reference to the container.
         var container = $( ".goesUp" );
@@ -37,6 +38,7 @@ and open the template in the editor.
             subContainer = $(container[1]);
         
         // Toggle the slide based on its current
+        
         if(subContainer.css('-webkit-transform') === "matrix(1, 0, 0, 1, 0, 0)") {
             subContainer.css('-webkit-transform', 'translate3d(0, -137px, 0)');
             
@@ -115,7 +117,7 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
 		<ul id="thelist" >
                     <li >    
                         <div class="event">
-                            <a href="#favsPage" data-transition="slide">
+                            <a id="clicklink" href="#favsPage" data-transition="slide">
                             <img class="avatar" src="images/avatar.jpg"  />
                             </a>   
                             
@@ -305,7 +307,7 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
                 </a>
             </div>
             <div class="menuButton">
-                <a href="#favsPage"  data-transitin="fade">
+                <a href="javascript:downAndSlide();"  data-transitin="fade">
                 <img src="images/heart_btn.png"  />
                 </a>
             </div>
@@ -390,6 +392,28 @@ var homePage = document.getElementById("homePage"),
     myPage = document.getElementById("myPage"),
     favsPage = document.getElementById("favsPage"),
     currentPage = homePage;
+    
+    function downAndSlide() {
+        function makeAnimation(callback) {
+         var container = $( ".goesUp" );
+         var pageId = $.mobile.activePage[0].id;
+        if(pageId === "homePage")
+           subContainer = $(container[0]);
+        if(pageId === "favsPage")
+            subContainer = $(container[1]);
+        
+        subContainer.css('-webkit-transform', 'translate3d(0, 0, 0)');
+        return callback();
+        }
+        makeAnimation(function() {
+            $("#clicklink").click();
+        });
+        
+        
+//         $.mobile.changePage( "#favsPage", {
+//         transition: "slide"
+//        });   
+        };
 
     function slidePageFrom(page) {
         if(page === currentPage) {
