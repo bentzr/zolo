@@ -125,15 +125,7 @@
     height: 100%;
 }
 
-#wrapper1 {
-    
-	position:absolute; z-index:1;
-	top:0px; bottom:40px; left:0;
-	width:100%;
-	background:#aaa;
-	overflow:auto;
-}
-#wrapper2 {
+.wrapperStyle {
     
 	position:absolute; z-index:1;
 	top:0px; bottom:40px; left:0;

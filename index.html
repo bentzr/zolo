@@ -36,6 +36,12 @@ and open the template in the editor.
            subContainer = $(container[0]);
         if(pageId === "favsPage")
             subContainer = $(container[1]);
+        if(pageId === "myPage")
+            subContainer = $(container[2]);
+        if(pageId === "loozePage")
+            subContainer = $(container[3]);
+        if(pageId === "friendsPage")
+            subContainer = $(container[4]);
         
         // Toggle the slide based on its current
         
@@ -107,12 +113,17 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
 
     </head>
     <body>
+        <a href='#favsPage' id="favsClick" data-transition="slide" ></a>
+        <a href='#homePage' id="homeClick" data-transition="slide" ></a>
+        <a href='#myPage' id="myClick" data-transition="slide" ></a>
+        <a href='#loozePage' id="loozeClick" data-transition="slide" ></a>
+        <a href='#friendsPage' id="friendsClick" data-transition="slide" ></a>
           <div id="homePage" class="page center" style="background: transparent" data-role="page">
               <div id="fader" >
                </div>
               <div class="goesUp">    
               <div  data-role="content">   
-          <div id="wrapper1">
+          <div id="wrapper1" class="wrapperStyle">
            <div id="scroller">
 		<ul id="thelist" >
                     <li >    
@@ -231,27 +242,27 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
           </div>
          <div class="menu" >      
             <div class="menuButton">
-                <a href="#homePage" data-transition="slide">
+                <a href="javascript:downAndSlide('#homeClick');">
                 <img src="images/list_btn.png"  />
                 </a>
             </div>
             <div class="menuButton">
-                <a href="javascript:downAndSlide();"  data-transitin="fade">
-                <img src="images/heart_btn.png"  />
+                <a href="javascript:downAndSlide('#favsClick');">
+                    <img src="images/heart_btn.png"  />
                 </a>
             </div>
             <div class="menuButton">
-                <a href="#myPage" data-transition="slide">
+                <a href="javascript:downAndSlide('#myClick');">
                 <img src="images/me_btn.png"  />
                 </a>
                </div>
             <div class="menuButton">
-                <a href="#loozePage" data-transition="slide">
+                <a href="javascript:downAndSlide('#loozeClick');">
                 <img src="images/time_btn.png"  />
                 </a>
             </div>
             <div class="menuButton">
-                <a href="#friendsPage" data-transition="slide">
+                <a href="javascript:downAndSlide('#friendsClick');">
                 <img src="images/friends_btn.png" />
                 </a>
             </div>
@@ -262,7 +273,7 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
         <div id="favsPage" class="page center"  style="background-color: blueviolet" data-role="page">
             <div class="goesUp">
             <div data-role="content">
-                <div id="wrapper2">
+                <div id="wrapper2" class="wrapperStyle">
                 <h1>Page 1</h1>
                 </div>
             </div>
@@ -274,45 +285,159 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
                 </div>
                 <div class="menu" >      
             <div class="menuButton">
-                <a href="#homePage" data-transition="slide">
+                <a href="javascript:downAndSlide('#homeClick');">
                 <img src="images/list_btn.png"  />
                 </a>
             </div>
             <div class="menuButton">
-                <a href="#favsPage"  data-transitin="fade">
-                <img src="images/heart_btn.png"  />
+                <a href="javascript:downAndSlide('#favsClick');">
+                    <img src="images/heart_btn.png"  />
                 </a>
             </div>
             <div class="menuButton">
-                <a href="#myPage" data-transition="slide">
+                <a href="javascript:downAndSlide('#myClick');">
                 <img src="images/me_btn.png"  />
                 </a>
                </div>
             <div class="menuButton">
-                <a href="#loozePage" data-transition="slide">
+                <a href="javascript:downAndSlide('#loozeClick');">
                 <img src="images/time_btn.png"  />
                 </a>
             </div>
             <div class="menuButton">
-                <a href="#friendsPage" data-transition="slide">
+                <a href="javascript:downAndSlide('#friendsClick');">
                 <img src="images/friends_btn.png" />
                 </a>
             </div>
             </div>
                 
            </div>
-         <div id="friendsPage" style="background-color: transparent"  data-role="page">
-                <h1>Page 1</h1>
-                <a href="javascript:slidePageFrom(homePage);">Back</a>
+        
+        <div id="myPage" class="page center" data-role="page">
+             <div class="goesUp">
+            <div data-role="content">
+                <div class="wrapperStyle">
+                <h1>Page 3</h1>
+                </div>
+            </div>
+            <div data-role="footer">
+            <div class="logo">
+                <img src="images/logo.png" class="logo_image"/>
+            </div>
            </div>
-           <div id="loozePage" style="background-color: black" data-role="page">
-                <h1>Page 2</h1>
-                <a href="javascript:slidePageFrom(homePage);">Back</a>
+                </div>
+                <div class="menu" >      
+            <div class="menuButton">
+                <a href="javascript:downAndSlide('#homeClick');">
+                <img src="images/list_btn.png"  />
+                </a>
+            </div>
+            <div class="menuButton">
+                <a href="javascript:downAndSlide('#favsClick');">
+                    <img src="images/heart_btn.png"  />
+                </a>
+            </div>
+            <div class="menuButton">
+                <a href="javascript:downAndSlide('#myClick');">
+                <img src="images/me_btn.png"  />
+                </a>
+               </div>
+            <div class="menuButton">
+                <a href="javascript:downAndSlide('#loozeClick');">
+                <img src="images/time_btn.png"  />
+                </a>
+            </div>
+            <div class="menuButton">
+                <a href="javascript:downAndSlide('#friendsClick');">
+                <img src="images/friends_btn.png" />
+                </a>
+            </div>
+            </div>
+              
            </div>
-           <div id="myPage" style="background-color: blue" data-role="page">
-                <h1>Page 1</h1>
-                <a href="javascript:slidePageFrom(homePage);">Back</a>
+        <div id="loozePage" class="page center" data-role="page">
+                 <div class="goesUp">
+            <div data-role="content">
+                <div class="wrapperStyle">
+                <h1>Page 4</h1>
+                </div>
+            </div>
+            <div data-role="footer">
+            <div class="logo">
+                <img src="images/logo.png" class="logo_image"/>
+            </div>
            </div>
+                </div>
+                <div class="menu" >      
+            <div class="menuButton">
+                <a href="javascript:downAndSlide('#homeClick');">
+                <img src="images/list_btn.png"  />
+                </a>
+            </div>
+            <div class="menuButton">
+                <a href="javascript:downAndSlide('#favsClick');">
+                    <img src="images/heart_btn.png"  />
+                </a>
+            </div>
+            <div class="menuButton">
+                <a href="javascript:downAndSlide('#myClick');">
+                <img src="images/me_btn.png"  />
+                </a>
+               </div>
+            <div class="menuButton">
+                <a href="javascript:downAndSlide('#loozeClick');">
+                <img src="images/time_btn.png"  />
+                </a>
+            </div>
+            <div class="menuButton">
+                <a href="javascript:downAndSlide('#friendsClick');">
+                <img src="images/friends_btn.png" />
+                </a>
+            </div>
+            </div>
+           </div>
+         <div id="friendsPage" class="page center" data-role="page">
+                <div class="goesUp">
+            <div data-role="content">
+                <div id="wrapper3" class="wrapperStyle">
+                <h1>Page 5</h1>
+                </div>
+            </div>
+            <div data-role="footer">
+            <div class="logo">
+                <img src="images/logo.png" class="logo_image"/>
+            </div>
+           </div>
+                </div>
+                <div class="menu" >      
+            <div class="menuButton">
+                <a href="javascript:downAndSlide('#homeClick');">
+                <img src="images/list_btn.png"  />
+                </a>
+            </div>
+            <div class="menuButton">
+                <a href="javascript:downAndSlide('#favsClick');">
+                    <img src="images/heart_btn.png"  />
+                </a>
+            </div>
+            <div class="menuButton">
+                <a href="javascript:downAndSlide('#myClick');">
+                <img src="images/me_btn.png"  />
+                </a>
+               </div>
+            <div class="menuButton">
+                <a href="javascript:downAndSlide('#loozeClick');">
+                <img src="images/time_btn.png"  />
+                </a>
+            </div>
+            <div class="menuButton">
+                <a href="javascript:downAndSlide('#friendsClick');">
+                <img src="images/friends_btn.png" />
+                </a>
+            </div>
+            </div>
+           </div>
+        
         <script>
 
 var homePage = document.getElementById("homePage"),
@@ -322,20 +447,26 @@ var homePage = document.getElementById("homePage"),
     favsPage = document.getElementById("favsPage"),
     currentPage = homePage;
     
-    function downAndSlide() {
+    function downAndSlide(page) {
         function makeAnimation(callback) {
          var container = $( ".goesUp" );
          var pageId = $.mobile.activePage[0].id;
-        if(pageId === "homePage")
+         if(pageId === "homePage")
            subContainer = $(container[0]);
         if(pageId === "favsPage")
             subContainer = $(container[1]);
+        if(pageId === "myPage")
+            subContainer = $(container[2]);
+        if(pageId === "loozePage")
+            subContainer = $(container[3]);
+        if(pageId === "friendsPage")
+            subContainer = $(container[4]);
         
         subContainer.css('-webkit-transform', 'translate3d(0, 0, 0)');
         return callback();
         }
         makeAnimation(function() {
-            $("#clicklink").click();
+            $(page).click();
         });
         
         
