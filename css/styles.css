@@ -366,3 +366,7 @@ min-height: 10px;
     z-index: 0;
     height: 35px;
 }
+
+#thelist2 li {
+    color: gray;
+}
