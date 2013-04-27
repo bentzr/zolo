@@ -74,7 +74,7 @@ and open the template in the editor.
                 subContainer = $(container[0]);
         
             if(subContainer.css('-webkit-transform') === "matrix(1, 0, 0, 1, 0, 0)") {
-                subContainer.css('-webkit-transform', 'translate3d(0, +200px, 0)');
+                subContainer.css('-webkit-transform', 'translate3d(0, +230px, 0)');
             
             }else {
                     subContainer.css('-webkit-transform', 'translate3d(0, 0, 0)');
@@ -100,28 +100,6 @@ document.addEventListener('touchmove', function (e) { e.preventDefault(); }, fal
  *
  */
 document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 200); }, false);
-/*
- * * * * * * * */
-
-
-/* * * * * * * *
- *
- * Use this for iDevice only
- *
- */
-//document.addEventListener('DOMContentLoaded', loaded, false);
-/*
- * * * * * * * */
-
-
-/* * * * * * * *
- *
- * Use this if nothing else works
- *
- */
-//window.addEventListener('load', setTimeout(function () { loaded(); }, 200), false);
-/*
- * * * * * * * */
 
 </script>
 
@@ -144,6 +122,11 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
                       <input type="search" name="whosinto" id="whoisinto" value="Who's in" data-theme="a" /></div><div class="lozedownc">
                       <input type="search" name="whereat" id="whereat" value="Where at?" data-theme="a" />
                   </div>
+                  <span class="loozedownbtn"> <a href="#" data-role="button" data-inline="true"   data-theme="a">Private</a>
+                       <a href="#" data-role="button" data-inline="true"   data-theme="a">Public</a>
+                        <a href="#" data-role="button" data-inline="true"   data-theme="a">Secret</a>
+                        <a id="loozeItbtn" href="#" data-role="button" data-inline="true"   data-theme="b">Looze it!</a>
+                  </span>
               </div>
                  <div class="goesUp">    
               <div  data-role="content">   

@@ -76,6 +76,7 @@
 .ui-body-c {
     background-color: #303030 !important;
     border:1px solid #5C5C5C !important;
+  
 }
 
 .ui-shadow-inset {
@@ -294,13 +295,36 @@ min-height: 10px;
     -webkit-box-shadow: inset 0px 13px 20px -17px black;
 }
 
-.ui-btn { 
+#loozeItbtn.ui-btn { 
           height: 30px;
-          width: 80px;
+          width: 95px;
           font-size: 9px; 
          
 }
 
+#loozeItbtn.ui-btn-up-b {
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #D04016), color-stop(0.5, #DC561D)) !important;
+}
+.ui-btn { 
+          height: 30px;
+          width: 70px;
+          font-size: 9px; 
+         
+}
+.ui-btn-inner {
+    padding-bottom: 30px !important;
+    font-size: 10px !important;
+    
+}
+
+.ui-btn-up-a {
+    background-image:  -webkit-linear-gradient(top, rgba(128,128,128,1) 0%,rgba(96,96,96,1) 100%)!important;
+}
+
+.ui-btn-text {
+    position: absolute !important;
+    left: 0px;
+}
 .logo_image {
     display: block;
     margin-left: auto;
@@ -371,6 +395,14 @@ min-height: 10px;
     z-index: 0;
     height: 55px;
     margin: 4px;
+}
+.inputloze .loozedownbtn {
+   width: 100%;
+    position: absolute;
+    top: 180px;
+    z-index: 0;
+    height: 55px;
+    margin: 4px; 
 }
 
 #thelist2 li {
