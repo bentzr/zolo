@@ -74,7 +74,7 @@ and open the template in the editor.
                 subContainer = $(container[0]);
         
             if(subContainer.css('-webkit-transform') === "matrix(1, 0, 0, 1, 0, 0)") {
-                subContainer.css('-webkit-transform', 'translate3d(0, +180px, 0)');
+                subContainer.css('-webkit-transform', 'translate3d(0, +200px, 0)');
             
             }else {
                     subContainer.css('-webkit-transform', 'translate3d(0, 0, 0)');
@@ -138,11 +138,11 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
               <div id="fader" >
                </div>
               <div class="inputloze">
-                  <div class="lozeabove"><input type="search" name="whatupto" id="whatupto" value="What are you up to?" /></div>
+                  <div class="lozeabove"><input type="search" name="whatupto" id="whatupto" value="What are you up to?" data-theme="a" /></div>
                   <div class="lozedowna">
-                      <input type="search" name="whenupto" id="whenupto" value="5 more min" /></div><div class="lozedownb">
-                      <input type="search" name="whosinto" id="whoisinto" value="Who's in" /></div><div class="lozedownc">
-                      <input type="search" name="whereat" id="whereat" value="Where at?" />
+                      <input type="search" name="whenupto" id="whenupto" value="5 more min" data-theme="a" /></div><div class="lozedownb">
+                      <input type="search" name="whosinto" id="whoisinto" value="Who's in" data-theme="a" /></div><div class="lozedownc">
+                      <input type="search" name="whereat" id="whereat" value="Where at?" data-theme="a" />
                   </div>
               </div>
                  <div class="goesUp">    
