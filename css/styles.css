@@ -305,6 +305,9 @@ min-height: 10px;
 #loozeItbtn.ui-btn-up-b {
     background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #D04016), color-stop(0.5, #DC561D)) !important;
 }
+span .ui-btn-inline {
+    margin: 0px !important;
+}
 .ui-btn { 
           height: 30px;
           width: 60px;
