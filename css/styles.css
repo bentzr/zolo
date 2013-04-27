@@ -222,13 +222,13 @@
 #scroller li h1 {
     position: absolute;
     left: 99px;
-    bottom: -2px;
+    bottom: -0px;
     color: #828282;
     font-size: 0.8em;
 }
 #scroller li .time {
     position: absolute;
-    right: 48px;
+    right: 28px;
     top: -7px;
     font-size: 1.2em;
     color: #828282;
@@ -236,7 +236,7 @@
 #scroller li img.location {
     position: absolute;
     left: 82px;
-    bottom: 8px;
+    bottom: 5px;
 }
 
 #scroller li img.avatar {
@@ -249,7 +249,7 @@
 }
 #scroller li img.time {
     position: absolute;
-    right: 25px;
+    right: 5px;
     top: -8px;
     
 }
