@@ -412,3 +412,14 @@ min-height: 10px;
 #thelist2 li {
     color: gray;
 }
+
+
+
+#scroller .ui-btn { 
+          height: 30px;
+          width: 80px;
+          font-size: 9px; 
+          position: absolute;
+          left: 1270px;
+          top: 20px
+}
