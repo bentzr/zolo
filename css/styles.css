@@ -305,26 +305,27 @@ min-height: 10px;
 #loozeItbtn.ui-btn-up-b {
     background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #D04016), color-stop(0.5, #DC561D)) !important;
 }
-span .ui-btn-inline {
+
+.loozedownbtn .ui-btn-inline {
     margin: 0px !important;
 }
-.ui-btn { 
+.loozedownbtn .ui-btn { 
           height: 30px;
           width: 60px;
           font-size: 9px; 
          
 }
-.ui-btn-inner {
+.loozedownbtn .ui-btn-inner {
     padding-bottom: 30px !important;
     font-size: 10px !important;
     
 }
 
-.ui-btn-up-a {
+.loozedownbtn .ui-btn-up-a {
     background-image:  -webkit-linear-gradient(top, rgba(128,128,128,1) 0%,rgba(96,96,96,1) 100%)!important;
 }
 
-.ui-btn-text {
+.loozedownbtn .ui-btn-text {
     position: absolute !important;
     left: 0px;
 }
