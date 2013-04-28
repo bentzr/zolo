@@ -131,7 +131,7 @@
 	position:absolute; z-index:1;
 	top:0px; bottom:40px; left:0;
 	width:100%;
-	background:#aaa;
+	background:#272727;
 	overflow:auto;
 }
 
@@ -430,4 +430,31 @@ min-height: 10px;
 #signUpPage h3, label {
     color: white;
     margin-bottom: 0px;
+}
+
+.profilePic {
+    position: absolute;
+    top: 50px;
+    left: 20px;
+    border: 1px;
+    width: 100%;
+}
+.profilePic img {
+    width: 100px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+}
+
+.profilePic p {
+    position: absolute;
+    left:120px;
+    bottom: 20px;
+    color: #D0D0D0;
+    font-size: 1em;
+}
+
+#userName {
+    position: absolute;
+    top: 180px;
+    width: 90%;
+    padding: 20px;
 }
