@@ -115,16 +115,16 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
         <a href='#loozePage' id="loozeClick" data-transition="slide" ></a>
         <a href='#friendsPage' id="friendsClick" data-transition="slide" ></a>
         
-            <div data-role="page" style="background: transparent" class="page center" id="loginPage">
+            <div data-role="page" style="background: transparent"  id="loginPage">
                 <div data-theme="a" data-role="header">
                   <h3>What are your plan's?</h3>
                 </div>
                 <div data-role="content">
                    <div id="loginForm">
                        <h3>Username:</h2>
-                        <input type="text" id="usernameInputField" autocorrect="off" autocapitalize="off" /><br/>
+                        <input type="text" id="usernameInputField" /><br/>
                         <h3>Password:</h3>
-                        <input type="password" id="passwordInputField" autocorrect="off" autocapitalize="off"/><br/>    
+                        <input type="password" id="passwordInputField" /><br/>    
                         <input type="button" id="loginButton" value="Login" onclick="javascript:$('#homeClick').click();" />
                         <input type="button" id="signUpButton" value="Sign Up" onclick="javascript:$('#signClick').click();" />
                     </div>
@@ -136,21 +136,21 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
               </div>
             </div>
         
-        <div data-role="page" style="background: transparent" class="page center" id="signUpPage">
+        <div data-role="page" style="background: transparent"  id="signUpPage">
                 <div data-theme="a" data-role="header">
                   <h3>Enter your details</h3>
                 </div>
                 <div data-role="content">
-                   <div id="loginForm">
+                   <div id="signUpForm">
                        <h3>Username:</h3>
-                        <input type="text" id="usernameInputField" autocorrect="off" autocapitalize="off" /><br />
+                        <input type="text" id="usernameInputField2" /><br />
                         <h3>Password:</h3>
-                        <input type="password" id="passwordInputField" autocorrect="off" autocapitalize="off"/><br/>
+                        <input type="password" id="passwordInputField2" /><br/>
                         <div data-role="fieldcontain">
                             <label for="slider-3">Rank your sociality</label>
                             <input type="range" name="slider-3" id="slider-3" value="25" min="0" max="100" data-theme="a" data-track-theme="b" />
                         </div>
-                        <input type="button" id="signUpButton" value="Sign Up!" onclick="javascript:$('#homeClick').click();" />
+                        <input type="button" id="signUpButtonNow" value="Sign Up!" onclick="javascript:$('#homeClick').click();" />
                     </div>
                 </div>
                 <div data-role="footer">
