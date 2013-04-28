@@ -421,3 +421,11 @@ min-height: 10px;
           left: 1270px;
           top: 20px
 }
+
+#loginPage h3 {
+    color: white;;
+}
+
+#signUpPage h3, label {
+    color: white;;
+}
