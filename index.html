@@ -108,10 +108,59 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
     </head>
     <body>
         <a href='#favsPage' id="favsClick" data-transition="slide" ></a>
+        <a href='#loginPage' id="loginClick" data-transition="slide" ></a>
+        <a href='#signUpPage' id="signClick" data-transition="slide" ></a>
         <a href='#homePage' id="homeClick" data-transition="slide" ></a>
         <a href='#myPage' id="myClick" data-transition="slide" ></a>
         <a href='#loozePage' id="loozeClick" data-transition="slide" ></a>
         <a href='#friendsPage' id="friendsClick" data-transition="slide" ></a>
+        
+            <div data-role="page" class="page center" id="loginPage">
+                <div data-theme="a" data-role="header">
+                  <h3>What are your plan's?</h3>
+                </div>
+                <div data-role="content">
+                   <div id="loginForm">
+                        Username:<br/>
+                        <input type="text" id="usernameInputField" autocorrect="off" autocapitalize="off" /><br />
+                        Password:<br/>
+                        <input type="password" id="passwordInputField" autocorrect="off" autocapitalize="off"/><br/>    
+                        <input type="button" id="loginButton" value="Login" onclick="javascript:$('#homeClick').click();" />
+                        <input type="button" id="signUpButton" value="Sign Up" onclick="javascript:$('#signClick').click();" />
+                    </div>
+                </div>
+                <div data-role="footer">
+                    <div class="logo">
+                    <img src="images/logo.png" class="logo_image"/>
+                </div>
+              </div>
+            </div>
+        
+        <div data-role="page" class="page center" id="signUpPage">
+                <div data-theme="a" data-role="header">
+                  <h3>Enter your details</h3>
+                </div>
+                <div data-role="content">
+                   <div id="loginForm">
+                        Username:<br/>
+                        <input type="text" id="usernameInputField" autocorrect="off" autocapitalize="off" /><br />
+                        Password:<br/>
+                        <input type="password" id="passwordInputField" autocorrect="off" autocapitalize="off"/><br/>
+                        <div data-role="fieldcontain">
+                            <label for="slider-3">Rank your sociality</label>
+                            <input type="range" name="slider-3" id="slider-3" value="25" min="0" max="100" data-theme="a" data-track-theme="b" />
+                        </div>
+                        <input type="button" id="loginButton" value="Login" onclick="javascript:$('#homeClick').click();" />
+                        <input type="button" id="signUpButton" value="Sign UP!" onclick="javascript:$('#homeClick').click();" />
+                    </div>
+                </div>
+                <div data-role="footer">
+                    <div class="logo">
+                    <img src="images/logo.png" class="logo_image"/>
+                </div>
+              </div>
+            </div>
+        
           <div id="homePage" class="page center" style="background: transparent" data-role="page">
               <div id="fader" >
                </div>
@@ -576,7 +625,8 @@ var homePage = document.getElementById("homePage"),
         function makeAnimation(callback) {
          var container = $( ".goesUp" );
          var pageId = $.mobile.activePage[0].id;
-         if(pageId === "homePage")
+         
+        if(pageId === "homePage")
            subContainer = $(container[0]);
         if(pageId === "favsPage")
             subContainer = $(container[1]);
@@ -586,6 +636,7 @@ var homePage = document.getElementById("homePage"),
             subContainer = $(container[3]);
         if(pageId === "friendsPage")
             subContainer = $(container[4]);
+        
         
         subContainer.css('-webkit-transform', 'translate3d(0, 0, 0)');
         return callback();
