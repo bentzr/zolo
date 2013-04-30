@@ -165,6 +165,12 @@
 .scroller2 .ui-link-inherit {
         font-size: 12px;
         color: graytext;
+        font-weight: normal;
+}
+
+.scroller2 .who {
+    font-style: italic;
+    font-weight: bold;
 }
 
 .scroller2 .ui-li .ui-btn-text a.ui-link-inherit { /* This are the added classes from jQuery mobile */
