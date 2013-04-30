@@ -167,6 +167,10 @@
         color: graytext;
         font-weight: normal;
 }
+.scroller2 .ui-link-inherit div {
+        width: 90%;
+}
+
 
 .scroller2 .who {
     font-style: italic;
@@ -271,7 +275,7 @@
     position: absolute;
     right: 28px;
     top: -7px;
-    font-size: 1.2em;
+    font-size: 1em;
     color: #828282;
 }
 .scroller li img.location {
