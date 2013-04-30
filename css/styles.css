@@ -533,7 +533,7 @@ min-height: 10px;
    text-align: center;
   margin-left:0 auto;
   margin-right:0 auto;
-  width:70%;
+  width:85%;
   background-color: white !important ;
 }
 
@@ -541,8 +541,7 @@ min-height: 10px;
     text-align: center;
   margin-left:0 auto;
   margin-right:0 auto;
-  background-color: orange;
-  
+  background-color: orange; 
   position: absolute;
   bottom: 50%;
 }
