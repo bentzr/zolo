@@ -76,7 +76,7 @@ and open the template in the editor.
             if(subContainer.css('-webkit-transform') === "matrix(1, 0, 0, 1, 0, 0)") {
                 subContainer.css('-webkit-transform', 'translate3d(0, +220px, 0)');
             
-            }else {
+            } else {
                     subContainer.css('-webkit-transform', 'translate3d(0, 0, 0)');
               }
            
@@ -90,6 +90,22 @@ var myScroll;
 function loaded() {
 	myScroll = new iScroll('wrapper1');
         myScroll2 = new iScroll('wrapper2');
+        
+        $("#whatupto").click(function(event) {
+            var index = $(this).index();
+            var container = $( ".goesUp" );
+            var pageId = $.mobile.activePage[0].id;
+            if(pageId === "homePage")
+                subContainer = $(container[0]);
+        
+            if(subContainer.css('-webkit-transform') === "matrix(1, 0, 0, 1, 0, 0)") {
+                subContainer.css('-webkit-transform', 'translate3d(0, +220px, 0)');
+            
+            } else {
+                    subContainer.css('-webkit-transform', 'translate3d(0, 0, 0)');
+              }
+           
+        });
 }
 
 document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
@@ -684,6 +700,8 @@ var homePage = document.getElementById("homePage"),
             return;
         }
     }
+    
+    
 </script>
     </body>
 </html>
