@@ -20,7 +20,9 @@ and open the template in the editor.
         // When the DOM is ready, initialize the scripts.
         jQuery(function( $ ){
             
-        
+        var $viewport        = $('meta[name="viewport"]');
+        $viewport.attr('content', 'initial-scale=1.0,maximum-scale=1.0,user-scalable=no');
+
         // Get a reference to the container.
         var container = $( ".goesUp" );
         
