@@ -135,7 +135,7 @@
 	overflow:auto;
 }
 
-#scroller {
+.scroller {
 	position:absolute; z-index:1;
 /*	-webkit-touch-callout:none;*/
 	-webkit-tap-highlight-color:rgba(0,0,0,0);
@@ -143,7 +143,7 @@
 	padding:0;
 }
 
-#scroller ul {
+.scroller ul {
 	list-style:none;
 	padding:0;
 	margin:0;
@@ -151,7 +151,7 @@
 	text-align:left;
 }
 
-#scroller li {
+.scroller li {
         left: 0%;
         position: relative;
 	padding: 10px;
@@ -165,7 +165,7 @@
         
 }
 
-#scroller li div.event {
+.scroller li div.event {
     position: relative;
     height:55px;
     -webkit-transition-duration: .25s;
@@ -174,14 +174,14 @@
     background-color:#272727;
 }
 
-#scroller li div.eventinfo {
+.scroller li div.eventinfo {
     position: absolute;
     top: 13%;
     width: 100%;
     height:55px;
 }
 
-#scroller li h2 {
+.scroller li h2 {
     position: absolute;
     left: 85px;
     bottom: 10px;
@@ -189,26 +189,26 @@
     font-size: 1.2em;
 }
 
-#scroller div.eventinfo h2 {
+.scroller div.eventinfo h2 {
     position: absolute;
     left: 15px;
     top: 27%;
     color: #D0D0D0;
 }
 
-#scroller div.eventinfo div.whosin {
+.scroller div.eventinfo div.whosin {
     position: absolute;
     width: 70%;
     height:100%;
     margin-left: 85px;
 }
 
-#scroller div.eventinfo table {
+.scroller div.eventinfo table {
     border-spacing: 5px;
     height:100%;
 }
 
-#scroller div.eventinfo table img.avain{
+.scroller div.eventinfo table img.avain{
     position: relative;
     bottom: 0px;
     margin-top: 14px;
@@ -220,27 +220,27 @@
 
 
 
-#scroller li h1 {
+.scroller li h1 {
     position: absolute;
     left: 99px;
     bottom: -0px;
     color: #828282;
     font-size: 0.8em;
 }
-#scroller li .time {
+.scroller li .time {
     position: absolute;
     right: 28px;
     top: -7px;
     font-size: 1.2em;
     color: #828282;
 }
-#scroller li img.location {
+.scroller li img.location {
     position: absolute;
     left: 82px;
     bottom: 5px;
 }
 
-#scroller li img.avatar {
+.scroller li img.avatar {
     position: absolute;
     left: 15px;
     bottom: 0px;
@@ -248,7 +248,7 @@
     
     -webkit-border-radius: 10px 10px 10px 10px;
 }
-#scroller li img.time {
+.scroller li img.time {
     position: absolute;
     right: 5px;
     top: -8px;
@@ -342,7 +342,7 @@ min-height: 10px;
     left: 10px;
 }
 
-#scroller div.eventinfo a {
+.scroller div.eventinfo a {
     position: absolute;
     width: 50px;
     left: 150px;
@@ -350,7 +350,7 @@ min-height: 10px;
     margin-top: 0px;
 }
 
-#scroller div.eventinfo a .ui-btn-text {
+.scroller div.eventinfo a .ui-btn-text {
         z-index: 0;
         margin-right: 0px;
         position: absolute;
@@ -413,7 +413,7 @@ min-height: 10px;
     color: gray;
 }
 
-#scroller .ui-btn { 
+.scroller .ui-btn { 
           height: 30px;
           width: 80px;
           font-size: 9px; 

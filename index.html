@@ -74,24 +74,26 @@ and open the template in the editor.
 
         var myScroll;
         function loaded() {
-	myScroll = new iScroll('wrapper1');
-        myScroll2 = new iScroll('wrapper2');
+            myScroll = new iScroll('wrapper1');
+            myScroll2 = new iScroll('wrapper2');
+            myScroll3 = new iScroll('wrapper3')
         
-        $("#whatupto").click(function(event) {
-            var container = $( ".goesUp" );
-            var pageId = $.mobile.activePage[0].id;
-            if(pageId === "homePage")
-                subContainer = $(container[0]);
-        
-            if(subContainer.css('-webkit-transform') === "matrix(1, 0, 0, 1, 0, 0)") {
-                subContainer.css('-webkit-transform', 'translate3d(0, +220px, 0)');
-            
-            } else {
-                    subContainer.css('-webkit-transform', 'translate3d(0, 0, 0)');
-              }
-           
-        });
-}
+            $("#whatupto").click(function(event) {
+                event.preventDefault();
+                var container = $( ".goesUp" );
+                var pageId = $.mobile.activePage[0].id;
+                if(pageId === "homePage")
+                    subContainer = $(container[0]);
+
+                if(subContainer.css('-webkit-transform') === "matrix(1, 0, 0, 1, 0, 0)") {
+                    subContainer.css('-webkit-transform', 'translate3d(0, +220px, 0)');
+
+                } else {
+                        subContainer.css('-webkit-transform', 'translate3d(0, 0, 0)');
+                  }
+
+            });
+        }
 
 document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
 /* * * * * * * *
@@ -99,7 +101,7 @@ document.addEventListener('touchmove', function (e) { e.preventDefault(); }, fal
  * Use this for high compatibility (iDevice + Android)
  *
  */
-document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 200); }, false);
+document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 200); });
 
 </script>
 
@@ -107,12 +109,12 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
 
     </head>
     <body>
-        <a href='#favsPage' id="favsClick" data-transition="slide" ></a>
+        <a href='#favsPage' id="favsClick" onclick="javascript:$('#favsPage').live('pageshow', function () { myScroll2.refresh();  });" data-transition="slide" ></a>
         <a href='#loginPage' id="loginClick" data-transition="slide" ></a>
         <a href='#signUpPage' id="signClick" data-transition="slide" ></a>
         <a href='#homePage' id="homeClick" data-transition="slide" ></a>
         <a href='#myPage' id="myClick" data-transition="slide" ></a>
-        <a href='#loozePage' id="loozeClick" data-transition="slide" ></a>
+        <a href='#loozePage' onclick="javascript:$('#loozePage').live('pageshow', function () { myScroll3.refresh();  });" id="loozeClick" data-transition="slide" ></a>
         <a href='#friendsPage' id="friendsClick" data-transition="slide" ></a>
         
             <div data-role="page" style="background: transparent" class="page center"  id="loginPage">
@@ -125,7 +127,7 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
                         <input type="text" id="usernameInputField" /><br/>
                         <h3>Password:</h3>
                         <input type="password" id="passwordInputField" /><br/>    
-                        <input type="button" id="loginButton" value="Login" onclick="javascript:$('#homeClick').click();loaded();" />
+                        <input type="button" id="loginButton" value="Login" onclick="javascript:$('#homeClick').click();$('#homePage').live('pageshow', function () { myScroll.refresh();});" />
                         <input type="button" id="signUpButton" value="Sign Up" onclick="javascript:$('#signClick').click();loaded();" />
                     </div>
                 </div>
@@ -179,8 +181,8 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
                  <div class="goesUp">    
               <div  data-role="content">   
           <div id="wrapper1" class="wrapperStyle">
-           <div id="scroller">
-		<ul id="thelist" >
+           <div class="scroller">
+		<ul >
                     <li >    
                         <div class="event">
                             <a id="clicklink" href="#favsPage" data-transition="slide">
@@ -408,7 +410,7 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
             <div class="goesUp">
             <div data-role="content">
                 <div id="wrapper2" class="wrapperStyle">
-                <div id="scroller">
+                <div class="scroller">
 		<ul id="thelist2" >
                     <li >    
                         <a href="#">me</a> just created Business dinner event on 12:00
@@ -544,8 +546,194 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
         <div id="loozePage" class="page center" data-role="page">
                  <div class="goesUp">
             <div data-role="content">
-                <div class="wrapperStyle">
-                <h1>Page 4</h1>
+                <div id="wrapper3" class="wrapperStyle">
+                    <div class="scroller">
+		<ul id="thelist" >
+                    <li >    
+                        <div class="event">
+                            <a id="clicklink" href="#favsPage" data-transition="slide">
+                            <img class="avatar" src="images/avatar.jpg"  />
+                            </a>   
+                            
+                        <img class="location" src="images/location.png"  />
+                        <img class="time" src="images/time.png"  />
+                        <h2>Business diner</h2>
+                        <h1>Dov airport, Tel Aviv</h1>
+                        <span class="time">20:40</span>
+                        </div>
+                        <div class="eventinfo">
+                           <h2>Who's in?</h2>
+                           <div class="whosin">
+                               <table><tr>
+                                       <td><img class="avain" src="images/avatar.jpg"  /></td>
+                                       <td><img class="avain" src="images/avatar1.jpg"  /></td>
+                                       <td><img class="avain" src="images/avatar2.jpg"  /></td>
+                                       <td><img class="avain" src="images/avatar4.jpg"  /></td>
+                                   </tr>
+                               </table>
+                               <a href="#" data-role="button" data-inline="true"  data-theme="a">Join</a>
+                           </div>
+                        </div>
+                    </li>
+                     <li ><div class="event"><img class="avatar" src="images/avatar1.jpg"  />
+                        <img class="location" src="images/location.png"  />
+                        <img class="time" src="images/time.png"  />
+                        <h2>Business diner</h2>
+                        <h1>Dov airport, Tel Aviv</h1>
+                        <span class="time">20:40</span>
+                        </div>
+                        <div class="eventinfo">
+                           <h2>Who's in?</h2> 
+                           <div class="whosin">
+                               <table><tr>
+                                       <td><img class="avain" src="images/avatar.jpg"  /></td>
+                                   </tr>
+                               </table>
+                               <a href="#" data-role="button" data-inline="true"   data-theme="a">Join</a>
+                           </div>
+                        </div>
+                    </li>
+                     <li ><div class="event"><img class="avatar" src="images/avatar2.jpg"  />
+                        <img class="location" src="images/location.png"  />
+                        <img class="time" src="images/time.png"  />
+                        <h2>Tennis game</h2>
+                        <h1>Dov airport, Tel Aviv</h1>
+                        <span class="time">20:40</span>
+                        </div>
+                        <div class="eventinfo">
+                           <h2>Who's in?</h2>
+                           <div class="whosin">
+                               <table><tr>
+                                       <td><img class="avain" src="images/avatar1.jpg"  /></td>
+                                   </tr>
+                               </table>
+                               <a href="#" data-role="button" data-inline="true"   data-theme="a">Join</a>
+                           </div>
+                        </div>
+                    </li>
+                     <li ><div class="event"><img class="avatar" src="images/avatar3.jpg"  />
+                        <img class="location" src="images/location.png"  />
+                        <img class="time" src="images/time.png"  />
+                        <h2>Watch a movie</h2>
+                        <h1>Dov airport, Tel Aviv</h1>
+                        <span class="time">20:40</span>
+                        </div>
+                        <div class="eventinfo">
+                           <h2>Who's in?</h2> 
+                           <div class="whosin">
+                               <table><tr>
+                                       <td><img class="avain" src="images/avatar.jpg"  /></td>
+                                       <td><img class="avain" src="images/avatar1.jpg"  /></td>
+                                       <td><img class="avain" src="images/avatar2.jpg"  /></td>
+                                       <td><img class="avain" src="images/avatar4.jpg"  /></td>
+                                   </tr>
+                               </table>
+                               <a href="#" data-role="button" data-inline="true"   data-theme="a">Join</a>
+                           </div>
+                        </div>
+                    </li>
+                     <li ><div class="event"><img class="avatar" src="images/avatar4.jpg"  />
+                        <img class="location" src="images/location.png"  />
+                        <img class="time" src="images/time.png"  />
+                        <h2>Pimping...</h2>
+                        <h1>Dov airport, Tel Aviv</h1>
+                        <span class="time">20:40</span>
+                        </div>
+                        <div class="eventinfo">
+                           <h2>Who's in?</h2> 
+                           <div class="whosin">
+                               <table><tr>
+                                       <td><img class="avain" src="images/avatar.jpg"  /></td>
+                                       <td><img class="avain" src="images/avatar2.jpg"  /></td>
+                                       <td><img class="avain" src="images/avatar3.jpg"  /></td>
+                                       <td><img class="avain" src="images/avatar4.jpg"  /></td>
+                                   </tr>
+                               </table>
+                               <a href="#" data-role="button" data-inline="true"   data-theme="a">Join</a>
+                           </div>
+                        </div>
+                    </li>
+                     <li ><div class="event"><img class="avatar" src="images/avatar5.jpg"  />
+                        <img class="location" src="images/location.png"  />
+                        <img class="time" src="images/time.png"  />
+                        <h2>Going for shopping</h2>
+                        <h1>Dov airport, Tel Aviv</h1>
+                        <span class="time">20:40</span>
+                        </div>
+                        <div class="eventinfo">
+                           <h2>Who's in?</h2> 
+                           <div class="whosin">
+                               <table><tr>
+                                       <td><img class="avain" src="images/avatar.jpg"  /></td>
+                                       <td><img class="avain" src="images/avatar1.jpg"  /></td>
+                                       <td><img class="avain" src="images/avatar2.jpg"  /></td>
+                                       <td><img class="avain" src="images/avatar3.jpg"  /></td>
+                                       <td><img class="avain" src="images/avatar4.jpg"  /></td>
+                                   </tr>
+                               </table>
+                               <a href="#" data-role="button" data-inline="true"   data-theme="a">Join</a>
+                           </div>
+                        </div>
+                    </li>
+                     <li ><div class="event"><img class="avatar" src="images/avatar.jpg"  />
+                        <img class="location" src="images/location.png"  />
+                        <img class="time" src="images/time.png"  />
+                        <h2>Soccer game</h2>
+                        <h1>Dov airport, Tel Aviv</h1>
+                        <span class="time">20:40</span>
+                        </div>
+                        <div class="eventinfo">
+                           <h2>Who's in?</h2> 
+                           <div class="whosin">
+                               <table><tr>
+                                       <td><img class="avain" src="images/avatar2.jpg"  /></td>
+                                       <td><img class="avain" src="images/avatar4.jpg"  /></td>
+                                   </tr>
+                               </table>
+                               <a href="#" data-role="button" data-inline="true"   data-theme="a">Join</a>
+                           </div>
+                        </div>
+                    </li>
+                     <li ><div class="event"><img class="avatar" src="images/avatar.jpg"  />
+                        <img class="location" src="images/location.png"  />
+                        <img class="time" src="images/time.png"  />
+                        <h2>Business diner</h2>
+                        <h1>Dov airport, Tel Aviv</h1>
+                        <span class="time">20:40</span>
+                        </div>
+                        <div class="eventinfo">
+                           <h2>Who's in?</h2> 
+                           <div class="whosin">
+                               <table><tr>
+                                       <td><img class="avain" src="images/avatar.jpg"  /></td>
+                                   </tr>
+                               </table>
+                               <a href="#" data-role="button" data-inline="true"   data-theme="a">Join</a>
+                           </div>
+                        </div>
+                    </li>
+                     <li ><div class="event"><img class="avatar" src="images/avatar.jpg"  />
+                        <img class="location" src="images/location.png"  />
+                        <img class="time" src="images/time.png"  />
+                        <h2>Business diner</h2>
+                        <h1>Dov airport, Tel Aviv</h1>
+                        <span class="time">20:40</span>
+                        </div>
+                        <div class="eventinfo">
+                           <h2>Who's in?</h2> 
+                           <div class="whosin">
+                               <table><tr>
+                                       <td><img class="avain" src="images/avatar2.jpg"  /></td>
+                                       <td><img class="avain" src="images/avatar3.jpg"  /></td>
+                                       <td><img class="avain" src="images/avatar4.jpg"  /></td>
+                                   </tr>
+                               </table>
+                               <a href="#" data-role="button" data-inline="true"   data-theme="a">Join</a>
+                           </div>
+                        </div>
+                    </li>
+		</ul>
+	</div>
                 </div>
             </div>
             <div data-role="footer">
@@ -585,7 +773,7 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
          <div id="friendsPage" class="page center" data-role="page">
                 <div class="goesUp">
             <div data-role="content">
-                <div id="wrapper3" class="wrapperStyle">
+                <div  class="wrapperStyle">
                 <h1>Page 5</h1>
                 </div>
             </div>
