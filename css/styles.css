@@ -528,3 +528,16 @@ min-height: 10px;
 .ui-icon-myapp-list {
     background-image: url(http://swiftthemes.com/forums/images/icons/icon6.png) !important;
 }
+
+.splash {
+   position: absolute;
+   left: 50%;
+   right: 50%;
+   top: 50%;
+   bottom: 50%;
+   align: center;
+}
+
+.logo_image_splash {
+    background-color: darkorange;
+}

@@ -12,9 +12,9 @@ and open the template in the editor.
         
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="css/styles.css">
-        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.css" />
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-        <script src="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.js"></script>
+        <link rel="stylesheet" href="js/libs/jquery/jquery.mobile-1.2.1.min.css" />
+        <script src="js/libs/jquery/jquery.min.js"></script>
+        <script src="js/libs/jquery/jquery.mobile-1.0a3.min.js"></script>
         <script src="js/libs/iscroll/iscroll.js"></script>
         <script type="text/javascript">
         // When the DOM is ready, initialize the scripts.
@@ -106,6 +106,15 @@ document.addEventListener('touchmove', function (e) { e.preventDefault(); }, fal
  */
 document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 200); });
 
+$(function() {
+  setTimeout(hideSplash, 2000);
+});
+
+function hideSplash() {
+  $.mobile.changePage("#loginPage", "fade");
+}
+
+
 
 </script>
 
@@ -121,6 +130,11 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
         <a href='#loozePage' onclick="javascript:$('#loozePage').live('pageshow', function () { myScroll3.refresh();  });" id="loozeClick" data-transition="slide" ></a>
         <a href='#friendsPage' id="friendsClick" data-transition="slide" ></a>
         
+        <div data-role="page" data-theme="c" id="splash" style="background-color: white;"> 
+    <div class="splash">
+        <img src="images/logo.png" alt="splash" class="logo_image_splash" />
+    </div>
+</div>
             <div data-role="page" style="background: transparent" class="page center"  id="loginPage">
                 <div data-theme="a" data-role="header">
                   <h3>What are your plan's?</h3>
@@ -428,31 +442,31 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
                         <a href="#"><span class="who">Roy Reuveni</span> just created Pimping</a>
                     </li>
                     <li data-icon="arrow-f">    
-                        <a href="#"><span class="who">Yael Berger</span> just created Going for shopping on 20:40</a>
+                        <a href="#"><div><span class="who">Yael Berger</span> just created Going for shopping on 20:40</div></a>
                     </li>
                     <li data-icon="myapp-list"> 
                         <a href="#"><div><span class="who">Idit Goldenber</span> just joined Going for shopping with <span class="who">Yael Berger</span></div></a>
                     </li>
                     <li data-icon="arrow-f">    
+                        <a href="#"><div><span class="who">Roy Reuveni</span> just created Pimping</div></a>
+                    </li>
+                    <li data-icon="arrow-f">    
+                        <a href="#"><div><span class="who">Yael Berger</span> just created Going for shopping on 20:40</div></a>
+                    </li>
+                    <li data-icon="myapp-list">
+                        <a href="#"><div><span class="who">Idit Goldenberg</span> just joined Going for shopping with <span class="who">Yael Berger</span></div></a>
+                    </li>
+                    <li data-icon="arrow-f">    
+                        <a href="#"><div><span class="who">me</span> just created Business dinner event on 12:00</div></a>
+                    </li>
+                    <li data-icon="arrow-f">    
+                        <a href="#"><div><span class="who">Elad Levy</span> just joined Watching Movie with <span class="who">Idit Goldenberg</span></div></a>
+                    </li>
+                    <li data-icon="myapp-list">
                         <a href="#"><span class="who">Roy Reuveni</span> just created Pimping</a>
                     </li>
                     <li data-icon="arrow-f">    
-                        <a href="#"><span class="who">Yael Berger</span> just created Going for shopping on 20:40</a>
-                    </li>
-                    <li data-icon="myapp-list">
-                        <a href="#"><span class="who">Idit Goldenberg</span> just joined Going for shopping with <span class="who">Yael Berger</span></a>
-                    </li>
-                    <li data-icon="arrow-f">    
-                        <a href="#"><span class="who">me</span> just created Business dinner event on 12:00</a>
-                    </li>
-                    <li data-icon="arrow-f">    
-                        <a href="#"><span class="who">Elad Levy</span> just joined Watching Movie with <span class="who">Idit Goldenberg</span></a>
-                    </li>
-                    <li data-icon="myapp-list">
-                        <a href="#"><span class="who">Roy Reuveni</span> just created Pimping</a>
-                    </li>
-                    <li data-icon="arrow-f">    
-                        <a href="#"><span class="who">Yael Berger</span> just created Going for shopping on 20:40</a>
+                        <a href="#"><div><span class="who">Yael Berger</span> just created Going for shopping on 20:40</div></a>
                     </li>
                 </ul>
                 </div>
