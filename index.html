@@ -53,6 +53,21 @@ and open the template in the editor.
               }
          }
         );
+        $("#whatupto").click(function(event) {
+                event.preventDefault();
+                var container = $( ".goesUp" );
+                var pageId = $.mobile.activePage[0].id;
+                if(pageId === "homePage")
+                    subContainer = $(container[0]);
+
+                if(subContainer.css('-webkit-transform') === "matrix(1, 0, 0, 1, 0, 0)") {
+                    subContainer.css('-webkit-transform', 'translate3d(0, +220px, 0)');
+
+                } else {
+                        subContainer.css('-webkit-transform', 'translate3d(0, 0, 0)');
+                  }
+
+            });
         
         $("ul li").click(function(event) {
             event.preventDefault();
@@ -76,23 +91,7 @@ and open the template in the editor.
         function loaded() {
             myScroll = new iScroll('wrapper1');
             myScroll2 = new iScroll('wrapper2');
-            myScroll3 = new iScroll('wrapper3')
-        
-            $("#whatupto").click(function(event) {
-                event.preventDefault();
-                var container = $( ".goesUp" );
-                var pageId = $.mobile.activePage[0].id;
-                if(pageId === "homePage")
-                    subContainer = $(container[0]);
-
-                if(subContainer.css('-webkit-transform') === "matrix(1, 0, 0, 1, 0, 0)") {
-                    subContainer.css('-webkit-transform', 'translate3d(0, +220px, 0)');
-
-                } else {
-                        subContainer.css('-webkit-transform', 'translate3d(0, 0, 0)');
-                  }
-
-            });
+            myScroll3 = new iScroll('wrapper3');
         }
 
 document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
@@ -166,7 +165,7 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
               <div id="fader" >
                </div>
               <div class="inputloze">
-                  <div class="lozeabove"><input type="search" name="whatupto" id="whatupto" placeholder="What are you up to?" data-theme="a" /></div>
+                  <div id="whatupto" class="lozeabove"><input type="search" name="whatupto"  placeholder="What are you up to?" data-theme="a" /></div>
                   <div class="lozedowna">
                       <input type="search" name="whenupto" id="whenupto" placeholder="5 more min" data-theme="a" /></div><div class="lozedownb">
                       <input type="search" name="whosinto" id="whoisinto" placeholder="Who's in" data-theme="a" /></div><div class="lozedownc">
