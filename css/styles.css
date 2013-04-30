@@ -530,14 +530,19 @@ min-height: 10px;
 }
 
 .splash {
-   position: absolute;
-   left: 50%;
-   right: 50%;
-   top: 50%;
-   bottom: 50%;
-   align: center;
+   text-align: center;
+  margin-left:0 auto;
+  margin-right:0 auto;
+  width:70%;
+  background-color: white !important ;
 }
 
 .logo_image_splash {
-    background-color: darkorange;
+    text-align: center;
+  margin-left:0 auto;
+  margin-right:0 auto;
+  background-color: orange;
+  
+  position: absolute;
+  bottom: 50%;
 }

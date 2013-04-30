@@ -107,7 +107,7 @@ document.addEventListener('touchmove', function (e) { e.preventDefault(); }, fal
 document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 200); });
 
 $(function() {
-  setTimeout(hideSplash, 2000);
+  setTimeout(hideSplash, 290000);
 });
 
 function hideSplash() {
@@ -130,12 +130,12 @@ function hideSplash() {
         <a href='#loozePage' onclick="javascript:$('#loozePage').live('pageshow', function () { myScroll3.refresh();  });" id="loozeClick" data-transition="slide" ></a>
         <a href='#friendsPage' id="friendsClick" data-transition="slide" ></a>
         
-        <div data-role="page" data-theme="c" id="splash" style="background-color: white;"> 
+        <div data-role="page" data-theme="d" id="splash" style="background-color: white;"> 
     <div class="splash">
         <img src="images/logo.png" alt="splash" class="logo_image_splash" />
     </div>
 </div>
-            <div data-role="page" style="background: transparent" class="page center"  id="loginPage">
+            <div data-role="page" style="background: transparent" class="page center"  id="loginPage" data-add-back-btn="false" >
                 <div data-theme="a" data-role="header">
                   <h3>What are your plan's?</h3>
                 </div>
