@@ -167,6 +167,10 @@
         color: graytext;
 }
 
+.scroller2 .ui-li .ui-btn-text a.ui-link-inherit { /* This are the added classes from jQuery mobile */
+    white-space: normal !important;                /* And this enables more than one line */
+}
+
 .scroller {
 	position:absolute; z-index:1;
 /*	-webkit-touch-callout:none;*/
