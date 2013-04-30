@@ -460,12 +460,16 @@ min-height: 10px;
     padding: 20px;
 }
 #userName p {
-    position: absolute;
-    left:120px;
-    bottom: 20px;
+    position: relative;
+    left:20px;
+    bottom: 0px;
     color: #D0D0D0;
     font-size: 1em;
     padding-right: 20px;
+}
+
+#userName .ui-body-c {
+    color: rgb(162, 162, 162) !important;
 }
 
 .ui-icon-facebook {

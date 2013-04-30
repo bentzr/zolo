@@ -66,33 +66,18 @@ and open the template in the editor.
             }
         });
         
-        $("#whatupto").click(function(event) {
-            var index = $(this).index();
-            var container = $( ".goesUp" );
-            var pageId = $.mobile.activePage[0].id;
-            if(pageId === "homePage")
-                subContainer = $(container[0]);
-        
-            if(subContainer.css('-webkit-transform') === "matrix(1, 0, 0, 1, 0, 0)") {
-                subContainer.css('-webkit-transform', 'translate3d(0, +220px, 0)');
-            
-            } else {
-                    subContainer.css('-webkit-transform', 'translate3d(0, 0, 0)');
-              }
-           
-        });
+     
 
         });
         </script>
         <script type="text/javascript">
 
-var myScroll;
-function loaded() {
+        var myScroll;
+        function loaded() {
 	myScroll = new iScroll('wrapper1');
         myScroll2 = new iScroll('wrapper2');
         
         $("#whatupto").click(function(event) {
-            var index = $(this).index();
             var container = $( ".goesUp" );
             var pageId = $.mobile.activePage[0].id;
             if(pageId === "homePage")
@@ -109,7 +94,6 @@ function loaded() {
 }
 
 document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
-
 /* * * * * * * *
  *
  * Use this for high compatibility (iDevice + Android)
@@ -137,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
                 </div>
                 <div data-role="content">
                    <div id="loginForm">
-                       <h3>Username:</h2>
+                       <h3>Username:</h3>
                         <input type="text" id="usernameInputField" /><br/>
                         <h3>Password:</h3>
                         <input type="password" id="passwordInputField" /><br/>    
@@ -674,9 +658,6 @@ var homePage = document.getElementById("homePage"),
         });
         
         
-//         $.mobile.changePage( "#favsPage", {
-//         transition: "slide"
-//        });   
         };
 
     function slidePageFrom(page) {
