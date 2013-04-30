@@ -151,6 +151,7 @@
 }
 
 .scroller2 li {
+        width: 100%;
         left: 0%;
         position: relative;
         padding-left: 0px;
@@ -439,6 +440,10 @@ min-height: 10px;
     margin-left: 10px;
 }
 
+#thelist2 {
+    margin: 0px;
+    margin-right: 0px;
+}
 .scroller .ui-btn { 
           height: 30px;
           width: 80px;
