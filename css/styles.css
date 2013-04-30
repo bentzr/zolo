@@ -160,7 +160,11 @@
 	border-bottom:1px solid #393939;
 	border-top:1px solid #393939;
 	background-color:#272727;
-	font-size:14px;
+        font-size: 10px;
+}
+.scroller2 .ui-link-inherit {
+        font-size: 12px;
+        color: graytext;
 }
 
 .scroller {
