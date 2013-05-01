@@ -541,15 +541,9 @@ min-height: 10px;
     top:38%;
     vertical-align: middle;
     }
-/*
-<<<<<<< HEAD
-#wrapper3 {
- 
-  
-}
+    
 .box {
     position: relative;
-    background: yellow;
     height: 100px;
     width: 100%;
     
@@ -562,26 +556,51 @@ min-height: 10px;
     position:relative;
     left: 10px;
     color: white;
-=======
-.ui-icon-myapp-list {
+}
+
+.schedEvent {
+    position: absolute;
+    width: 240px;
+    border: dashed;
+    border-color: gray;
+    border-width: 1px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    top: 1950px;
+    left: 30px;
+    background-image: -webkit-gradient(radial, center center, 0, center center, 506, color-stop(0, #D2D2D2), color-stop(1, #696969));
+}
+.schedEvent .avatar {
+    position: relative;
+    width: 55px;
+    left: 1px;
+    top: 2px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+}
+
+.schedEvent h2 {
+    position: absolute;
+   font-size: 1.2em;
+    left: 65px;
+    top: -12px
+}
+.schedEvent h1 {
+    position: absolute;
+    left: 77px;
+    font-size: 0.8em;
+    top: 28px
+    
+}
+
+.schedEvent .location {
+    width: 25px;
+    position: absolute;
+    top: 33px
+}
+/*.ui-icon-myapp-list {
     background-image: url(http://swiftthemes.com/forums/images/icons/icon6.png) !important;
-}
-
-.splash {
-   text-align: center;
-  margin-left:0 auto;
-  margin-right:0 auto;
-  width:85%;
-  background-color: white !important ;
-}
-
-.logo_image_splash {
-    text-align: center;
-  margin-left:0 auto;
-  margin-right:0 auto;
-  background-color: orange; 
-  position: absolute;
-  bottom: 50%;
->>>>>>> abc34e3c59b9300a02da1e933dc9e1f7ebc5e5a7
 }*/
+
+
+
+
 
