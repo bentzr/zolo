@@ -475,3 +475,24 @@ min-height: 10px;
 .ui-icon-facebook {
 	background-image: url("facebook.jpg");
 }
+
+#wrapper3 {
+ 
+  
+}
+.box {
+    position: relative;
+/*    background: yellow;*/
+    height: 100px;
+    width: 100%;
+    
+    border-top: solid 1px;
+    border-bottom: solid 1px;
+    border-color: #3C3B3B;
+}
+
+#myLooze .time {
+    position:relative;
+    left: 10px;
+    color: white;
+}
