@@ -539,6 +539,7 @@ min-height: 10px;
 .logo_image_splash {
     position: relative;
     top:38%;
+    left:-2%;
     vertical-align: middle;
     }
     
@@ -669,7 +670,7 @@ min-height: 10px;
 
 #wrapper4 a {
    width: 80px;
-   left: 230px;
+   left: 227px;
 }
 
 #wrapper4 .ui-btn-text {
