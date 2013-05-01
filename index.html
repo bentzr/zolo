@@ -107,7 +107,7 @@ function pullDownAction () {
 			li.innerHTML = listItem;
 			el.insertBefore(li, el.childNodes[0]);
 		}
-		
+		myScroll.scrollTo(0, -300, 200)
 		myScroll.refresh();		// Remember to refresh when contents are loaded (ie: on ajax completion)
 	}, 1000);	// <-- Simulate network congestion, remove setTimeout from production!
 }
@@ -122,7 +122,6 @@ function pullUpAction () {
 			li.innerHTML = listItem;
 			el.appendChild(li, el.childNodes[0]);
 		}
-		
 		myScroll.refresh();		// Remember to refresh when contents are loaded (ie: on ajax completion)
 	}, 1000);	// <-- Simulate network congestion, remove setTimeout from production!
 }
