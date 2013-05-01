@@ -17,6 +17,19 @@ and open the template in the editor.
         <script src="js/libs/jquery/jquery.mobile-1.0a3.min.js"></script>
         <script src="js/libs/iscroll/iscroll.js"></script>
         <script type="text/javascript">
+        
+        function clickOnUl() {
+            
+            var index = $(this).index();
+            var listItem = $($("ul li").get(index)).find(".event");
+            
+            if(listItem.css('-webkit-transform') === "matrix(1, 0, 0, 1, 0, 0)") {
+                listItem.css('-webkit-transform', 'translate3d(-100%, 0, 0)');
+            }else {
+                listItem.css('-webkit-transform', 'translate3d(0, 0, 0)');
+            }
+        }
+        
         // When the DOM is ready, initialize the scripts.
         jQuery(function( $ ){
             
@@ -73,25 +86,14 @@ and open the template in the editor.
 
             });
         
-        $("ul li").click(function(event) {
-            event.preventDefault();
-            var index = $(this).index();
-            var listItem = $($("ul li").get(index)).find(".event");
-            
-            if(listItem.css('-webkit-transform') === "matrix(1, 0, 0, 1, 0, 0)") {
-                listItem.css('-webkit-transform', 'translate3d(-100%, 0, 0)');
-            }else {
-                listItem.css('-webkit-transform', 'translate3d(0, 0, 0)');
-            }
-        });
+        $("ul li").click(clickOnUl);
         
-     
 
         });
         </script>
         <script type="text/javascript">
         
-        var listItem = '<div class="event">                             <a id="clicklink" href="#favsPage" data-transition="slide">                             <img class="avatar" src="images/avatar.jpg"  />                             </a>                                                         <img class="location" src="images/location.png"  />                         <img class="time" src="images/time.png"  />                         <h2>Business diner</h2>                         <h1>Dov airport, Tel Aviv</h1>                         <span class="time">20:40</span>                         </div>                         <div class="eventinfo">                            <h2>Whos in?</h2>                            <div class="whosin">                                <table><tr>                                        <td><img class="avain" src="images/avatar.jpg"  /></td>                                        <td><img class="avain" src="images/avatar1.jpg"  /></td>                                        <td><img class="avain" src="images/avatar2.jpg"  /></td>                                        <td><img class="avain" src="images/avatar4.jpg"  /></td>                                    </tr>                                </table>                                <a href="#" data-role="button" data-inline="true"  data-theme="a">Join</a>                            </div>                         </div>';
+        var listItem = '<li onclick="clickOnUl();"><div class="event">                             <a id="clicklink" href="#favsPage" data-transition="slide">                             <img class="avatar" src="images/avatar.jpg"  />                             </a>                                                         <img class="location" src="images/location.png"  />                         <img class="time" src="images/time.png"  />                         <h2>Business diner</h2>                         <h1>Dov airport, Tel Aviv</h1>                         <span class="time">20:40</span>                         </div>                         <div class="eventinfo">                            <h2>Whos in?</h2>                            <div class="whosin">                                <table><tr>                                        <td><img class="avain" src="images/avatar.jpg"  /></td>                                        <td><img class="avain" src="images/avatar1.jpg"  /></td>                                        <td><img class="avain" src="images/avatar2.jpg"  /></td>                                        <td><img class="avain" src="images/avatar4.jpg"  /></td>                                    </tr>                                </table>                                <a href="#" data-role="button" data-inline="true" data-theme="a" class="ui-btn ui-btn-up-a ui-btn-inline ui-btn-corner-all ui-shadow"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Join</span></span></a>                           </div>                         </div></li>';
         var myScroll,
 	pullDownEl, pullDownOffset,
 	pullUpEl, pullUpOffset,
@@ -105,9 +107,10 @@ function pullDownAction () {
 		for (i=0; i<3; i++) {
 			li = document.createElement('li');
 			li.innerHTML = listItem;
-			el.insertBefore(li, el.childNodes[0]);
+			//el.insertBefore(li, el.childNodes[0]);
+                        $('#thelist').prepend(listItem)
 		}
-		myScroll.scrollTo(0, -300, 200)
+		myScroll.scrollTo(0, -300, 700)
 		myScroll.refresh();		// Remember to refresh when contents are loaded (ie: on ajax completion)
 	}, 1000);	// <-- Simulate network congestion, remove setTimeout from production!
 }
@@ -120,7 +123,8 @@ function pullUpAction () {
 		for (i=0; i<3; i++) {
 			li = document.createElement('li');
 			li.innerHTML = listItem;
-			el.appendChild(li, el.childNodes[0]);
+			//el.appendChild(li, el.childNodes[0]);
+                        $('#thelist').append(listItem)
 		}
 		myScroll.refresh();		// Remember to refresh when contents are loaded (ie: on ajax completion)
 	}, 1000);	// <-- Simulate network congestion, remove setTimeout from production!
