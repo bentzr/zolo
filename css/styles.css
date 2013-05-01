@@ -135,6 +135,52 @@
 	overflow:auto;
 }
 
+.scroller2 {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+
+.scroller2 ul {
+	list-style:none;
+	padding:0;
+	margin:0;
+	width:100%;
+	text-align:left;
+}
+
+.scroller2 li {
+        width: 100%;
+        left: 0%;
+        position: relative;
+        padding-left: 0px;
+        margin-bottom: 0px;
+	height:55px;
+	border-bottom:1px solid #393939;
+	border-top:1px solid #393939;
+	background-color:#272727;
+        font-size: 10px;
+}
+.scroller2 .ui-link-inherit {
+        font-size: 12px;
+        color: graytext;
+        font-weight: normal;
+}
+.scroller2 .ui-link-inherit div {
+        width: 90%;
+}
+
+
+.scroller2 .who {
+    font-style: italic;
+    font-weight: bold;
+}
+
+.scroller2 .ui-li .ui-btn-text a.ui-link-inherit { /* This are the added classes from jQuery mobile */
+    white-space: normal !important;                /* And this enables more than one line */
+}
+
 .scroller {
 	position:absolute; z-index:1;
 /*	-webkit-touch-callout:none;*/
@@ -161,8 +207,6 @@
 	border-top:1px solid #393939;
 	background-color:#272727;
 	font-size:14px;
-        
-        
 }
 
 .scroller li div.event {
@@ -231,7 +275,7 @@
     position: absolute;
     right: 28px;
     top: -7px;
-    font-size: 1.2em;
+    font-size: 1em;
     color: #828282;
 }
 .scroller li img.location {
@@ -285,7 +329,7 @@ min-height: 10px;
    -webkit-box-shadow: inset 0px 13px 20px -17px black;
 }
 
-.ui-body-c, .ui-overlay-c {
+.ui-body-c, .ui-overlay-c, .ui-btn-up-c {
     text-shadow: none !important; 
 }
 
@@ -409,10 +453,15 @@ min-height: 10px;
     margin: 4px; 
 }
 
-#thelist2 li {
-    color: gray;
+#thelist2 li .ui-btn-up-a {
+    color: gray ;
+    margin-left: 10px;
 }
 
+#thelist2 {
+    margin: 0px;
+    margin-right: 0px;
+}
 .scroller .ui-btn { 
           height: 30px;
           width: 80px;
@@ -476,13 +525,31 @@ min-height: 10px;
 	background-image: url("facebook.jpg");
 }
 
+.splash {
+     float: left;
+    height: 100%;
+    position: relative;
+    width: 100%;
+    line-height:120px;
+    text-align:center;
+    background-image: -webkit-gradient(radial, center center, 0, center center, 487, color-stop(0, #FF6422), color-stop(1, #AB3512));
+    
+}
+
+.logo_image_splash {
+    position: relative;
+    top:38%;
+    vertical-align: middle;
+    }
+/*
+<<<<<<< HEAD
 #wrapper3 {
  
   
 }
 .box {
     position: relative;
-/*    background: yellow;*/
+    background: yellow;
     height: 100px;
     width: 100%;
     
@@ -495,4 +562,26 @@ min-height: 10px;
     position:relative;
     left: 10px;
     color: white;
+=======
+.ui-icon-myapp-list {
+    background-image: url(http://swiftthemes.com/forums/images/icons/icon6.png) !important;
 }
+
+.splash {
+   text-align: center;
+  margin-left:0 auto;
+  margin-right:0 auto;
+  width:85%;
+  background-color: white !important ;
+}
+
+.logo_image_splash {
+    text-align: center;
+  margin-left:0 auto;
+  margin-right:0 auto;
+  background-color: orange; 
+  position: absolute;
+  bottom: 50%;
+>>>>>>> abc34e3c59b9300a02da1e933dc9e1f7ebc5e5a7
+}*/
+

@@ -12,9 +12,9 @@ and open the template in the editor.
         
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="css/styles.css">
-        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.css" />
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-        <script src="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.js"></script>
+        <link rel="stylesheet" href="js/libs/jquery/jquery.mobile-1.2.1.min.css" />
+        <script src="js/libs/jquery/jquery.min.js"></script>
+        <script src="js/libs/jquery/jquery.mobile-1.0a3.min.js"></script>
         <script src="js/libs/iscroll/iscroll.js"></script>
         <script type="text/javascript">
         // When the DOM is ready, initialize the scripts.
@@ -55,6 +55,8 @@ and open the template in the editor.
               }
          }
         );
+        
+        
         $("#whatupto").click(function(event) {
                 event.preventDefault();
                 var container = $( ".goesUp" );
@@ -92,7 +94,7 @@ and open the template in the editor.
         var myScroll;
         function loaded() {
             myScroll = new iScroll('wrapper1');
-            myScroll2 = new iScroll('wrapper2');
+            myScroll2 = new iScroll('wrapper2', {vScrollbar: false});
             myScroll3 = new iScroll('wrapper3');
         }
 
@@ -103,6 +105,16 @@ document.addEventListener('touchmove', function (e) { e.preventDefault(); }, fal
  *
  */
 document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 200); });
+
+$(function() {
+  setTimeout(hideSplash, 2000);
+});
+
+function hideSplash() {
+  $.mobile.changePage("#loginPage", "fade");
+}
+
+
 
 </script>
 
@@ -118,7 +130,12 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
         <a href='#loozePage' onclick="javascript:$('#loozePage').live('pageshow', function () { myScroll3.refresh();  });" id="loozeClick" data-transition="slide" ></a>
         <a href='#friendsPage' id="friendsClick" data-transition="slide" ></a>
         
-            <div data-role="page" style="background: transparent" class="page center"  id="loginPage">
+        <div data-role="page" class="page center" data-theme="d" id="splash" "> 
+    <div class="splash" data-role="content">
+        <img src="images/logo.png" alt="splash" class="logo_image_splash" />
+    </div>
+</div>
+            <div data-role="page" style="background: transparent" class="page center"  id="loginPage" data-add-back-btn="false" >
                 <div data-theme="a" data-role="header">
                   <h3>What are your plan's?</h3>
                 </div>
@@ -128,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
                         <input type="text" id="usernameInputField" /><br/>
                         <h3>Password:</h3>
                         <input type="password" id="passwordInputField" /><br/>    
-                        <input type="button" id="loginButton" value="Login" onclick="javascript:$('#homeClick').click();$('#homePage').live('pageshow', function () { myScroll.refresh();});" />
+                        <input type="button" id="loginButton" value="Login" onclick="javascript:$('#homeClick').click();$('#homePage').live('pageshow', function () { myScroll.refresh(); });" />
                         <input type="button" id="signUpButton" value="Sign Up" onclick="javascript:$('#signClick').click();loaded();" />
                     </div>
                 </div>
@@ -153,7 +170,7 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
                             <label for="slider-3">Rank your sociality</label>
                             <input type="range" name="slider-3" id="slider-3" value="25" min="0" max="100" data-theme="a" data-track-theme="b" />
                         </div>
-                        <input type="button" id="signUpButtonNow" value="Sign Up!" onclick="javascript:$('#homeClick').click();loaded();" />
+                        <input type="button" id="signUpButtonNow" value="Sign Up!" onclick="javascript:$('#homeClick').click();$('#homePage').live('pageshow', function () { myScroll.refresh(); });" />
                     </div>
                 </div>
                 <div data-role="footer">
@@ -165,9 +182,11 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
         
           <div id="homePage" class="page center" style="background: transparent" data-role="page">
               <div id="fader" >
+                  
                </div>
+                <div id="hiddendiv" style="display: none;"> <input type="submit"/></div>
               <div class="inputloze">
-                  <div id="whatupto" class="lozeabove"><input type="search" name="whatupto" placeholder="What are you up to?" data-theme="a" /></div>
+                  <div id="whatupto" class="lozeabove"><input type="search" id="whatuptos" name="whatuptos" placeholder="What are you up to?" data-theme="a" /></div>
                   <div class="lozedowna">
                       <input type="search" name="whenupto" id="whenupto" placeholder="5 more min" data-theme="a" /></div><div class="lozedownb">
                       <input type="search" name="whosinto" id="whoisinto" placeholder="Who's in" data-theme="a" /></div><div class="lozedownc">
@@ -403,7 +422,7 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
                 <img src="images/friends_btn.png" />
                 </a>
             </div>
-                  <input type="search" name="search-mini"  value="" data-mini="true" autofocus/>
+                  <input type="search" name="search-mini"  value="" data-mini="true"/>
             </div>
            </div>
         
@@ -411,43 +430,43 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
             <div class="goesUp">
             <div data-role="content">
                 <div id="wrapper2" class="wrapperStyle">
-                <div class="scroller">
-		<ul id="thelist2" >
-                    <li >    
-                        <a href="#">me</a> just created Business dinner event on 12:00
+                <div class="scroller2">
+		<ul id="thelist2" data-role="listview" data-theme="a">
+                    <li data-icon="arrow-f">    
+                        <a href="#"><div><span class="who">me</span> just created Business dinner event on 12:00</div></a>
                     </li>
-                    <li>
-                        <a href="#">Elad Levy</a> just joined Watching Movie with <a href="#">Idit Goldenberg</a>
+                    <li data-icon="myapp-list">
+                        <a href="#"><div><span class="who">Elad Levy</span> just joined Watching Movie with <span class="who">Idit Goldenberg</span></div></a>
                     </li>
-                    <li>
-                        <a href="#">Roy Reuveni</a> just created Pimping
+                    <li data-icon="myapp-list">
+                        <a href="#"><span class="who">Roy Reuveni</span> just created Pimping</a>
                     </li>
-                    <li>
-                        <a href="#">Yael Berger</a> just created Going for shopping on 20:40
+                    <li data-icon="arrow-f">    
+                        <a href="#"><div><span class="who">Yael Berger</span> just created Going for shopping on 20:40</div></a>
                     </li>
-                    <li>
-                        <a href="#">Idit Goldenberg</a> just joined Going for shopping with <a href="#">Yael Berger</a>
+                    <li data-icon="myapp-list"> 
+                        <a href="#"><div><span class="who">Idit Goldenber</span> just joined Going for shopping with <span class="who">Yael Berger</span></div></a>
                     </li>
-                    <li>
-                        <a href="#">Roy Reuveni</a> just created Pimping
+                    <li data-icon="arrow-f">    
+                        <a href="#"><div><span class="who">Roy Reuveni</span> just created Pimping</div></a>
                     </li>
-                    <li>
-                        <a href="#">Yael Berger</a> just created Going for shopping on 20:40
+                    <li data-icon="arrow-f">    
+                        <a href="#"><div><span class="who">Yael Berger</span> just created Going for shopping on 20:40</div></a>
                     </li>
-                    <li>
-                        <a href="#">Idit Goldenberg</a> just joined Going for shopping with <a href="#">Yael Berger</a>
+                    <li data-icon="myapp-list">
+                        <a href="#"><div><span class="who">Idit Goldenberg</span> just joined Going for shopping with <span class="who">Yael Berger</span></div></a>
                     </li>
-                    <li >    
-                        <a href="#">me</a> just created Business dinner event on 12:00
+                    <li data-icon="arrow-f">    
+                        <a href="#"><div><span class="who">me</span> just created Business dinner event on 12:00</div></a>
                     </li>
-                    <li>
-                        <a href="#">Elad Levy</a> just joined Watching Movie with <a href="#">Idit Goldenberg</a>
+                    <li data-icon="arrow-f">    
+                        <a href="#"><div><span class="who">Elad Levy</span> just joined Watching Movie with <span class="who">Idit Goldenberg</span></div></a>
                     </li>
-                    <li>
-                        <a href="#">Roy Reuveni</a> just created Pimping
+                    <li data-icon="myapp-list">
+                        <a href="#"><span class="who">Roy Reuveni</span> just created Pimping</a>
                     </li>
-                    <li>
-                        <a href="#">Yael Berger</a> just created Going for shopping on 20:40
+                    <li data-icon="arrow-f">    
+                        <a href="#"><div><span class="who">Yael Berger</span> just created Going for shopping on 20:40</div></a>
                     </li>
                 </ul>
                 </div>
@@ -662,6 +681,7 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
            </div>
         
         <script>
+
 
 var homePage = document.getElementById("homePage"),
     friendsPage = document.getElementById("friendsPage"),
