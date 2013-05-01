@@ -453,11 +453,6 @@ min-height: 10px;
     margin: 4px; 
 }
 
-#thelist2 li .ui-btn-up-a {
-    color: gray ;
-    margin-left: 10px;
-}
-
 #thelist2 {
     margin: 0px;
     margin-right: 0px;
@@ -682,4 +677,28 @@ min-height: 10px;
     left: 0.1px;
     right: 3px;
     color: gray;
+}
+
+#thelist2 li {
+    height: 26px;
+}
+
+#thelist2 a {
+    position: absolute;
+    left: 27px;
+    top: 17px;
+    font-size: 0.8em;
+    color: #D0D0D0;
+    text-decoration: none;
+}
+
+#thelist2 li img {
+    width: 20px;
+    left: 3px;
+    position: relative;
+    top: 5px;
+    border: solid 1px;
+    border-style: dotted;
+    border-color: rgb(177,177,177);
+    -webkit-border-radius: 2px 8px 8px 8px;
 }
