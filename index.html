@@ -91,7 +91,7 @@ and open the template in the editor.
         </script>
         <script type="text/javascript">
         
-        
+        var listItem = '<div class="event">                             <a id="clicklink" href="#favsPage" data-transition="slide">                             <img class="avatar" src="images/avatar.jpg"  />                             </a>                                                         <img class="location" src="images/location.png"  />                         <img class="time" src="images/time.png"  />                         <h2>Business diner</h2>                         <h1>Dov airport, Tel Aviv</h1>                         <span class="time">20:40</span>                         </div>                         <div class="eventinfo">                            <h2>Whos in?</h2>                            <div class="whosin">                                <table><tr>                                        <td><img class="avain" src="images/avatar.jpg"  /></td>                                        <td><img class="avain" src="images/avatar1.jpg"  /></td>                                        <td><img class="avain" src="images/avatar2.jpg"  /></td>                                        <td><img class="avain" src="images/avatar4.jpg"  /></td>                                    </tr>                                </table>                                <a href="#" data-role="button" data-inline="true"  data-theme="a">Join</a>                            </div>                         </div>';
         var myScroll,
 	pullDownEl, pullDownOffset,
 	pullUpEl, pullUpOffset,
@@ -104,7 +104,7 @@ function pullDownAction () {
 
 		for (i=0; i<3; i++) {
 			li = document.createElement('li');
-			li.innerText = 'Generated row ' + (++generatedCount);
+			li.innerHTML = listItem;
 			el.insertBefore(li, el.childNodes[0]);
 		}
 		
@@ -119,7 +119,7 @@ function pullUpAction () {
 
 		for (i=0; i<3; i++) {
 			li = document.createElement('li');
-			li.innerText = 'Generated row ' + (++generatedCount);
+			li.innerHTML = listItem;
 			el.appendChild(li, el.childNodes[0]);
 		}
 		
