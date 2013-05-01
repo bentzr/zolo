@@ -657,3 +657,28 @@ min-height: 10px;
 	from { -webkit-transform:rotate(0deg) translateZ(0); }
 	to { -webkit-transform:rotate(360deg) translateZ(0); }
 }
+
+#wrapper4 ul li img {
+    position:relative;
+    border: solid 1px black;
+}
+
+#wrapper4 ul li h1 {
+    left: 85px
+}
+
+#wrapper4 a {
+   width: 120px;
+   left: 270px;
+}
+
+#wrapper4 .ui-btn-text {
+    z-index: 0;
+    margin-right: 0px;
+    position: absolute;
+    font-size: 12px;
+    top: 6px;
+    left: 0.1px;
+    right: 3px;
+    color: gray;
+}
