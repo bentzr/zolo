@@ -1,15 +1,11 @@
-<!--
-To change this template, choose Tools | Templates
-and open the template in the editor.
--->
 <!DOCTYPE html>
 <html>
     <head>
-        <title></title>
+        <title>Balooze</title>
         <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
-        
+
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="css/styles.css">
         <link rel="stylesheet" href="js/libs/jquery/jquery.mobile-1.2.1.min.css" />
@@ -17,833 +13,850 @@ and open the template in the editor.
         <script src="js/libs/jquery/jquery.mobile-1.0a3.min.js"></script>
         <script src="js/libs/iscroll/iscroll.js"></script>
         <script type="text/javascript">
-        
-        function clickOnUl() {
-            
-            var index = $(this).index();
-            var listItem = $($("ul li").get(index)).find(".event");
-            
-            if(listItem.css('-webkit-transform') === "matrix(1, 0, 0, 1, 0, 0)") {
-                listItem.css('-webkit-transform', 'translate3d(-100%, 0, 0)');
-            }else {
-                listItem.css('-webkit-transform', 'translate3d(0, 0, 0)');
-            }
-        }
-        
-        // When the DOM is ready, initialize the scripts.
-        jQuery(function( $ ){
-            
-        var $viewport        = $('meta[name="viewport"]');
-        $viewport.attr('content', 'initial-scale=1.0,maximum-scale=1.0,user-scalable=no');
 
-        // Get a reference to the container.
-        var container = $( ".goesUp" );
-        
-        // Bind the link to toggle the slide.
-        $( ".logo" ).click(
-        function( event ){
-        var subContainer;
-        // Prevent the default event.
-        event.preventDefault();
-        
-        var pageId = $.mobile.activePage[0].id;
-        if(pageId === "homePage")
-           subContainer = $(container[0]);
-        if(pageId === "favsPage")
-            subContainer = $(container[1]);
-        if(pageId === "myPage")
-            subContainer = $(container[2]);
-        if(pageId === "loozePage")
-            subContainer = $(container[3]);
-        if(pageId === "friendsPage")
-            subContainer = $(container[4]);
-        
-        // Toggle the slide based on its current
-        
-        if(subContainer.css('-webkit-transform') === "matrix(1, 0, 0, 1, 0, 0)") {
-            subContainer.css('-webkit-transform', 'translate3d(0, -137px, 0)');
-            
-        }else {
-                subContainer.css('-webkit-transform', 'translate3d(0, 0, 0)');
-              }
-         }
-        );
-        
-        
-        $("#whatupto").click(function(event) {
-                event.preventDefault();
-                var container = $( ".goesUp" );
-                var pageId = $.mobile.activePage[0].id;
-                if(pageId === "homePage")
-                    subContainer = $(container[0]);
+            function clickOnUl() {
 
-                if(subContainer.css('-webkit-transform') === "matrix(1, 0, 0, 1, 0, 0)") {
-                    subContainer.css('-webkit-transform', 'translate3d(0, +220px, 0)');
+                var index = $(this).index();
+                var listItem = $($("ul li").get(index)).find(".event");
 
+                if (listItem.css('-webkit-transform') === "matrix(1, 0, 0, 1, 0, 0)") {
+                    listItem.css('-webkit-transform', 'translate3d(-100%, 0, 0)');
                 } else {
+                    listItem.css('-webkit-transform', 'translate3d(0, 0, 0)');
+                }
+            }
+
+            // DOM is ready, init the scripts.
+            jQuery(function($) {
+
+                var $viewport = $('meta[name="viewport"]');
+                $viewport.attr('content', 'initial-scale=1.0,maximum-scale=1.0,user-scalable=no');
+
+                // Get a reference to the container.
+                var container = $(".goesUp");
+
+                // Bind the link to toggle the slide.
+                $(".logo").click(
+                        function(event) {
+                            var subContainer;
+                            // Prevent the default event.
+                            event.preventDefault();
+
+                            var pageId = $.mobile.activePage[0].id;
+                            if (pageId === "homePage")
+                                subContainer = $(container[0]);
+                            if (pageId === "favsPage")
+                                subContainer = $(container[1]);
+                            if (pageId === "myPage")
+                                subContainer = $(container[2]);
+                            if (pageId === "loozePage")
+                                subContainer = $(container[3]);
+                            if (pageId === "friendsPage")
+                                subContainer = $(container[4]);
+
+                            // Toggle the slide based on its current
+
+                            if (subContainer.css('-webkit-transform') === "matrix(1, 0, 0, 1, 0, 0)") {
+                                subContainer.css('-webkit-transform', 'translate3d(0, -137px, 0)');
+
+                            } else {
+                                subContainer.css('-webkit-transform', 'translate3d(0, 0, 0)');
+                            }
+                        }
+                );
+
+
+                $("#whatupto").click(function(event) {
+                    event.preventDefault();
+                    var container = $(".goesUp");
+                    var pageId = $.mobile.activePage[0].id;
+                    if (pageId === "homePage")
+                        subContainer = $(container[0]);
+
+                    if (subContainer.css('-webkit-transform') === "matrix(1, 0, 0, 1, 0, 0)") {
+                        subContainer.css('-webkit-transform', 'translate3d(0, +220px, 0)');
+
+                    } else {
                         subContainer.css('-webkit-transform', 'translate3d(0, 0, 0)');
-                  }
+                    }
+
+                });
+
+                $("ul li").click(clickOnUl);
+
 
             });
-        
-        $("ul li").click(clickOnUl);
-        
-
-        });
         </script>
         <script type="text/javascript">
-        
-        var listItem = '<li id="newli"><div class="event">                             <a id="clicklink" href="#favsPage" data-transition="slide">                             <img class="avatar" src="images/avatar.jpg"  />                             </a>                                                         <img class="location" src="images/location.png"  />                         <img class="time" src="images/time.png"  />                         <h2>Business diner</h2>                         <h1>Dov airport, Tel Aviv</h1>                         <span class="time">20:40</span>                         </div>                         <div class="eventinfo">                            <h2>Whos in?</h2>                            <div class="whosin">                                <table><tr>                                        <td><img class="avain" src="images/avatar.jpg"  /></td>                                        <td><img class="avain" src="images/avatar1.jpg"  /></td>                                        <td><img class="avain" src="images/avatar2.jpg"  /></td>                                        <td><img class="avain" src="images/avatar4.jpg"  /></td>                                    </tr>                                </table>                                <a href="#" data-role="button" data-inline="true" data-theme="a" class="ui-btn ui-btn-up-a ui-btn-inline ui-btn-corner-all ui-shadow"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Join</span></span></a>                           </div>                         </div></li>';
-        var myScroll,
-	pullDownEl, pullDownOffset,
-	pullUpEl, pullUpOffset,
-	generatedCount = 0;
 
-function pullDownAction () {
-	setTimeout(function () {	// <-- Simulate network congestion, remove setTimeout from production!
-		var el, li, i;
-		el = document.getElementById('thelist');
+            var listItem = '<li id="newli"><div class="event">                             <a id="clicklink" href="#favsPage" data-transition="slide">                             <img class="avatar" src="images/avatar.jpg"  />                             </a>                                                         <img class="location" src="images/location.png"  />                         <img class="time" src="images/time.png"  />                         <h2>Business diner</h2>                         <h1>Dov airport, Tel Aviv</h1>                         <span class="time">20:40</span>                         </div>                         <div class="eventinfo">                            <h2>Whos in?</h2>                            <div class="whosin">                                <table><tr>                                        <td><img class="avain" src="images/avatar.jpg"  /></td>                                        <td><img class="avain" src="images/avatar1.jpg"  /></td>                                        <td><img class="avain" src="images/avatar2.jpg"  /></td>                                        <td><img class="avain" src="images/avatar4.jpg"  /></td>                                    </tr>                                </table>                                <a href="#" data-role="button" data-inline="true" data-theme="a" class="ui-btn ui-btn-up-a ui-btn-inline ui-btn-corner-all ui-shadow"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Join</span></span></a>                           </div>                         </div></li>';
+            var myScroll,
+                    pullDownEl, pullDownOffset,
+                    pullUpEl, pullUpOffset,
+                    generatedCount = 0;
 
-		for (i=0; i<3; i++) {
-			li = document.createElement('li');
-			li.innerHTML = listItem;
-			//el.insertBefore(li, el.childNodes[0]);
+            function pullDownAction() {
+                setTimeout(function() {	// <-- Simulate network congestion, remove setTimeout from production!
+                    var el, li, i;
+                    el = document.getElementById('thelist');
+
+                    for (i = 0; i < 3; i++) {
+                        li = document.createElement('li');
+                        li.innerHTML = listItem;
+                        //el.insertBefore(li, el.childNodes[0]);
                         $('#thelist').prepend(listItem)
                         $("#newli").click(clickOnUl);
-		}
-		myScroll.scrollTo(0, -300, 700)
-		myScroll.refresh();		// Remember to refresh when contents are loaded (ie: on ajax completion)
-	}, 1000);	// <-- Simulate network congestion, remove setTimeout from production!
-}
+                    }
+                    myScroll.scrollTo(0, -300, 700)
+                    myScroll.refresh();		// Remember to refresh when contents are loaded (ie: on ajax completion)
+                }, 1000);	// <-- Simulate network congestion, remove setTimeout from production!
+            }
 
-function pullUpAction () {
-	setTimeout(function () {	// <-- Simulate network congestion, remove setTimeout from production!
-		var el, li, i;
-		el = document.getElementById('thelist');
+            function pullUpAction() {
+                setTimeout(function() {	// <-- Simulate network congestion, remove setTimeout from production!
+                    var el, li, i;
+                    el = document.getElementById('thelist');
 
-		for (i=0; i<3; i++) {
-			li = document.createElement('li');
-			li.innerHTML = listItem;
-			//el.appendChild(li, el.childNodes[0]);
+                    for (i = 0; i < 3; i++) {
+                        li = document.createElement('li');
+                        li.innerHTML = listItem;
+                        //el.appendChild(li, el.childNodes[0]);
                         $('#thelist').append(listItem)
                         $("#newli").click(clickOnUl);
-		}
-		myScroll.refresh();		// Remember to refresh when contents are loaded (ie: on ajax completion)
-	}, 1000);	// <-- Simulate network congestion, remove setTimeout from production!
-}
-
-        
-        function loaded() {
-            pullDownEl = document.getElementById('pullDown');
-            pullDownOffset = pullDownEl.offsetHeight;
-            pullUpEl = document.getElementById('pullUp');	
-            pullUpOffset = pullUpEl.offsetHeight;
-	
-            myScroll = new iScroll('wrapper1', {
-		useTransition: true,
-		topOffset: pullDownOffset,
-		onRefresh: function () {
-			if (pullDownEl.className.match('loading')) {
-				pullDownEl.className = '';
-				pullDownEl.querySelector('.pullDownLabel').innerHTML = 'Pull down to refresh...';
-			} else if (pullUpEl.className.match('loading')) {
-				pullUpEl.className = '';
-				pullUpEl.querySelector('.pullUpLabel').innerHTML = 'Pull up to load more...';
-			}
-		},
-		onScrollMove: function () {
-			if (this.y > 5 && !pullDownEl.className.match('flip')) {
-				pullDownEl.className = 'flip';
-				pullDownEl.querySelector('.pullDownLabel').innerHTML = 'Release to refresh...';
-				this.minScrollY = 0;
-			} else if (this.y < 5 && pullDownEl.className.match('flip')) {
-				pullDownEl.className = '';
-				pullDownEl.querySelector('.pullDownLabel').innerHTML = 'Pull down to refresh...';
-				this.minScrollY = -pullDownOffset;
-			} else if (this.y < (this.maxScrollY - 5) && !pullUpEl.className.match('flip')) {
-				pullUpEl.className = 'flip';
-				pullUpEl.querySelector('.pullUpLabel').innerHTML = 'Release to refresh...';
-				this.maxScrollY = this.maxScrollY;
-			} else if (this.y > (this.maxScrollY + 5) && pullUpEl.className.match('flip')) {
-				pullUpEl.className = '';
-				pullUpEl.querySelector('.pullUpLabel').innerHTML = 'Pull up to load more...';
-				this.maxScrollY = pullUpOffset;
-			}
-		},
-		onScrollEnd: function () {
-			if (pullDownEl.className.match('flip')) {
-				pullDownEl.className = 'loading';
-				pullDownEl.querySelector('.pullDownLabel').innerHTML = 'Loading...';				
-				pullDownAction();	// Execute custom function (ajax call?)
-			} else if (pullUpEl.className.match('flip')) {
-				pullUpEl.className = 'loading';
-				pullUpEl.querySelector('.pullUpLabel').innerHTML = 'Loading...';				
-				pullUpAction();	// Execute custom function (ajax call?)
-			}
-		}
-	});
-            myScroll2 = new iScroll('wrapper2', {vScrollbar: false});
-            myScroll3 = new iScroll('wrapper3');
-        }
-
-document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
-/* * * * * * * *
- *
- * Use this for high compatibility (iDevice + Android)
- *
- */
-document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 200); });
-
-$(function() {
-  setTimeout(hideSplash, 2000);
-});
-
-function hideSplash() {
-  $.mobile.changePage("#loginPage", "fade");
-}
+                    }
+                    myScroll.refresh();		// Remember to refresh when contents are loaded (ie: on ajax completion)
+                }, 1000);	// <-- Simulate network congestion, remove setTimeout from production!
+            }
 
 
+            function loaded() {
+                pullDownEl = document.getElementById('pullDown');
+                pullDownOffset = pullDownEl.offsetHeight;
+                pullUpEl = document.getElementById('pullUp');
+                pullUpOffset = pullUpEl.offsetHeight;
 
-</script>
+                myScroll = new iScroll('wrapper1', {
+                    useTransition: true,
+                    topOffset: pullDownOffset,
+                    onRefresh: function() {
+                        if (pullDownEl.className.match('loading')) {
+                            pullDownEl.className = '';
+                            pullDownEl.querySelector('.pullDownLabel').innerHTML = 'Pull down to refresh...';
+                        } else if (pullUpEl.className.match('loading')) {
+                            pullUpEl.className = '';
+                            pullUpEl.querySelector('.pullUpLabel').innerHTML = 'Pull up to load more...';
+                        }
+                    },
+                    onScrollMove: function() {
+                        if (this.y > 5 && !pullDownEl.className.match('flip')) {
+                            pullDownEl.className = 'flip';
+                            pullDownEl.querySelector('.pullDownLabel').innerHTML = 'Release to refresh...';
+                            this.minScrollY = 0;
+                        } else if (this.y < 5 && pullDownEl.className.match('flip')) {
+                            pullDownEl.className = '';
+                            pullDownEl.querySelector('.pullDownLabel').innerHTML = 'Pull down to refresh...';
+                            this.minScrollY = -pullDownOffset;
+                        } else if (this.y < (this.maxScrollY - 5) && !pullUpEl.className.match('flip')) {
+                            pullUpEl.className = 'flip';
+                            pullUpEl.querySelector('.pullUpLabel').innerHTML = 'Release to refresh...';
+                            this.maxScrollY = this.maxScrollY;
+                        } else if (this.y > (this.maxScrollY + 5) && pullUpEl.className.match('flip')) {
+                            pullUpEl.className = '';
+                            pullUpEl.querySelector('.pullUpLabel').innerHTML = 'Pull up to load more...';
+                            this.maxScrollY = pullUpOffset;
+                        }
+                    },
+                    onScrollEnd: function() {
+                        if (pullDownEl.className.match('flip')) {
+                            pullDownEl.className = 'loading';
+                            pullDownEl.querySelector('.pullDownLabel').innerHTML = 'Loading...';
+                            pullDownAction();	// Execute custom function (ajax call?)
+                        } else if (pullUpEl.className.match('flip')) {
+                            pullUpEl.className = 'loading';
+                            pullUpEl.querySelector('.pullUpLabel').innerHTML = 'Loading...';
+                            pullUpAction();	// Execute custom function (ajax call?)
+                        }
+                    }
+                });
+                myScroll2 = new iScroll('wrapper2', {vScrollbar: false});
+                myScroll3 = new iScroll('wrapper3');
+            }
 
-        
+            document.addEventListener('touchmove', function(e) {
+                e.preventDefault();
+            }, false);
+            /* * * * * * * *
+             *
+             * Use this for high compatibility (iDevice + Android)
+             *
+             */
+            document.addEventListener('DOMContentLoaded', function() {
+                setTimeout(loaded, 200);
+            });
+
+            $(function() {
+                setTimeout(hideSplash, 2000);
+            });
+
+            function hideSplash() {
+                $.mobile.changePage("#loginPage", "fade");
+            }
+
+
+
+        </script>
+
+
 
     </head>
     <body>
-        <a href='#favsPage' id="favsClick" onclick="javascript:$('#favsPage').live('pageshow', function () { myScroll2.refresh();  });" data-transition="slide" ></a>
+        <a href='#favsPage' id="favsClick" onclick="javascript:$('#favsPage').live('pageshow', function() {
+                    myScroll2.refresh();
+                });" data-transition="slide" ></a>
         <a href='#loginPage' id="loginClick" data-transition="slide" ></a>
         <a href='#signUpPage' id="signClick" data-transition="slide" ></a>
         <a href='#homePage' id="homeClick" data-transition="slide" ></a>
         <a href='#myPage' id="myClick" data-transition="slide" ></a>
-        <a href='#loozePage' onclick="javascript:$('#loozePage').live('pageshow', function () { myScroll3.refresh();  });" id="loozeClick" data-transition="slide" ></a>
+        <a href='#loozePage' onclick="javascript:$('#loozePage').live('pageshow', function() {
+                    myScroll3.refresh();
+                });" id="loozeClick" data-transition="slide" ></a>
         <a href='#friendsPage' id="friendsClick" data-transition="slide" ></a>
-        
+
         <div data-role="page" class="page center" data-theme="d" id="splash" > 
-    <div class="splash" data-role="content">
-        <img src="images/logo.png" alt="splash" class="logo_image_splash" />
-    </div>
-</div>
-            <div data-role="page" style="background: transparent" class="page center"  id="loginPage" data-add-back-btn="false" >
-                <div data-theme="a" data-role="header">
-                  <h3>What are your plan's?</h3>
-                </div>
-                <div data-role="content">
-                   <div id="loginForm">
-                       <h3>Username:</h3>
-                        <input type="text" id="usernameInputField" /><br/>
+            <div class="splash" data-role="content">
+                <img src="images/logo.png" alt="splash" class="logo_image_splash" />
+            </div>
+        </div>
+        <div data-role="page" style="background: transparent" class="page center"  id="loginPage" data-add-back-btn="false" >
+            <div data-theme="a" data-role="header">
+                <h3>What are your plan's?</h3>
+            </div>
+            <div data-role="content">
+                <div id="loginForm">
+                    <div id="userandpass">
+                        <h3>Username:</h3>
+                        <input type="text" id="usernameInputField" />
                         <h3>Password:</h3>
-                        <input type="password" id="passwordInputField" /><br/>    
-                        <input type="button" id="loginButton" value="Login" onclick="javascript:$('#homeClick').click();$('#homePage').live('pageshow', function () { myScroll.refresh(); });" />
-                        <input type="button" id="signUpButton" value="Sign Up" onclick="javascript:$('#signClick').click();loaded();" />
+                        <input type="password" id="passwordInputField" /><br/>
                     </div>
+                    <input type="button" id="loginButton" value="Login" onclick="javascript:$('#homeClick').click();
+                $('#homePage').live('pageshow', function() {
+                    myScroll.refresh();
+                });" />
+                    <input type="button" id="signUpButton" value="Sign Up" onclick="javascript:$('#signClick').click();
+                loaded();" />
                 </div>
-                <div data-role="footer">
-                    <div class="logo">
+            </div>
+            <div data-role="footer">
+                <div class="logo">
                     <img src="images/logo.png" class="logo_image"/>
                 </div>
-              </div>
             </div>
-        
+        </div>
+
         <div data-role="page" style="background: transparent" class="page center" id="signUpPage">
-                <div data-theme="a" data-role="header">
-                  <h3>Enter your details</h3>
+            <div data-theme="a" data-role="header">
+                <h3>Enter your details</h3>
+            </div>
+            <div data-role="content">
+                <div id="signUpForm">
+                    <h3>Username:</h3>
+                    <input type="text" id="usernameInputField2" /><br />
+                    <h3>Password:</h3>
+                    <input type="password" id="passwordInputField2" /><br/>
+                    <div data-role="fieldcontain">
+                        <label for="slider-3">Rank your sociality</label>
+                        <input type="range" name="slider-3" id="slider-3" value="25" min="0" max="100" data-theme="a" data-track-theme="b" />
+                    </div>
+                    <input type="button" id="signUpButtonNow" value="Sign Up!" onclick="javascript:$('#homeClick').click();
+                $('#homePage').live('pageshow', function() {
+                    myScroll.refresh();
+                });" />
                 </div>
-                <div data-role="content">
-                   <div id="signUpForm">
-                       <h3>Username:</h3>
-                        <input type="text" id="usernameInputField2" /><br />
-                        <h3>Password:</h3>
-                        <input type="password" id="passwordInputField2" /><br/>
-                        <div data-role="fieldcontain">
-                            <label for="slider-3">Rank your sociality</label>
-                            <input type="range" name="slider-3" id="slider-3" value="25" min="0" max="100" data-theme="a" data-track-theme="b" />
+            </div>
+            <div data-role="footer">
+                <div class="logo">
+                    <img src="images/logo.png" class="logo_image"/>
+                </div>
+            </div>
+        </div>
+
+        <div id="homePage" class="page center" style="background: transparent" data-role="page">
+            <div id="fader" >
+
+            </div>
+            <div id="hiddendiv" style="display: none;"> <input type="submit"/></div>
+            <div class="inputloze">
+                <div id="whatupto" class="lozeabove"><input type="search" id="whatuptos" name="whatuptos" placeholder="What are you up to?" data-theme="a" /></div>
+                <div class="lozedowna">
+                    <input type="search" name="whenupto" id="whenupto" placeholder="5 more min" data-theme="a" /></div><div class="lozedownb">
+                    <input type="search" name="whosinto" id="whoisinto" placeholder="Who's in" data-theme="a" /></div><div class="lozedownc">
+                    <input type="search" name="whereat" id="whereat" placeholder="Where at?" data-theme="a" />
+                </div>
+                <span class="loozedownbtn"> <a href="#" data-role="button" data-inline="true"   data-theme="a">Private</a>
+                    <a href="#" data-role="button" data-inline="true"   data-theme="a">Public</a>
+                    <a href="#" data-role="button" data-inline="true"   data-theme="a">Secret</a>
+                    <a id="loozeItbtn" href="#" data-role="button" data-inline="true"   data-theme="b">Looze it!</a>
+                </span>
+            </div>
+            <div class="goesUp">    
+                <div  data-role="content">   
+                    <div id="wrapper1" class="wrapperStyle">
+                        <div class="scroller">
+                            <div id="pullDown">
+                                <span class="pullDownIcon"></span><span class="pullDownLabel">Pull down to refresh...</span>
+                            </div>
+                            <ul id="thelist">
+                                <li >    
+                                    <div class="event">
+                                        <a id="clicklink" href="#favsPage" data-transition="slide">
+                                            <img class="avatar" src="images/avatar.jpg"  />
+                                        </a>   
+
+                                        <img class="location" src="images/location.png"  />
+                                        <img class="time" src="images/time.png"  />
+                                        <h2>Business diner</h2>
+                                        <h1>Dov airport, Tel Aviv</h1>
+                                        <span class="time">20:40</span>
+                                    </div>
+                                    <div class="eventinfo">
+                                        <h2>Who's in?</h2>
+                                        <div class="whosin">
+                                            <table><tr>
+                                                    <td><img class="avain" src="images/avatar.jpg"  /></td>
+                                                    <td><img class="avain" src="images/avatar1.jpg"  /></td>
+                                                    <td><img class="avain" src="images/avatar2.jpg"  /></td>
+                                                    <td><img class="avain" src="images/avatar4.jpg"  /></td>
+                                                </tr>
+                                            </table>
+                                            <a href="#" data-role="button" data-inline="true"  data-theme="a">Join</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li ><div class="event"><img class="avatar" src="images/avatar1.jpg"  />
+                                        <img class="location" src="images/location.png"  />
+                                        <img class="time" src="images/time.png"  />
+                                        <h2>Business diner</h2>
+                                        <h1>Dov airport, Tel Aviv</h1>
+                                        <span class="time">20:40</span>
+                                    </div>
+                                    <div class="eventinfo">
+                                        <h2>Who's in?</h2> 
+                                        <div class="whosin">
+                                            <table><tr>
+                                                    <td><img class="avain" src="images/avatar.jpg"  /></td>
+                                                </tr>
+                                            </table>
+                                            <a href="#" data-role="button" data-inline="true"   data-theme="a">Join</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li ><div class="event"><img class="avatar" src="images/avatar2.jpg"  />
+                                        <img class="location" src="images/location.png"  />
+                                        <img class="time" src="images/time.png"  />
+                                        <h2>Tennis game</h2>
+                                        <h1>Dov airport, Tel Aviv</h1>
+                                        <span class="time">20:40</span>
+                                    </div>
+                                    <div class="eventinfo">
+                                        <h2>Who's in?</h2>
+                                        <div class="whosin">
+                                            <table><tr>
+                                                    <td><img class="avain" src="images/avatar1.jpg"  /></td>
+                                                </tr>
+                                            </table>
+                                            <a href="#" data-role="button" data-inline="true"   data-theme="a">Join</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li ><div class="event"><img class="avatar" src="images/avatar3.jpg"  />
+                                        <img class="location" src="images/location.png"  />
+                                        <img class="time" src="images/time.png"  />
+                                        <h2>Watch a movie</h2>
+                                        <h1>Dov airport, Tel Aviv</h1>
+                                        <span class="time">20:40</span>
+                                    </div>
+                                    <div class="eventinfo">
+                                        <h2>Who's in?</h2> 
+                                        <div class="whosin">
+                                            <table><tr>
+                                                    <td><img class="avain" src="images/avatar.jpg"  /></td>
+                                                    <td><img class="avain" src="images/avatar1.jpg"  /></td>
+                                                    <td><img class="avain" src="images/avatar2.jpg"  /></td>
+                                                    <td><img class="avain" src="images/avatar4.jpg"  /></td>
+                                                </tr>
+                                            </table>
+                                            <a href="#" data-role="button" data-inline="true"   data-theme="a">Join</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li ><div class="event"><img class="avatar" src="images/avatar4.jpg"  />
+                                        <img class="location" src="images/location.png"  />
+                                        <img class="time" src="images/time.png"  />
+                                        <h2>Pimping...</h2>
+                                        <h1>Dov airport, Tel Aviv</h1>
+                                        <span class="time">20:40</span>
+                                    </div>
+                                    <div class="eventinfo">
+                                        <h2>Who's in?</h2> 
+                                        <div class="whosin">
+                                            <table><tr>
+                                                    <td><img class="avain" src="images/avatar.jpg"  /></td>
+                                                    <td><img class="avain" src="images/avatar2.jpg"  /></td>
+                                                    <td><img class="avain" src="images/avatar3.jpg"  /></td>
+                                                    <td><img class="avain" src="images/avatar4.jpg"  /></td>
+                                                </tr>
+                                            </table>
+                                            <a href="#" data-role="button" data-inline="true"   data-theme="a">Join</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li ><div class="event"><img class="avatar" src="images/avatar5.jpg"  />
+                                        <img class="location" src="images/location.png"  />
+                                        <img class="time" src="images/time.png"  />
+                                        <h2>Going for shopping</h2>
+                                        <h1>Dov airport, Tel Aviv</h1>
+                                        <span class="time">20:40</span>
+                                    </div>
+                                    <div class="eventinfo">
+                                        <h2>Who's in?</h2> 
+                                        <div class="whosin">
+                                            <table><tr>
+                                                    <td><img class="avain" src="images/avatar.jpg"  /></td>
+                                                    <td><img class="avain" src="images/avatar1.jpg"  /></td>
+                                                    <td><img class="avain" src="images/avatar2.jpg"  /></td>
+                                                    <td><img class="avain" src="images/avatar3.jpg"  /></td>
+                                                    <td><img class="avain" src="images/avatar4.jpg"  /></td>
+                                                </tr>
+                                            </table>
+                                            <a href="#" data-role="button" data-inline="true"   data-theme="a">Join</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li ><div class="event"><img class="avatar" src="images/avatar.jpg"  />
+                                        <img class="location" src="images/location.png"  />
+                                        <img class="time" src="images/time.png"  />
+                                        <h2>Soccer game</h2>
+                                        <h1>Dov airport, Tel Aviv</h1>
+                                        <span class="time">20:40</span>
+                                    </div>
+                                    <div class="eventinfo">
+                                        <h2>Who's in?</h2> 
+                                        <div class="whosin">
+                                            <table><tr>
+                                                    <td><img class="avain" src="images/avatar2.jpg"  /></td>
+                                                    <td><img class="avain" src="images/avatar4.jpg"  /></td>
+                                                </tr>
+                                            </table>
+                                            <a href="#" data-role="button" data-inline="true"   data-theme="a">Join</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li ><div class="event"><img class="avatar" src="images/avatar.jpg"  />
+                                        <img class="location" src="images/location.png"  />
+                                        <img class="time" src="images/time.png"  />
+                                        <h2>Business diner</h2>
+                                        <h1>Dov airport, Tel Aviv</h1>
+                                        <span class="time">20:40</span>
+                                    </div>
+                                    <div class="eventinfo">
+                                        <h2>Who's in?</h2> 
+                                        <div class="whosin">
+                                            <table><tr>
+                                                    <td><img class="avain" src="images/avatar.jpg"  /></td>
+                                                </tr>
+                                            </table>
+                                            <a href="#" data-role="button" data-inline="true"   data-theme="a">Join</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li ><div class="event"><img class="avatar" src="images/avatar.jpg"  />
+                                        <img class="location" src="images/location.png"  />
+                                        <img class="time" src="images/time.png"  />
+                                        <h2>Business diner</h2>
+                                        <h1>Dov airport, Tel Aviv</h1>
+                                        <span class="time">20:40</span>
+                                    </div>
+                                    <div class="eventinfo">
+                                        <h2>Who's in?</h2> 
+                                        <div class="whosin">
+                                            <table><tr>
+                                                    <td><img class="avain" src="images/avatar2.jpg"  /></td>
+                                                    <td><img class="avain" src="images/avatar3.jpg"  /></td>
+                                                    <td><img class="avain" src="images/avatar4.jpg"  /></td>
+                                                </tr>
+                                            </table>
+                                            <a href="#" data-role="button" data-inline="true"   data-theme="a">Join</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div id="pullUp">
+                                <span class="pullUpIcon"></span><span class="pullUpLabel">Pull up to refresh...</span>
+                            </div>
                         </div>
-                        <input type="button" id="signUpButtonNow" value="Sign Up!" onclick="javascript:$('#homeClick').click();$('#homePage').live('pageshow', function () { myScroll.refresh(); });" />
                     </div>
                 </div>
                 <div data-role="footer">
                     <div class="logo">
-                    <img src="images/logo.png" class="logo_image"/>
+                        <img src="images/logo.png" class="logo_image"/>
+                    </div>
                 </div>
-              </div>
             </div>
-        
-          <div id="homePage" class="page center" style="background: transparent" data-role="page">
-              <div id="fader" >
-                  
-               </div>
-                <div id="hiddendiv" style="display: none;"> <input type="submit"/></div>
-              <div class="inputloze">
-                  <div id="whatupto" class="lozeabove"><input type="search" id="whatuptos" name="whatuptos" placeholder="What are you up to?" data-theme="a" /></div>
-                  <div class="lozedowna">
-                      <input type="search" name="whenupto" id="whenupto" placeholder="5 more min" data-theme="a" /></div><div class="lozedownb">
-                      <input type="search" name="whosinto" id="whoisinto" placeholder="Who's in" data-theme="a" /></div><div class="lozedownc">
-                      <input type="search" name="whereat" id="whereat" placeholder="Where at?" data-theme="a" />
-                  </div>
-                  <span class="loozedownbtn"> <a href="#" data-role="button" data-inline="true"   data-theme="a">Private</a>
-                       <a href="#" data-role="button" data-inline="true"   data-theme="a">Public</a>
-                        <a href="#" data-role="button" data-inline="true"   data-theme="a">Secret</a>
-                        <a id="loozeItbtn" href="#" data-role="button" data-inline="true"   data-theme="b">Looze it!</a>
-                  </span>
-              </div>
-                 <div class="goesUp">    
-              <div  data-role="content">   
-          <div id="wrapper1" class="wrapperStyle">
-           <div class="scroller">
-               <div id="pullDown">
-			<span class="pullDownIcon"></span><span class="pullDownLabel">Pull down to refresh...</span>
-		</div>
-		<ul id="thelist">
-                    <li >    
-                        <div class="event">
-                            <a id="clicklink" href="#favsPage" data-transition="slide">
-                            <img class="avatar" src="images/avatar.jpg"  />
-                            </a>   
-                            
-                        <img class="location" src="images/location.png"  />
-                        <img class="time" src="images/time.png"  />
-                        <h2>Business diner</h2>
-                        <h1>Dov airport, Tel Aviv</h1>
-                        <span class="time">20:40</span>
-                        </div>
-                        <div class="eventinfo">
-                           <h2>Who's in?</h2>
-                           <div class="whosin">
-                               <table><tr>
-                                       <td><img class="avain" src="images/avatar.jpg"  /></td>
-                                       <td><img class="avain" src="images/avatar1.jpg"  /></td>
-                                       <td><img class="avain" src="images/avatar2.jpg"  /></td>
-                                       <td><img class="avain" src="images/avatar4.jpg"  /></td>
-                                   </tr>
-                               </table>
-                               <a href="#" data-role="button" data-inline="true"  data-theme="a">Join</a>
-                           </div>
-                        </div>
-                    </li>
-                     <li ><div class="event"><img class="avatar" src="images/avatar1.jpg"  />
-                        <img class="location" src="images/location.png"  />
-                        <img class="time" src="images/time.png"  />
-                        <h2>Business diner</h2>
-                        <h1>Dov airport, Tel Aviv</h1>
-                        <span class="time">20:40</span>
-                        </div>
-                        <div class="eventinfo">
-                           <h2>Who's in?</h2> 
-                           <div class="whosin">
-                               <table><tr>
-                                       <td><img class="avain" src="images/avatar.jpg"  /></td>
-                                   </tr>
-                               </table>
-                               <a href="#" data-role="button" data-inline="true"   data-theme="a">Join</a>
-                           </div>
-                        </div>
-                    </li>
-                     <li ><div class="event"><img class="avatar" src="images/avatar2.jpg"  />
-                        <img class="location" src="images/location.png"  />
-                        <img class="time" src="images/time.png"  />
-                        <h2>Tennis game</h2>
-                        <h1>Dov airport, Tel Aviv</h1>
-                        <span class="time">20:40</span>
-                        </div>
-                        <div class="eventinfo">
-                           <h2>Who's in?</h2>
-                           <div class="whosin">
-                               <table><tr>
-                                       <td><img class="avain" src="images/avatar1.jpg"  /></td>
-                                   </tr>
-                               </table>
-                               <a href="#" data-role="button" data-inline="true"   data-theme="a">Join</a>
-                           </div>
-                        </div>
-                    </li>
-                     <li ><div class="event"><img class="avatar" src="images/avatar3.jpg"  />
-                        <img class="location" src="images/location.png"  />
-                        <img class="time" src="images/time.png"  />
-                        <h2>Watch a movie</h2>
-                        <h1>Dov airport, Tel Aviv</h1>
-                        <span class="time">20:40</span>
-                        </div>
-                        <div class="eventinfo">
-                           <h2>Who's in?</h2> 
-                           <div class="whosin">
-                               <table><tr>
-                                       <td><img class="avain" src="images/avatar.jpg"  /></td>
-                                       <td><img class="avain" src="images/avatar1.jpg"  /></td>
-                                       <td><img class="avain" src="images/avatar2.jpg"  /></td>
-                                       <td><img class="avain" src="images/avatar4.jpg"  /></td>
-                                   </tr>
-                               </table>
-                               <a href="#" data-role="button" data-inline="true"   data-theme="a">Join</a>
-                           </div>
-                        </div>
-                    </li>
-                     <li ><div class="event"><img class="avatar" src="images/avatar4.jpg"  />
-                        <img class="location" src="images/location.png"  />
-                        <img class="time" src="images/time.png"  />
-                        <h2>Pimping...</h2>
-                        <h1>Dov airport, Tel Aviv</h1>
-                        <span class="time">20:40</span>
-                        </div>
-                        <div class="eventinfo">
-                           <h2>Who's in?</h2> 
-                           <div class="whosin">
-                               <table><tr>
-                                       <td><img class="avain" src="images/avatar.jpg"  /></td>
-                                       <td><img class="avain" src="images/avatar2.jpg"  /></td>
-                                       <td><img class="avain" src="images/avatar3.jpg"  /></td>
-                                       <td><img class="avain" src="images/avatar4.jpg"  /></td>
-                                   </tr>
-                               </table>
-                               <a href="#" data-role="button" data-inline="true"   data-theme="a">Join</a>
-                           </div>
-                        </div>
-                    </li>
-                     <li ><div class="event"><img class="avatar" src="images/avatar5.jpg"  />
-                        <img class="location" src="images/location.png"  />
-                        <img class="time" src="images/time.png"  />
-                        <h2>Going for shopping</h2>
-                        <h1>Dov airport, Tel Aviv</h1>
-                        <span class="time">20:40</span>
-                        </div>
-                        <div class="eventinfo">
-                           <h2>Who's in?</h2> 
-                           <div class="whosin">
-                               <table><tr>
-                                       <td><img class="avain" src="images/avatar.jpg"  /></td>
-                                       <td><img class="avain" src="images/avatar1.jpg"  /></td>
-                                       <td><img class="avain" src="images/avatar2.jpg"  /></td>
-                                       <td><img class="avain" src="images/avatar3.jpg"  /></td>
-                                       <td><img class="avain" src="images/avatar4.jpg"  /></td>
-                                   </tr>
-                               </table>
-                               <a href="#" data-role="button" data-inline="true"   data-theme="a">Join</a>
-                           </div>
-                        </div>
-                    </li>
-                     <li ><div class="event"><img class="avatar" src="images/avatar.jpg"  />
-                        <img class="location" src="images/location.png"  />
-                        <img class="time" src="images/time.png"  />
-                        <h2>Soccer game</h2>
-                        <h1>Dov airport, Tel Aviv</h1>
-                        <span class="time">20:40</span>
-                        </div>
-                        <div class="eventinfo">
-                           <h2>Who's in?</h2> 
-                           <div class="whosin">
-                               <table><tr>
-                                       <td><img class="avain" src="images/avatar2.jpg"  /></td>
-                                       <td><img class="avain" src="images/avatar4.jpg"  /></td>
-                                   </tr>
-                               </table>
-                               <a href="#" data-role="button" data-inline="true"   data-theme="a">Join</a>
-                           </div>
-                        </div>
-                    </li>
-                     <li ><div class="event"><img class="avatar" src="images/avatar.jpg"  />
-                        <img class="location" src="images/location.png"  />
-                        <img class="time" src="images/time.png"  />
-                        <h2>Business diner</h2>
-                        <h1>Dov airport, Tel Aviv</h1>
-                        <span class="time">20:40</span>
-                        </div>
-                        <div class="eventinfo">
-                           <h2>Who's in?</h2> 
-                           <div class="whosin">
-                               <table><tr>
-                                       <td><img class="avain" src="images/avatar.jpg"  /></td>
-                                   </tr>
-                               </table>
-                               <a href="#" data-role="button" data-inline="true"   data-theme="a">Join</a>
-                           </div>
-                        </div>
-                    </li>
-                     <li ><div class="event"><img class="avatar" src="images/avatar.jpg"  />
-                        <img class="location" src="images/location.png"  />
-                        <img class="time" src="images/time.png"  />
-                        <h2>Business diner</h2>
-                        <h1>Dov airport, Tel Aviv</h1>
-                        <span class="time">20:40</span>
-                        </div>
-                        <div class="eventinfo">
-                           <h2>Who's in?</h2> 
-                           <div class="whosin">
-                               <table><tr>
-                                       <td><img class="avain" src="images/avatar2.jpg"  /></td>
-                                       <td><img class="avain" src="images/avatar3.jpg"  /></td>
-                                       <td><img class="avain" src="images/avatar4.jpg"  /></td>
-                                   </tr>
-                               </table>
-                               <a href="#" data-role="button" data-inline="true"   data-theme="a">Join</a>
-                           </div>
-                        </div>
-                    </li>
-		</ul>
-               <div id="pullUp">
-			<span class="pullUpIcon"></span><span class="pullUpLabel">Pull up to refresh...</span>
-		</div>
-	</div>
-          </div>
-              </div>
-           <div data-role="footer">
-            <div class="logo">
-                <img src="images/logo.png" class="logo_image"/>
+            <div class="menu" >      
+                <div class="menuButton">
+                    <a href="javascript:downAndSlide('#homeClick');">
+                        <img src="images/list_btn.png"  />
+                    </a>
+                </div>
+                <div class="menuButton">
+                    <a href="javascript:downAndSlide('#favsClick');">
+                        <img src="images/heart_btn.png"  />
+                    </a>
+                </div>
+                <div class="menuButton">
+                    <a href="javascript:downAndSlide('#myClick');">
+                        <img src="images/me_btn.png"  />
+                    </a>
+                </div>
+                <div class="menuButton">
+                    <a href="javascript:downAndSlide('#loozeClick');">
+                        <img src="images/time_btn.png"  />
+                    </a>
+                </div>
+                <div class="menuButton">
+                    <a href="javascript:downAndSlide('#friendsClick');">
+                        <img src="images/friends_btn.png" />
+                    </a>
+                </div>
+                <input type="search" name="search-mini"  value="" data-mini="true"/>
             </div>
-           </div>
-          </div>
-         <div class="menu" >      
-            <div class="menuButton">
-                <a href="javascript:downAndSlide('#homeClick');">
-                <img src="images/list_btn.png"  />
-                </a>
-            </div>
-            <div class="menuButton">
-                <a href="javascript:downAndSlide('#favsClick');">
-                    <img src="images/heart_btn.png"  />
-                </a>
-            </div>
-            <div class="menuButton">
-                <a href="javascript:downAndSlide('#myClick');">
-                <img src="images/me_btn.png"  />
-                </a>
-               </div>
-            <div class="menuButton">
-                <a href="javascript:downAndSlide('#loozeClick');">
-                <img src="images/time_btn.png"  />
-                </a>
-            </div>
-            <div class="menuButton">
-                <a href="javascript:downAndSlide('#friendsClick');">
-                <img src="images/friends_btn.png" />
-                </a>
-            </div>
-                  <input type="search" name="search-mini"  value="" data-mini="true"/>
-            </div>
-           </div>
-        
+        </div>
+
         <div id="favsPage" class="page center"  style="background-color: blueviolet" data-role="page">
             <div class="goesUp">
-            <div data-role="content">
-                <div id="wrapper2" class="wrapperStyle">
-                <div class="scroller2">
-		<ul id="thelist2" data-role="listview" data-theme="a">
-                    <li data-icon="arrow-f">    
-                        <a href="#"><div><span class="who">me</span> just created Business dinner event on 12:00</div></a>
-                    </li>
-                    <li data-icon="myapp-list">
-                        <a href="#"><div><span class="who">Elad Levy</span> just joined Watching Movie with <span class="who">Idit Goldenberg</span></div></a>
-                    </li>
-                    <li data-icon="myapp-list">
-                        <a href="#"><span class="who">Roy Reuveni</span> just created Pimping</a>
-                    </li>
-                    <li data-icon="arrow-f">    
-                        <a href="#"><div><span class="who">Yael Berger</span> just created Going for shopping on 20:40</div></a>
-                    </li>
-                    <li data-icon="myapp-list"> 
-                        <a href="#"><div><span class="who">Idit Goldenber</span> just joined Going for shopping with <span class="who">Yael Berger</span></div></a>
-                    </li>
-                    <li data-icon="arrow-f">    
-                        <a href="#"><div><span class="who">Roy Reuveni</span> just created Pimping</div></a>
-                    </li>
-                    <li data-icon="arrow-f">    
-                        <a href="#"><div><span class="who">Yael Berger</span> just created Going for shopping on 20:40</div></a>
-                    </li>
-                    <li data-icon="myapp-list">
-                        <a href="#"><div><span class="who">Idit Goldenberg</span> just joined Going for shopping with <span class="who">Yael Berger</span></div></a>
-                    </li>
-                    <li data-icon="arrow-f">    
-                        <a href="#"><div><span class="who">me</span> just created Business dinner event on 12:00</div></a>
-                    </li>
-                    <li data-icon="arrow-f">    
-                        <a href="#"><div><span class="who">Elad Levy</span> just joined Watching Movie with <span class="who">Idit Goldenberg</span></div></a>
-                    </li>
-                    <li data-icon="myapp-list">
-                        <a href="#"><span class="who">Roy Reuveni</span> just created Pimping</a>
-                    </li>
-                    <li data-icon="arrow-f">    
-                        <a href="#"><div><span class="who">Yael Berger</span> just created Going for shopping on 20:40</div></a>
-                    </li>
-                </ul>
-                </div>
-            </div>
-            </div>
-            <div data-role="footer">
-            <div class="logo">
-                <img src="images/logo.png" class="logo_image"/>
-            </div>
-           </div>
-                </div>
-                <div class="menu" >      
-            <div class="menuButton">
-                <a href="javascript:downAndSlide('#homeClick');">
-                <img src="images/list_btn.png"  />
-                </a>
-            </div>
-            <div class="menuButton">
-                <a href="javascript:downAndSlide('#favsClick');">
-                    <img src="images/heart_btn.png"  />
-                </a>
-            </div>
-            <div class="menuButton">
-                <a href="javascript:downAndSlide('#myClick');">
-                <img src="images/me_btn.png"  />
-                </a>
-               </div>
-            <div class="menuButton">
-                <a href="javascript:downAndSlide('#loozeClick');">
-                <img src="images/time_btn.png"  />
-                </a>
-            </div>
-            <div class="menuButton">
-                <a href="javascript:downAndSlide('#friendsClick');">
-                <img src="images/friends_btn.png" />
-                </a>
-            </div>
-                    <input type="search" name="search-mini" value="" data-mini="true" />
-            </div>
-                
-           </div>
-        
-        <div id="myPage" class="page center" data-role="page">
-             <div class="goesUp">
-            <div data-role="content">
-                <div class="wrapperStyle">
-               
-                <div class="profilePic">
-                    <a href="#">
-                        <img src="images/avatar.jpg"  />
-                    </a>
-                     <p>Enter your name and add a profile picture</p>
-               </div>
-                
-                <div id="userName">     
-                    <input type="text" name="name" id="basic" value="Maayan Hadar" data-mini="true"/>
-                    <P>Connect with Facebook to see your friends in Balooze </p>
-                    <a href="#" data-role="button" data-icon="facebook">Login With Facebook</a>
-                    
-                </div>
-            </div>
-            </div>
-            <div data-role="footer">
-            <div class="logo">
-                <img src="images/logo.png" class="logo_image"/>
-            </div>
-           </div>
-                </div>
-                <div class="menu" >      
-            <div class="menuButton">
-                <a href="javascript:downAndSlide('#homeClick');">
-                <img src="images/list_btn.png"  />
-                </a>
-            </div>
-            <div class="menuButton">
-                <a href="javascript:downAndSlide('#favsClick');">
-                    <img src="images/heart_btn.png"  />
-                </a>
-            </div>
-            <div class="menuButton">
-                <a href="javascript:downAndSlide('#myClick');">
-                <img src="images/me_btn.png"  />
-                </a>
-               </div>
-            <div class="menuButton">
-                <a href="javascript:downAndSlide('#loozeClick');">
-                <img src="images/time_btn.png"  />
-                </a>
-            </div>
-            <div class="menuButton">
-                <a href="javascript:downAndSlide('#friendsClick');">
-                <img src="images/friends_btn.png" />
-                </a>
-            </div>
-                    <input type="search" name="search-mini" class="search-mini" value="" data-mini="true" />
-            </div>
-              
-           </div>
-        <div id="loozePage" class="page center" data-role="page">
-                 <div class="goesUp">
-            <div data-role="content">
-                <div id="wrapper3" class="wrapperStyle">
-                    <div id="myLooze" class="scroller">
-                        
-                        <div class="box"></div><span class="time">6:00</span>
-                        <div class="box"></div><span class="time">7:00</span>
-                        <div class="box">
-                            <div class="schedEvent">
-                            <img class="avatar" src="images/avatar4.jpg"  />
-                            <img class="location" src="images/time_btn.png"  />
-                            <h2>Tennis Game!</h2>
-                            <h1>Hayarkon, Tel Aviv</h1> 
+                <div data-role="content">
+                    <div id="wrapper2" class="wrapperStyle">
+                        <div class="scroller2">
+                            <ul id="thelist2" data-role="listview" data-theme="a">
+                                <li data-icon="arrow-f">    
+                                    <a href="#"><div><span class="who">me</span> just created Business dinner event on 12:00</div></a>
+                                </li>
+                                <li data-icon="myapp-list">
+                                    <a href="#"><div><span class="who">Elad Levy</span> just joined Watching Movie with <span class="who">Idit Goldenberg</span></div></a>
+                                </li>
+                                <li data-icon="myapp-list">
+                                    <a href="#"><span class="who">Roy Reuveni</span> just created Pimping</a>
+                                </li>
+                                <li data-icon="arrow-f">    
+                                    <a href="#"><div><span class="who">Yael Berger</span> just created Going for shopping on 20:40</div></a>
+                                </li>
+                                <li data-icon="myapp-list"> 
+                                    <a href="#"><div><span class="who">Idit Goldenber</span> just joined Going for shopping with <span class="who">Yael Berger</span></div></a>
+                                </li>
+                                <li data-icon="arrow-f">    
+                                    <a href="#"><div><span class="who">Roy Reuveni</span> just created Pimping</div></a>
+                                </li>
+                                <li data-icon="arrow-f">    
+                                    <a href="#"><div><span class="who">Yael Berger</span> just created Going for shopping on 20:40</div></a>
+                                </li>
+                                <li data-icon="myapp-list">
+                                    <a href="#"><div><span class="who">Idit Goldenberg</span> just joined Going for shopping with <span class="who">Yael Berger</span></div></a>
+                                </li>
+                                <li data-icon="arrow-f">    
+                                    <a href="#"><div><span class="who">me</span> just created Business dinner event on 12:00</div></a>
+                                </li>
+                                <li data-icon="arrow-f">    
+                                    <a href="#"><div><span class="who">Elad Levy</span> just joined Watching Movie with <span class="who">Idit Goldenberg</span></div></a>
+                                </li>
+                                <li data-icon="myapp-list">
+                                    <a href="#"><span class="who">Roy Reuveni</span> just created Pimping</a>
+                                </li>
+                                <li data-icon="arrow-f">    
+                                    <a href="#"><div><span class="who">Yael Berger</span> just created Going for shopping on 20:40</div></a>
+                                </li>
+                            </ul>
                         </div>
-                        </div><span class="time">8:00</span>
-                        <div class="box"></div><span class="time">9:00</span>
-                        <div class="box"></div><span class="time">10:00</span>
-                        <div class="box"></div><span class="time">11:00</span>
-                        <div class="box"></div><span class="time">12:00</span>
-                        <div class="box"><div class="schedEvent">
-                            <img class="avatar" src="images/avatar2.jpg"  />
-                            <img class="location" src="images/time_btn.png"  />
-                            <h2>Going for shopping</h2>
-                            <h1>Dov airport, Tel Aviv</h1> 
-                        </div></div><span class="time">13:00</span>
-                        <div class="box"></div><span class="time">14:00</span>
-                        <div class="box"></div><span class="time">15:00</span>
-                        <div class="box"></div><span class="time">16:00</span>
-                        <div class="box"></div><span class="time">17:00</span>
-                        <div class="box"></div><span class="time">18:00</span>
-                        <div class="box"></div><span class="time">19:00</span>
-                        <div class="box"> <div class="schedEvent">
-                            <img class="avatar" src="images/avatar3.jpg"  />
-                            <img class="location" src="images/time_btn.png"  />
-                            <h2>Movie night</h2>
-                            <h1>Dov airport, Tel Aviv</h1> 
-                        </div></div><span class="time">20:00</span>
-                        <div class="box"></div><span class="time">21:00</span>
-                        <div class="box"></div><span class="time">22:00</span>
-                        <div class="box"></div><span class="time">23:00</span>
-                        <div class="box"></div><span class="time">24:00</span>
-                        <div class="box"></div>
-                        
+                    </div>
+                </div>
+                <div data-role="footer">
+                    <div class="logo">
+                        <img src="images/logo.png" class="logo_image"/>
                     </div>
                 </div>
             </div>
-            <div data-role="footer">
-            <div class="logo">
-                <img src="images/logo.png" class="logo_image"/>
-            </div>
-           </div>
+            <div class="menu" >      
+                <div class="menuButton">
+                    <a href="javascript:downAndSlide('#homeClick');">
+                        <img src="images/list_btn.png"  />
+                    </a>
                 </div>
-                <div class="menu" >      
-            <div class="menuButton">
-                <a href="javascript:downAndSlide('#homeClick');">
-                <img src="images/list_btn.png"  />
-                </a>
+                <div class="menuButton">
+                    <a href="javascript:downAndSlide('#favsClick');">
+                        <img src="images/heart_btn.png"  />
+                    </a>
+                </div>
+                <div class="menuButton">
+                    <a href="javascript:downAndSlide('#myClick');">
+                        <img src="images/me_btn.png"  />
+                    </a>
+                </div>
+                <div class="menuButton">
+                    <a href="javascript:downAndSlide('#loozeClick');">
+                        <img src="images/time_btn.png"  />
+                    </a>
+                </div>
+                <div class="menuButton">
+                    <a href="javascript:downAndSlide('#friendsClick');">
+                        <img src="images/friends_btn.png" />
+                    </a>
+                </div>
+                <input type="search" name="search-mini" value="" data-mini="true" />
             </div>
-            <div class="menuButton">
-                <a href="javascript:downAndSlide('#favsClick');">
-                    <img src="images/heart_btn.png"  />
-                </a>
-            </div>
-            <div class="menuButton">
-                <a href="javascript:downAndSlide('#myClick');">
-                <img src="images/me_btn.png"  />
-                </a>
-               </div>
-            <div class="menuButton">
-                <a href="javascript:downAndSlide('#loozeClick');">
-                <img src="images/time_btn.png"  />
-                </a>
-            </div>
-            <div class="menuButton">
-                <a href="javascript:downAndSlide('#friendsClick');">
-                <img src="images/friends_btn.png" />
-                </a>
-            </div>
-                    <input type="search" name="search-mini" value="" data-mini="true" />
-            </div>
-           </div>
-         <div id="friendsPage" class="page center" data-role="page">
-                <div class="goesUp">
-            <div data-role="content">
-                <div  class="wrapperStyle">
-                <h1>Page 5</h1>
+
+        </div>
+
+        <div id="myPage" class="page center" data-role="page">
+            <div class="goesUp">
+                <div data-role="content">
+                    <div class="wrapperStyle">
+
+                        <div class="profilePic">
+                            <a href="#">
+                                <img src="images/avatar.jpg"  />
+                            </a>
+                            <p>Enter your name and add a profile picture</p>
+                        </div>
+
+                        <div id="userName">     
+                            <input type="text" name="name" id="basic" value="Maayan Hadar" data-mini="true"/>
+                            <P>Connect with Facebook to see your friends in Balooze </p>
+                            <a href="#" data-role="button" data-icon="facebook">Login With Facebook</a>
+
+                        </div>
+                    </div>
+                </div>
+                <div data-role="footer">
+                    <div class="logo">
+                        <img src="images/logo.png" class="logo_image"/>
+                    </div>
                 </div>
             </div>
-            <div data-role="footer">
-            <div class="logo">
-                <img src="images/logo.png" class="logo_image"/>
-            </div>
-           </div>
+            <div class="menu" >      
+                <div class="menuButton">
+                    <a href="javascript:downAndSlide('#homeClick');">
+                        <img src="images/list_btn.png"  />
+                    </a>
                 </div>
-                <div class="menu" >      
-            <div class="menuButton">
-                <a href="javascript:downAndSlide('#homeClick');">
-                <img src="images/list_btn.png"  />
-                </a>
+                <div class="menuButton">
+                    <a href="javascript:downAndSlide('#favsClick');">
+                        <img src="images/heart_btn.png"  />
+                    </a>
+                </div>
+                <div class="menuButton">
+                    <a href="javascript:downAndSlide('#myClick');">
+                        <img src="images/me_btn.png"  />
+                    </a>
+                </div>
+                <div class="menuButton">
+                    <a href="javascript:downAndSlide('#loozeClick');">
+                        <img src="images/time_btn.png"  />
+                    </a>
+                </div>
+                <div class="menuButton">
+                    <a href="javascript:downAndSlide('#friendsClick');">
+                        <img src="images/friends_btn.png" />
+                    </a>
+                </div>
+                <input type="search" name="search-mini" class="search-mini" value="" data-mini="true" />
             </div>
-            <div class="menuButton">
-                <a href="javascript:downAndSlide('#favsClick');">
-                    <img src="images/heart_btn.png"  />
-                </a>
+
+        </div>
+        <div id="loozePage" class="page center" data-role="page">
+            <div class="goesUp">
+                <div data-role="content">
+                    <div id="wrapper3" class="wrapperStyle">
+                        <div id="myLooze" class="scroller">
+
+                            <div class="box"></div><span class="time">6:00</span>
+                            <div class="box"></div><span class="time">7:00</span>
+                            <div class="box">
+                                <div class="schedEvent">
+                                    <img class="avatar" src="images/avatar4.jpg"  />
+                                    <img class="location" src="images/time_btn.png"  />
+                                    <h2>Tennis Game!</h2>
+                                    <h1>Hayarkon, Tel Aviv</h1> 
+                                </div>
+                            </div><span class="time">8:00</span>
+                            <div class="box"></div><span class="time">9:00</span>
+                            <div class="box"></div><span class="time">10:00</span>
+                            <div class="box"></div><span class="time">11:00</span>
+                            <div class="box"></div><span class="time">12:00</span>
+                            <div class="box"><div class="schedEvent">
+                                    <img class="avatar" src="images/avatar2.jpg"  />
+                                    <img class="location" src="images/time_btn.png"  />
+                                    <h2>Going for shopping</h2>
+                                    <h1>Dov airport, Tel Aviv</h1> 
+                                </div></div><span class="time">13:00</span>
+                            <div class="box"></div><span class="time">14:00</span>
+                            <div class="box"></div><span class="time">15:00</span>
+                            <div class="box"></div><span class="time">16:00</span>
+                            <div class="box"></div><span class="time">17:00</span>
+                            <div class="box"></div><span class="time">18:00</span>
+                            <div class="box"></div><span class="time">19:00</span>
+                            <div class="box"> <div class="schedEvent">
+                                    <img class="avatar" src="images/avatar3.jpg"  />
+                                    <img class="location" src="images/time_btn.png"  />
+                                    <h2>Movie night</h2>
+                                    <h1>Dov airport, Tel Aviv</h1> 
+                                </div></div><span class="time">20:00</span>
+                            <div class="box"></div><span class="time">21:00</span>
+                            <div class="box"></div><span class="time">22:00</span>
+                            <div class="box"></div><span class="time">23:00</span>
+                            <div class="box"></div><span class="time">24:00</span>
+                            <div class="box"></div>
+
+                        </div>
+                    </div>
+                </div>
+                <div data-role="footer">
+                    <div class="logo">
+                        <img src="images/logo.png" class="logo_image"/>
+                    </div>
+                </div>
             </div>
-            <div class="menuButton">
-                <a href="javascript:downAndSlide('#myClick');">
-                <img src="images/me_btn.png"  />
-                </a>
-               </div>
-            <div class="menuButton">
-                <a href="javascript:downAndSlide('#loozeClick');">
-                <img src="images/time_btn.png"  />
-                </a>
+            <div class="menu" >      
+                <div class="menuButton">
+                    <a href="javascript:downAndSlide('#homeClick');">
+                        <img src="images/list_btn.png"  />
+                    </a>
+                </div>
+                <div class="menuButton">
+                    <a href="javascript:downAndSlide('#favsClick');">
+                        <img src="images/heart_btn.png"  />
+                    </a>
+                </div>
+                <div class="menuButton">
+                    <a href="javascript:downAndSlide('#myClick');">
+                        <img src="images/me_btn.png"  />
+                    </a>
+                </div>
+                <div class="menuButton">
+                    <a href="javascript:downAndSlide('#loozeClick');">
+                        <img src="images/time_btn.png"  />
+                    </a>
+                </div>
+                <div class="menuButton">
+                    <a href="javascript:downAndSlide('#friendsClick');">
+                        <img src="images/friends_btn.png" />
+                    </a>
+                </div>
+                <input type="search" name="search-mini" value="" data-mini="true" />
             </div>
-            <div class="menuButton">
-                <a href="javascript:downAndSlide('#friendsClick');">
-                <img src="images/friends_btn.png" />
-                </a>
+        </div>
+        <div id="friendsPage" class="page center" data-role="page">
+            <div class="goesUp">
+                <div data-role="content">
+                    <div  class="wrapperStyle">
+                        <h1>Page 5</h1>
+                    </div>
+                </div>
+                <div data-role="footer">
+                    <div class="logo">
+                        <img src="images/logo.png" class="logo_image"/>
+                    </div>
+                </div>
             </div>
-                    <input type="search" name="search-mini" value="" data-mini="true" />
+            <div class="menu" >      
+                <div class="menuButton">
+                    <a href="javascript:downAndSlide('#homeClick');">
+                        <img src="images/list_btn.png"  />
+                    </a>
+                </div>
+                <div class="menuButton">
+                    <a href="javascript:downAndSlide('#favsClick');">
+                        <img src="images/heart_btn.png"  />
+                    </a>
+                </div>
+                <div class="menuButton">
+                    <a href="javascript:downAndSlide('#myClick');">
+                        <img src="images/me_btn.png"  />
+                    </a>
+                </div>
+                <div class="menuButton">
+                    <a href="javascript:downAndSlide('#loozeClick');">
+                        <img src="images/time_btn.png"  />
+                    </a>
+                </div>
+                <div class="menuButton">
+                    <a href="javascript:downAndSlide('#friendsClick');">
+                        <img src="images/friends_btn.png" />
+                    </a>
+                </div>
+                <input type="search" name="search-mini" value="" data-mini="true" />
             </div>
-           </div>
-        
+        </div>
+
         <script>
 
 
-var homePage = document.getElementById("homePage"),
-    friendsPage = document.getElementById("friendsPage"),
-    loozePage = document.getElementById("loozePage"),
-    myPage = document.getElementById("myPage"),
-    favsPage = document.getElementById("favsPage"),
-    currentPage = homePage;
-    
-    function downAndSlide(page) {
-        function makeAnimation(callback) {
-         var container = $( ".goesUp" );
-         var pageId = $.mobile.activePage[0].id;
-         
-        if(pageId === "homePage")
-           subContainer = $(container[0]);
-        if(pageId === "favsPage")
-            subContainer = $(container[1]);
-        if(pageId === "myPage")
-            subContainer = $(container[2]);
-        if(pageId === "loozePage")
-            subContainer = $(container[3]);
-        if(pageId === "friendsPage")
-            subContainer = $(container[4]);
-        
-        
-        subContainer.css('-webkit-transform', 'translate3d(0, 0, 0)');
-        return callback();
-        }
-        makeAnimation(function() {
-            $(page).click();
-        });
-        
-        
-        };
+            var homePage = document.getElementById("homePage"),
+                    friendsPage = document.getElementById("friendsPage"),
+                    loozePage = document.getElementById("loozePage"),
+                    myPage = document.getElementById("myPage"),
+                    favsPage = document.getElementById("favsPage"),
+                    currentPage = homePage;
 
-    function slidePageFrom(page) {
-        if(page === currentPage) {
-            return;
-        }
-        if(page.className === "page transition right" || page.className === "page right"){
-            page.className = "page right"
-            page.className ="page transition center";
-            
-            currentPage.className = "page transition " + "left" //(from === "left" ? "right" : "left");
-            currentPage = page;
-            return;
-        }
-        if(page.className === "page transition left" || page.className === "page left"){
-            page.className = "page left"
-            page.className ="page transition center";
-            
-            currentPage.className = "page transition " + "right" //(from === "left" ? "right" : "left");
-            currentPage = page;
-            return;
-        }
-    }
-    
-    
-</script>
+            function downAndSlide(page) {
+                function makeAnimation(callback) {
+                    var container = $(".goesUp");
+                    var pageId = $.mobile.activePage[0].id;
+
+                    if (pageId === "homePage")
+                        subContainer = $(container[0]);
+                    if (pageId === "favsPage")
+                        subContainer = $(container[1]);
+                    if (pageId === "myPage")
+                        subContainer = $(container[2]);
+                    if (pageId === "loozePage")
+                        subContainer = $(container[3]);
+                    if (pageId === "friendsPage")
+                        subContainer = $(container[4]);
+
+
+                    subContainer.css('-webkit-transform', 'translate3d(0, 0, 0)');
+                    return callback();
+                }
+                makeAnimation(function() {
+                    $(page).click();
+                });
+
+
+            };
+
+            function slidePageFrom(page) {
+                if (page === currentPage) {
+                    return;
+                }
+                if (page.className === "page transition right" || page.className === "page right") {
+                    page.className = "page right"
+                    page.className = "page transition center";
+
+                    currentPage.className = "page transition " + "left" //(from === "left" ? "right" : "left");
+                    currentPage = page;
+                    return;
+                }
+                if (page.className === "page transition left" || page.className === "page left") {
+                    page.className = "page left"
+                    page.className = "page transition center";
+
+                    currentPage.className = "page transition " + "right" //(from === "left" ? "right" : "left");
+                    currentPage = page;
+                    return;
+                }
+            }
+
+
+        </script>
     </body>
 </html>
