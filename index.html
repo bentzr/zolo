@@ -180,6 +180,7 @@
                 });
                 myScroll2 = new iScroll('wrapper2', {vScrollbar: false});
                 myScroll3 = new iScroll('wrapper3');
+                myScroll3 = new iScroll('wrapper4', {vScrollbar: false});
             }
 
             document.addEventListener('touchmove', function(e) {
@@ -757,7 +758,7 @@
         <div id="friendsPage" class="page center" data-role="page">
             <div class="goesUp">
                 <div data-role="content">
-		<div class="content-primary">	
+		<div id="wrapper4" class="wrapperStyle">
 		<ul data-role="listview" data-split-icon="gear" data-split-theme="a" data-theme="a">
 			<li><a href="index.html">
 				<img src="images/avatar.jpg" />
