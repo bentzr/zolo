@@ -180,7 +180,7 @@
                 });
                 myScroll2 = new iScroll('wrapper2', {vScrollbar: false});
                 myScroll3 = new iScroll('wrapper3');
-                myScroll3 = new iScroll('wrapper4', {vScrollbar: false});
+                myScroll4 = new iScroll('wrapper4', {vScrollbar: false});
             }
 
             document.addEventListener('touchmove', function(e) {
@@ -221,8 +221,9 @@
         <a href='#loozePage' onclick="javascript:$('#loozePage').live('pageshow', function() {
                     myScroll3.refresh();
                 });" id="loozeClick" data-transition="slide" ></a>
-        <a href='#friendsPage' id="friendsClick" data-transition="slide" ></a>
-
+        <a href='#friendsPage' onclick="javascript:$('#loozePage').live('pageshow', function() {
+                    myScroll4.refresh();
+                });" id="friendsClick" data-transition="slide" ></a>
         <div data-role="page" class="page center" data-theme="d" id="splash" > 
             <div class="splash" data-role="content">
                 <img src="images/logo.png" alt="splash" class="logo_image_splash" />
