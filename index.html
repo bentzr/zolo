@@ -89,7 +89,7 @@
         </script>
         <script type="text/javascript">
 
-            var listItem = '<li id="newli"><div class="event">                             <a id="clicklink" href="#favsPage" data-transition="slide">                             <img class="avatar" src="images/avatar.jpg"  />                             </a>                                                         <img class="location" src="images/location.png"  />                         <img class="time" src="images/time.png"  />                         <h2>Business diner</h2>                         <h1>Dov airport, Tel Aviv</h1>                         <span class="time">20:40</span>                         </div>                         <div class="eventinfo">                            <h2>Whos in?</h2>                            <div class="whosin">                                <table><tr>                                        <td><img class="avain" src="images/avatar.jpg"  /></td>                                        <td><img class="avain" src="images/avatar1.jpg"  /></td>                                        <td><img class="avain" src="images/avatar2.jpg"  /></td>                                        <td><img class="avain" src="images/avatar4.jpg"  /></td>                                    </tr>                                </table>                                <a href="#" data-role="button" data-inline="true" data-theme="a" class="ui-btn ui-btn-up-a ui-btn-inline ui-btn-corner-all ui-shadow"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Join</span></span></a>                           </div>                         </div></li>';
+            var listItem = '<li class="newli"><div class="event">                             <a id="clicklink" href="#favsPage" data-transition="slide">                             <img class="avatar" src="images/avatar.jpg"  />                             </a>                                                         <img class="location" src="images/location.png"  />                         <img class="time" src="images/time.png"  />                         <h2>Business diner</h2>                         <h1>Dov airport, Tel Aviv</h1>                         <span class="time">20:40</span>                         </div>                         <div class="eventinfo">                            <h2>Whos in?</h2>                            <div class="whosin">                                <table><tr>                                        <td><img class="avain" src="images/avatar.jpg"  /></td>                                        <td><img class="avain" src="images/avatar1.jpg"  /></td>                                        <td><img class="avain" src="images/avatar2.jpg"  /></td>                                        <td><img class="avain" src="images/avatar4.jpg"  /></td>                                    </tr>                                </table>                                <a href="#" data-role="button" data-inline="true" data-theme="a" class="ui-btn ui-btn-up-a ui-btn-inline ui-btn-corner-all ui-shadow"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Join</span></span></a>                           </div>                         </div></li>';
             var myScroll,
                     pullDownEl, pullDownOffset,
                     pullUpEl, pullUpOffset,
@@ -105,8 +105,8 @@
                         li.innerHTML = listItem;
                         //el.insertBefore(li, el.childNodes[0]);
                         $('#thelist').prepend(listItem)
-                        $("#newli").click(clickOnUl);
                     }
+                    $(".newli").click(clickOnUl);
                     myScroll.scrollTo(0, -300, 700)
                     myScroll.refresh();		// Remember to refresh when contents are loaded (ie: on ajax completion)
                 }, 1000);	// <-- Simulate network congestion, remove setTimeout from production!
@@ -122,8 +122,8 @@
                         li.innerHTML = listItem;
                         //el.appendChild(li, el.childNodes[0]);
                         $('#thelist').append(listItem)
-                        $("#newli").click(clickOnUl);
                     }
+                    $(".newli").click(clickOnUl);
                     myScroll.refresh();		// Remember to refresh when contents are loaded (ie: on ajax completion)
                 }, 1000);	// <-- Simulate network congestion, remove setTimeout from production!
             }
