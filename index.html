@@ -221,7 +221,7 @@
         <a href='#loozePage' onclick="javascript:$('#loozePage').live('pageshow', function() {
                     myScroll3.refresh();
                 });" id="loozeClick" data-transition="slide" ></a>
-        <a href='#friendsPage' onclick="javascript:$('#loozePage').live('pageshow', function() {
+        <a href='#friendsPage' onclick="javascript:$('#friendsPage').live('pageshow', function() {
                     myScroll4.refresh();
                 });" id="friendsClick" data-transition="slide" ></a>
         <div data-role="page" class="page center" data-theme="d" id="splash" > 
@@ -337,7 +337,7 @@
                                 </li>
                                 <li ><div class="event"><img class="avatar" src="images/avatar1.jpg"  />
                                         <img class="location" src="images/location.png"  />
-                                        <img class="time" src="images/time.png"  />
+                                        <img class="time" src="images/time_orange.png"  />
                                         <h2>Business diner</h2>
                                         <h1>Dov airport, Tel Aviv</h1>
                                         <span class="time">20:40</span>
@@ -373,7 +373,7 @@
                                 </li>
                                 <li ><div class="event"><img class="avatar" src="images/avatar3.jpg"  />
                                         <img class="location" src="images/location.png"  />
-                                        <img class="time" src="images/time.png"  />
+                                        <img class="time" src="images/time_orange.png"  />
                                         <h2>Watch a movie</h2>
                                         <h1>Dov airport, Tel Aviv</h1>
                                         <span class="time">20:40</span>
@@ -437,7 +437,7 @@
                                 </li>
                                 <li ><div class="event"><img class="avatar" src="images/avatar.jpg"  />
                                         <img class="location" src="images/location.png"  />
-                                        <img class="time" src="images/time.png"  />
+                                        <img class="time" src="images/time_orange.png"  />
                                         <h2>Soccer game</h2>
                                         <h1>Dov airport, Tel Aviv</h1>
                                         <span class="time">20:40</span>
@@ -539,42 +539,55 @@
             <div class="goesUp">
                 <div data-role="content">
                     <div id="wrapper2" class="wrapperStyle">
-                        <div class="scroller2">
-                            <ul id="thelist2" data-role="listview" data-theme="a">
-                                <li data-icon="arrow-f">    
+                        <div class="scroller">
+                            <ul id="thelist2" >
+                                <li data-icon="arrow-f"> 
+                                    <img src ="images/friends_btn.png" />
+                                    
                                     <a href="#"><div><span class="who">me</span> just created Business dinner event on 12:00</div></a>
                                 </li>
                                 <li data-icon="myapp-list">
+                                    <img src ="images/heart_btn.png" />
                                     <a href="#"><div><span class="who">Elad Levy</span> just joined Watching Movie with <span class="who">Idit Goldenberg</span></div></a>
                                 </li>
                                 <li data-icon="myapp-list">
+                                    <img src ="images/friends_btn.png" />
                                     <a href="#"><span class="who">Roy Reuveni</span> just created Pimping</a>
                                 </li>
                                 <li data-icon="arrow-f">    
+                                    <img src ="images/friends_btn.png" />
                                     <a href="#"><div><span class="who">Yael Berger</span> just created Going for shopping on 20:40</div></a>
                                 </li>
                                 <li data-icon="myapp-list"> 
+                                    <img src ="images/heart_btn.png" />
                                     <a href="#"><div><span class="who">Idit Goldenber</span> just joined Going for shopping with <span class="who">Yael Berger</span></div></a>
                                 </li>
                                 <li data-icon="arrow-f">    
+                                    <img src ="images/friends_btn.png" />
                                     <a href="#"><div><span class="who">Roy Reuveni</span> just created Pimping</div></a>
                                 </li>
                                 <li data-icon="arrow-f">    
+                                    <img src ="images/friends_btn.png" />
                                     <a href="#"><div><span class="who">Yael Berger</span> just created Going for shopping on 20:40</div></a>
                                 </li>
                                 <li data-icon="myapp-list">
+                                    <img src ="images/heart_btn.png" />
                                     <a href="#"><div><span class="who">Idit Goldenberg</span> just joined Going for shopping with <span class="who">Yael Berger</span></div></a>
                                 </li>
                                 <li data-icon="arrow-f">    
+                                    <img src ="images/friends_btn.png" />
                                     <a href="#"><div><span class="who">me</span> just created Business dinner event on 12:00</div></a>
                                 </li>
                                 <li data-icon="arrow-f">    
+                                    <img src ="images/friends_btn.png" />
                                     <a href="#"><div><span class="who">Elad Levy</span> just joined Watching Movie with <span class="who">Idit Goldenberg</span></div></a>
                                 </li>
                                 <li data-icon="myapp-list">
+                                    <img src ="images/heart_btn.png" />
                                     <a href="#"><span class="who">Roy Reuveni</span> just created Pimping</a>
                                 </li>
                                 <li data-icon="arrow-f">    
+                                    <img src ="images/friends_btn.png" />
                                     <a href="#"><div><span class="who">Yael Berger</span> just created Going for shopping on 20:40</div></a>
                                 </li>
                             </ul>
@@ -760,76 +773,82 @@
             <div class="goesUp">
                 <div data-role="content">
 		<div id="wrapper4" class="wrapperStyle">
-		<ul data-role="listview" data-split-icon="gear" data-split-theme="a" data-theme="a">
-			<li><a href="index.html">
-				<img src="images/avatar.jpg" />
-				<h3>Maria Blatz</h3>
-				<p>Last seen at today at 20:21</p>
-				</a><a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a>
-			</li>
-			<li><a href="index.html">
+                    <div class="scroller">   
+		<ul>
+			<li>
+				<img class="avatar" src="images/avatar.jpg" />
+				<h2>Maria Blatz</h2>
+				<h1>Last seen at today at 20:21</h1>
+                                <a href="#" data-role="button" data-inline="true" data-theme="a">Follow</a>
 				
-				<img src="images/avatar1.jpg" />
-				<h3>Ben Reuveni</h3>
-				<p>online</p>
-				</a><a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a>
 			</li>
-			<li><a href="index.html">
-				<img src="images/avatar2.jpg" />
-				<h3>Elad Levy</h3>
-				<p>Last seen at today at 20:01</p>
-				</a><a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a>
+			<li>				
+				<img class="avatar" src="images/avatar1.jpg" />
+				<h2>Ben Reuveni</h2>
+				<h1>online</h1>
+                                <a href="#" data-role="button" data-inline="true" data-theme="a">Follow</a>
+			
 			</li>
-			<li><a href="index.html">
-				<img src="images/avatar3.jpg" />
-				<h3>Idit Goldenberg</h3>
-				<p>Last seen at today at 19:21</p>
-				</a><a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a>
+			<li>
+				<img class="avatar" src="images/avatar2.jpg" />
+				<h2>Elad Levy</h2>
+				<h1>Last seen at today at 20:01</h1>
+                                <a href="#" data-role="button" data-inline="true" data-theme="a">Follow</a>
+			
 			</li>
-			<li><a href="index.html">
-				<img src="images/avatar4.jpg" />
-				<h3>Roy Reuveni</h3>
-				<p>online</p>
-				</a><a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a>
+			<li>
+				<img class="avatar" src="images/avatar3.jpg" />
+				<h2>Idit Goldenberg</h2>
+				<h1>Last seen at today at 19:21</h1>
+                                <a href="#" data-role="button" data-inline="true" data-theme="a">Follow</a>
+			
 			</li>
-			<li><a href="index.html">
-				<img src="images/avatar5.jpg" />
-				<h3>Yael Berger</h3>
-				<p>Last seen at today at 18:21</p>
-				</a><a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a>
+			<li>
+				<img class="avatar" src="images/avatar4.jpg" />
+				<h2>Roy Reuveni</h2>
+				<h1>online</h1>
+                                <a href="#" data-role="button" data-inline="true" data-theme="a">Follow</a>
+			
 			</li>
-			<li><a href="index.html">
-				<img src="images/avatar.jpg" />
-				<h3>Xenia Mor</h3>
-				<p>online</p>
-				</a><a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a>
+			<li>
+				<img class="avatar" src="images/avatar5.jpg" />
+				<h2>Yael Berger</h2>
+				<h1>Last seen at today at 18:21</h1>
+                                <a href="#" data-role="button" data-inline="true" data-theme="a">Follow</a>
 			</li>
-			<li><a href="index.html">
-				<img src="images/avatar.jpg" />
-				<h3>Congrat Martin</h3>
-				<p>Last seen at today at 00:21</p>
-				</a><a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a>
+			<li>
+				<img class="avatar" src="images/avatar.jpg" />
+				<h2>Xenia Mor</h2>
+				<h1>online</h1>
+                                <a href="#" data-role="button" data-inline="true" data-theme="a">Follow</a>
 			</li>
-			<li><a href="index.html">
-				<img src="images/avatar.jpg" />
-				<h3>Ashes Grammar</h3>
-				<p>online</p>
-				</a><a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a>
+			<li>
+				<img class="avatar" src="images/avatar.jpg" />
+				<h2>Congrat Martin</h2>
+				<h1>Last seen at today at 00:21</h1>
+                                <a href="#" data-role="button" data-inline="true" data-theme="a">Follow</a>
+			</li>
+			<li>
+				<img class="avatar" src="images/avatar.jpg" />
+				<h2>Ashes Grammar</h2>
+				<h1>online</h1>
+                                <a href="#" data-role="button" data-inline="true" data-theme="a">Follow</a>
 			</li>
 			
-			<li><a href="index.html">
-				<img src="images/avatar.jpg" />
-				<h3>Ran Share</h3>
-				<p>online</p>
-				</a><a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a>
+			<li>
+				<img class="avatar" src="images/avatar.jpg" />
+				<h2>Ran Share</h2>
+				<h1>online</h1>
+                                <a href="#" data-role="button" data-inline="true" data-theme="a">Follow</a>
 			</li>
-			<li><a href="index.html">	
-				<img src="images/avatar.jpg" />
-				<h3>Ron Amiram</h3>
-				<p>Last seen at today at 13:09</p>
-				</a><a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a>
+			<li>
+				<img class="avatar" src="images/avatar.jpg" />
+				<h2>Ron Amiram</h2>
+				<h1>Last seen at today at 13:09</h1>
+                                <a href="#" data-role="button" data-inline="true" data-theme="a">Follow</a>
 			</li>
 		</ul>
+                    </div>
                     </div>
                 </div>
                 <div data-role="footer">

@@ -453,11 +453,6 @@ body {
     margin: 4px; 
 }
 
-#thelist2 li .ui-btn-up-a {
-    color: gray ;
-    margin-left: 10px;
-}
-
 #thelist2 {
     margin: 0px;
     margin-right: 0px;
@@ -539,6 +534,7 @@ body {
 .logo_image_splash {
     position: relative;
     top:38%;
+    left:-2%;
     vertical-align: middle;
 }
 
@@ -656,4 +652,57 @@ body {
 @-webkit-keyframes loading {
     from { -webkit-transform:rotate(0deg) translateZ(0); }
 to { -webkit-transform:rotate(360deg) translateZ(0); }
+}
+
+#wrapper4 ul li img {
+    position:relative;
+    border: solid 1px black;
+}
+
+#wrapper4 ul li h1 {
+    left: 85px
+}
+
+#wrapper4 a {
+   width: 80px;
+   left: 227px;
+}
+
+#wrapper4 .ui-btn-text {
+    z-index: 0;
+    margin-right: 0px;
+    position: absolute;
+    font-size: 12px;
+    top: 6px;
+    left: 0.1px;
+    right: 3px;
+    color: gray;
+}
+
+#thelist2 li {
+    height: 26px;
+}
+
+#thelist2 a {
+    position: absolute;
+    left: 27px;
+    top: 17px;
+    font-size: 0.8em;
+    color: #D0D0D0;
+    text-decoration: none;
+}
+
+#thelist2 li img {
+    width: 20px;
+    left: 3px;
+    position: relative;
+    top: 5px;
+    border: solid 1px;
+    border-style: dotted;
+    border-color: rgb(177,177,177);
+    -webkit-border-radius: 2px 8px 8px 8px;
+}
+
+#thelist2 li span {
+    color: #3b5998;
 }
