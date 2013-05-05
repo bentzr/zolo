@@ -1,16 +1,16 @@
- body {
-            overflow: hidden;
-        }
+body {
+    overflow: hidden;
+}
 
-        .page {
-            position: absolute;
-            padding: 12px;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        
+.page {
+    position: absolute;
+    padding: 12px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
 .page.center {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
@@ -50,8 +50,8 @@
     margin-right: auto; 
     height: 100px;
     width: 130px;
-   
-    
+
+
     border-left-style: solid;
     border-left-width: 1px;
     border-left-color: #3C3B3B;
@@ -62,11 +62,11 @@
 
 .menuButton :active {
     background-color: #252525;
-    
+
 }
 .menu img {
-   display: inline-block ;
-   width: 40px;
+    display: inline-block ;
+    width: 40px;
 }
 .ui-input-search {
     position: absolute !important;
@@ -76,7 +76,7 @@
 .ui-body-c {
     background-color: #303030 !important;
     border:1px solid #5C5C5C !important;
-  
+
 }
 
 .ui-shadow-inset {
@@ -95,17 +95,17 @@
 }*/
 
 .logo {
-        margin-bottom: 0px;
-	position:absolute;
-        z-index:2;
-	bottom:0; left:0;
-	width:100%;
-	height: 55px;
-	background-color:#222;
-	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #D04016), color-stop(0.5, #DC561D));
-	padding:0;
-        -webkit-box-shadow: 0px 7px 8px rgba(34, 34, 34, 1);
-	
+    margin-bottom: 0px;
+    position:absolute;
+    z-index:2;
+    bottom:0; left:0;
+    width:100%;
+    height: 55px;
+    background-color:#222;
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #D04016), color-stop(0.5, #DC561D));
+    padding:0;
+    -webkit-box-shadow: 0px 7px 8px rgba(34, 34, 34, 1);
+
 }
 .ui-footer {
     width: 100%;
@@ -127,12 +127,12 @@
 }
 
 .wrapperStyle {
-    
-	position:absolute; z-index:1;
-	top:0px; bottom:40px; left:0;
-	width:100%;
-	background:#272727;
-	overflow:auto;
+
+    position:absolute; z-index:1;
+    top:0px; bottom:40px; left:0;
+    width:100%;
+    background:#272727;
+    overflow:auto;
 }
 
 .scroller2 {
@@ -143,32 +143,32 @@
 }
 
 .scroller2 ul {
-	list-style:none;
-	padding:0;
-	margin:0;
-	width:100%;
-	text-align:left;
+    list-style:none;
+    padding:0;
+    margin:0;
+    width:100%;
+    text-align:left;
 }
 
 .scroller2 li {
-        width: 100%;
-        left: 0%;
-        position: relative;
-        padding-left: 0px;
-        margin-bottom: 0px;
-	height:55px;
-	border-bottom:1px solid #393939;
-	border-top:1px solid #393939;
-	background-color:#272727;
-        font-size: 10px;
+    width: 100%;
+    left: 0%;
+    position: relative;
+    padding-left: 0px;
+    margin-bottom: 0px;
+    height:55px;
+    border-bottom:1px solid #393939;
+    border-top:1px solid #393939;
+    background-color:#272727;
+    font-size: 10px;
 }
 .scroller2 .ui-link-inherit {
-        font-size: 12px;
-        color: graytext;
-        font-weight: normal;
+    font-size: 12px;
+    color: graytext;
+    font-weight: normal;
 }
 .scroller2 .ui-link-inherit div {
-        width: 90%;
+    width: 90%;
 }
 
 
@@ -182,31 +182,31 @@
 }
 
 .scroller {
-	position:absolute; z-index:1;
-/*	-webkit-touch-callout:none;*/
-	-webkit-tap-highlight-color:rgba(0,0,0,0);
-	width:100%;
-	padding:0;
+    position:absolute; z-index:1;
+    /*	-webkit-touch-callout:none;*/
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+    width:100%;
+    padding:0;
 }
 
 .scroller ul {
-	list-style:none;
-	padding:0;
-	margin:0;
-	width:100%;
-	text-align:left;
+    list-style:none;
+    padding:0;
+    margin:0;
+    width:100%;
+    text-align:left;
 }
 
 .scroller li {
-        left: 0%;
-        position: relative;
-	padding: 10px;
-        padding-left: 0px;
-	height:55px;
-	border-bottom:1px solid #393939;
-	border-top:1px solid #393939;
-	background-color:#272727;
-	font-size:14px;
+    left: 0%;
+    position: relative;
+    padding: 10px;
+    padding-left: 0px;
+    height:55px;
+    border-bottom:1px solid #393939;
+    border-top:1px solid #393939;
+    background-color:#272727;
+    font-size:14px;
 }
 
 .scroller li div.event {
@@ -289,14 +289,14 @@
     left: 15px;
     bottom: 0px;
     height: 55px;
-    
+
     -webkit-border-radius: 10px 10px 10px 10px;
 }
 .scroller li img.time {
     position: absolute;
     right: 5px;
     top: -8px;
-    
+
 }
 
 #fader {
@@ -307,11 +307,11 @@
     background: -webkit-linear-gradient(top, rgba(39,39,39,0.90) 10%,rgba(39,39,39,0) 100%);
     z-index: 4;
     pointer-events: none;
-    
+
 }
 
 .ui-mobile .ui-page {
-min-height: 10px;
+    min-height: 10px;
 }
 
 #searchcontain {
@@ -322,11 +322,11 @@ min-height: 10px;
     width: 90%;
     margin-bottom: 5px;
     background: #303030;
-   
+
 }
 #searchinput {
     background: #303030;
-   -webkit-box-shadow: inset 0px 13px 20px -17px black;
+    -webkit-box-shadow: inset 0px 13px 20px -17px black;
 }
 
 .ui-body-c, .ui-overlay-c, .ui-btn-up-c {
@@ -340,10 +340,10 @@ min-height: 10px;
 }
 
 #loozeItbtn.ui-btn { 
-          height: 30px;
-          width: 85px;
-          font-size: 9px; 
-         
+    height: 30px;
+    width: 85px;
+    font-size: 9px; 
+
 }
 
 #loozeItbtn.ui-btn-up-b {
@@ -354,15 +354,15 @@ min-height: 10px;
     margin: 0px !important;
 }
 .loozedownbtn .ui-btn { 
-          height: 30px;
-          width: 60px;
-          font-size: 9px; 
-         
+    height: 30px;
+    width: 60px;
+    font-size: 9px; 
+
 }
 .loozedownbtn .ui-btn-inner {
     padding-bottom: 30px !important;
     font-size: 10px !important;
-    
+
 }
 
 .loozedownbtn .ui-btn-up-a {
@@ -395,19 +395,19 @@ min-height: 10px;
 }
 
 .scroller div.eventinfo a .ui-btn-text {
-        z-index: 0;
-        margin-right: 0px;
-        position: absolute;
-        font-size: 12px;
-        top: 6px;
-        left: 0.1px;
-        right: 3px;
-        color: gray;
+    z-index: 0;
+    margin-right: 0px;
+    position: absolute;
+    font-size: 12px;
+    top: 6px;
+    left: 0.1px;
+    right: 3px;
+    color: gray;
 }
 
 .ui-body-a {
-   background: -webkit-linear-gradient(top, rgba(25,25,25,1) 0%,rgba(0,0,0,1) 100%)!important;
-   color: rgb(77, 77, 77) !important;
+    background: -webkit-linear-gradient(top, rgba(25,25,25,1) 0%,rgba(0,0,0,1) 100%)!important;
+    color: rgb(77, 77, 77) !important;
 }
 .inputloze .lozeabove {
     width: 98%;
@@ -445,7 +445,7 @@ min-height: 10px;
     margin: 4px;
 }
 .inputloze .loozedownbtn {
-   width: 98%;
+    width: 98%;
     position: absolute;
     top: 180px;
     z-index: 0;
@@ -463,12 +463,12 @@ min-height: 10px;
     margin-right: 0px;
 }
 .scroller .ui-btn { 
-          height: 30px;
-          width: 80px;
-          font-size: 9px; 
-          position: absolute;
-          left: 1270px;
-          top: 20px
+    height: 30px;
+    width: 80px;
+    font-size: 9px; 
+    position: absolute;
+    left: 1270px;
+    top: 20px
 }
 
 #loginPage h3 {
@@ -522,31 +522,31 @@ min-height: 10px;
 }
 
 .ui-icon-facebook {
-	background-image: url("facebook.jpg");
+    background-image: url("facebook.jpg");
 }
 
 .splash {
-     float: left;
+    float: left;
     height: 100%;
     position: relative;
     width: 100%;
     line-height:120px;
     text-align:center;
     background-image: -webkit-gradient(radial, center center, 0, center center, 487, color-stop(0, #FF6422), color-stop(1, #451508));
-    
+
 }
 
 .logo_image_splash {
     position: relative;
     top:38%;
     vertical-align: middle;
-    }
-    
+}
+
 .box {
     position: relative;
     height: 100px;
     width: 100%;
-    
+
     border-top: solid 1px;
     border-bottom: solid 1px;
     border-color: #3C3B3B;
@@ -579,7 +579,7 @@ min-height: 10px;
 
 .schedEvent h2 {
     position: absolute;
-   font-size: 1.1em;
+    font-size: 1.1em;
     left: 65px;
     top: -12px
 }
@@ -588,7 +588,7 @@ min-height: 10px;
     left: 77px;
     font-size: 0.8em;
     top: 28px
-    
+
 }
 
 .schedEvent .location {
@@ -610,50 +610,50 @@ min-height: 10px;
  *
  */
 #pullDown, #pullUp {
-	background:#333;
-	height:40px;
-	line-height:40px;
-	padding:5px 10px;
-	border-bottom:1px solid #ccc;
-	font-weight:bold;
-	font-size:14px;
-	color:black;
+    background:#333;
+    height:40px;
+    line-height:40px;
+    padding:5px 10px;
+    border-bottom:1px solid #ccc;
+    font-weight:bold;
+    font-size:14px;
+    color:black;
 }
 #pullDown .pullDownIcon, #pullUp .pullUpIcon  {
-	display:block; float:left;
-	width:40px; height:40px;
-	background:url(pull-icon@2x.png) 0 0 no-repeat;
-	-webkit-background-size:40px 80px; background-size:40px 80px;
-	-webkit-transition-property:-webkit-transform;
-	-webkit-transition-duration:250ms;	
+    display:block; float:left;
+    width:40px; height:40px;
+    background:url(pull-icon@2x.png) 0 0 no-repeat;
+    -webkit-background-size:40px 80px; background-size:40px 80px;
+    -webkit-transition-property:-webkit-transform;
+    -webkit-transition-duration:250ms;	
 }
 #pullDown .pullDownIcon {
-	-webkit-transform:rotate(0deg) translateZ(0);
+    -webkit-transform:rotate(0deg) translateZ(0);
 }
 #pullUp .pullUpIcon  {
-	-webkit-transform:rotate(-180deg) translateZ(0);
+    -webkit-transform:rotate(-180deg) translateZ(0);
 }
 
 #pullDown.flip .pullDownIcon {
-	-webkit-transform:rotate(-180deg) translateZ(0);
+    -webkit-transform:rotate(-180deg) translateZ(0);
 }
 
 #pullUp.flip .pullUpIcon {
-	-webkit-transform:rotate(0deg) translateZ(0);
+    -webkit-transform:rotate(0deg) translateZ(0);
 }
 
 #pullDown.loading .pullDownIcon, #pullUp.loading .pullUpIcon {
-	background-position:0 100%;
-	-webkit-transform:rotate(0deg) translateZ(0);
-	-webkit-transition-duration:0ms;
+    background-position:0 100%;
+    -webkit-transform:rotate(0deg) translateZ(0);
+    -webkit-transition-duration:0ms;
 
-	-webkit-animation-name:loading;
-	-webkit-animation-duration:2s;
-	-webkit-animation-iteration-count:infinite;
-	-webkit-animation-timing-function:linear;
+    -webkit-animation-name:loading;
+    -webkit-animation-duration:2s;
+    -webkit-animation-iteration-count:infinite;
+    -webkit-animation-timing-function:linear;
 }
 
 @-webkit-keyframes loading {
-	from { -webkit-transform:rotate(0deg) translateZ(0); }
-	to { -webkit-transform:rotate(360deg) translateZ(0); }
+    from { -webkit-transform:rotate(0deg) translateZ(0); }
+to { -webkit-transform:rotate(360deg) translateZ(0); }
 }
