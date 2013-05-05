@@ -706,11 +706,3 @@ to { -webkit-transform:rotate(360deg) translateZ(0); }
 #thelist2 li span {
     color: #3b5998;
 }
-
-#signUpPage .ui-bar-a {
-    height: 40px;
-}
-
-#signUpPage .ui-bar-a h3 {
-    width: 140px;
-}
