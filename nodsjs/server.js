@@ -30,9 +30,9 @@ app.configure(function(){
 
 
 app.get('/events',function(req,res){
-      res.json(names);
+      res.json(events);
   
 });
 
 
-app.listen(8080);
+app.listen(80);
