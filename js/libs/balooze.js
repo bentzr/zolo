@@ -120,7 +120,7 @@ function pullDownAction() {
 
 function pullUpAction() {
     //setTimeout(function() {	// <-- Simulate network congestion, remove setTimeout from production!
-        $.get("http://localhost/events", function(data) {
+        $.get("/events", function(data) {
             var el, li, i;
             var template = "<li><div class='event'><img class='avatar' src='{{profile-url}}'/><img class='location' src='images/location.png'  /> <img class='time' src='images/time_orange.png'  />\n\
                                     <h2>{{title}}</h2><h1>{{where}}</h1><span class='time'>{{start-date}}</span></div>\n\
@@ -136,7 +136,7 @@ function pullUpAction() {
                 //li.innerHTML = html;
                 $('#thelist').append(html);
                 $("ul li").click(clickOnUl);
-                $("a[data-role=button]").button();
+               // $("a[data-role=button]").button('refresh');
                 myScroll.refresh();
                 $('#thelist').page();
                  
