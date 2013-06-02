@@ -13,7 +13,7 @@ function clickOnUl() {
     }
 }
 
-var template = "<li><div class='eventid' style='display:none'>{{id}}</div><div class='event'><img class='avatar' src='{{profile-url}}'/><img class='location' src='images/location.png'  /> <img class='time' src='images/time_orange.png'  />\n\
+var template = "<li><input type='hidden'value='{{id}}'><div class='event'><img class='avatar' src='{{profile-url}}'/><img class='location' src='images/location.png'  /> <img class='time' src='images/time_orange.png'  />\n\
                                     <h2>{{title}}</h2><h1>{{where}}</h1><span class='time'>{{start-date}}</span></div>\n\
                                         <div class='eventinfo'><h2>Who's in?</h2><div class='whosin'>\n\
                                             <table><tr>{{#who}}<td><img class='avain' src='{{profile-url}}' /></td>{{/who}}</tr>\n\
