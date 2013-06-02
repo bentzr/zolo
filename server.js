@@ -246,7 +246,7 @@ var app = express();
 app.configure(function(){
     app.use(express.logger('dev'));
     console.log(__dirname);
-    app.use(express.static(__dirname + '/zolo'));
+    app.use(express.static(__dirname));
     app.use(express.bodyParser());
 });
 
