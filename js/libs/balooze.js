@@ -138,6 +138,7 @@ function pullUpAction() {
                 $("ul li").click(clickOnUl);
                 $("a[data-role=button]").button();
                 myScroll.refresh();
+                $('#thelist').page();
                  
                 
             });
