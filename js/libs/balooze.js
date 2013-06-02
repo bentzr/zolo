@@ -134,10 +134,11 @@ function pullUpAction() {
                 var html = Mustache.to_html(template, data.events[0]);
                 console.log(data.events[0].id);
                 //li.innerHTML = html;
-                $('#thelist').append(html).trigger('create');
+                $('#thelist').append(html);
                 $("ul li").click(clickOnUl);
                // $("a[data-role=button]").button('refresh');
                 myScroll.refresh();
+                $('#thelist')..page('destroy').page();
             });
 //        var el, li, i;
 //        el = document.getElementById('thelist');
