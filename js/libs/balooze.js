@@ -121,19 +121,37 @@ function pullDownAction() {
 function pullUpAction() {
     //setTimeout(function() {	// <-- Simulate network congestion, remove setTimeout from production!
         $.get("http://localhost/events", function(data) {
-                alert("Data Loaded: " + data);
+            var el, li, i;
+            var template = "<li><div class='event'><img class='avatar' src='{{profile-url}}'/><img class='location' src='images/location.png'  /> <img class='time' src='images/time_orange.png'  />\n\
+                                    <h2>{{title}}</h2><h1>{{where}}</h1><span class='time'>{{start-date}}</span></div>\n\
+                                        <div class='eventinfo'><h2>Who's in?</h2><div class='whosin'>\n\
+                                            <table><tr><td><img class='avain' src='images/avatar.jpg' /></td></tr>\n\
+                                            </table>\n\
+                                            <a href='#' data-role='button' data-inline='true'   data-theme='a'>Join</a>\n\
+                                        </div></div>\n\
+                           </li>";
+                //alert("Data Loaded: " + data);
+                var html = Mustache.to_html(template, data.events[0]);
+                console.log(data.events[0].id);
+                //li.innerHTML = html;
+                $('#thelist').append(html);
+                $("ul li").click(clickOnUl);
+                $("a[data-role=button]").button();
+                myScroll.refresh();
+                 
+                
             });
-        var el, li, i;
-        el = document.getElementById('thelist');
-
-        for (i = 0; i < 3; i++) {
-        li = document.createElement('li');
-        li.innerHTML = listItem;
-        //el.appendChild(li, el.childNodes[0]);
-        $('#thelist').append(listItem)
-        }
-        $(".newli").click(clickOnUl);
-        myScroll.refresh();		// Remember to refresh when contents are loaded (ie: on ajax completion)
+//        var el, li, i;
+//        el = document.getElementById('thelist');
+//
+//        for (i = 0; i < data.events.length; i++) {
+//        li = document.createElement('li');
+//        li.innerHTML = listItem;
+//        //el.appendChild(li, el.childNodes[0]);
+//        $('#thelist').append(listItem)
+//        }
+//        $(".newli").click(clickOnUl);
+//        myScroll.refresh();		// Remember to refresh when contents are loaded (ie: on ajax completion)
       //  }, 1000);	// <-- Simulate network congestion, remove setTimeout from production!
 }
 
