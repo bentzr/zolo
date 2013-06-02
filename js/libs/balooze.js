@@ -138,7 +138,7 @@ function pullUpAction() {
                 $("ul li").click(clickOnUl);
                // $("a[data-role=button]").button('refresh');
                 myScroll.refresh();
-                $('#thelist')..page('destroy').page();
+                $('#thelist').page('destroy').page();
             });
 //        var el, li, i;
 //        el = document.getElementById('thelist');
