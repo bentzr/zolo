@@ -18,6 +18,8 @@ jQuery(function($) {
     var $viewport = $('meta[name="viewport"]');
     $viewport.attr('content', 'initial-scale=1.0,maximum-scale=1.0,user-scalable=no');
 
+    // create ref for page
+    $('#thelist').page();
     // Get a reference to the container.
     var container = $(".goesUp");
 
