@@ -40,6 +40,8 @@ jQuery(function($) {
             });
     
 
+    // create ref for page
+    $('#thelist').page();
     // Get a reference to the container.
     var container = $(".goesUp");
 
@@ -153,7 +155,11 @@ function pullUpAction() {
                 }
                // $("a[data-role=button]").button('refresh');
                 myScroll.refresh();
+
                  
+
+                $('#thelist').page('destroy').page();
+
             });
 //        var el, li, i;
 //        el = document.getElementById('thelist');
