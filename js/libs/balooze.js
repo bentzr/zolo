@@ -4,6 +4,7 @@ function clickOnUl() {
 
     var index = $(this).index();
     var listItem = $($("ul li").get(index)).find(".event");
+    
 
     if (listItem.css('-webkit-transform') === "matrix(1, 0, 0, 1, 0, 0)") {
         listItem.css('-webkit-transform', 'translate3d(-100%, 0, 0)');
@@ -12,11 +13,32 @@ function clickOnUl() {
     }
 }
 
+var template = "<li><div class='eventid' style='display:none'>{{id}}</div><div class='event'><img class='avatar' src='{{profile-url}}'/><img class='location' src='images/location.png'  /> <img class='time' src='images/time_orange.png'  />\n\
+                                    <h2>{{title}}</h2><h1>{{where}}</h1><span class='time'>{{start-date}}</span></div>\n\
+                                        <div class='eventinfo'><h2>Who's in?</h2><div class='whosin'>\n\
+                                            <table><tr>{{#who}}<td><img class='avain' src='{{profile-url}}' /></td>{{/who}}</tr>\n\
+                                            </table>\n\
+                                            <a href='#' data-role='button' data-inline='true'   data-theme='a'>Join</a>\n\
+                                        </div></div>\n\
+                           </li>";
+
 // DOM is ready, init the scripts.
 jQuery(function($) {
 
     var $viewport = $('meta[name="viewport"]');
     $viewport.attr('content', 'initial-scale=1.0,maximum-scale=1.0,user-scalable=no');
+    
+    $.get("/events", function(data) {
+                //alert("Data Loaded: " + data);
+                for(var i = 0; i < data.events.length; i++) {
+                var html = Mustache.to_html(template, data.events[i]);
+                $('#thelist').append(html);
+                $("ul li").click(clickOnUl);
+                }
+                myScroll.refresh();
+                 
+            });
+    
 
     // Get a reference to the container.
     var container = $(".goesUp");
@@ -120,26 +142,18 @@ function pullDownAction() {
 
 function pullUpAction() {
     //setTimeout(function() {	// <-- Simulate network congestion, remove setTimeout from production!
-        $.get("/events", function(data) {
-            var el, li, i;
-            var template = "<li><div class='event'><img class='avatar' src='{{profile-url}}'/><img class='location' src='images/location.png'  /> <img class='time' src='images/time_orange.png'  />\n\
-                                    <h2>{{title}}</h2><h1>{{where}}</h1><span class='time'>{{start-date}}</span></div>\n\
-                                        <div class='eventinfo'><h2>Who's in?</h2><div class='whosin'>\n\
-                                            <table><tr><td><img class='avain' src='images/avatar.jpg' /></td></tr>\n\
-                                            </table>\n\
-                                            <a href='#' data-role='button' data-inline='true'   data-theme='a'>Join</a>\n\
-                                        </div></div>\n\
-                           </li>";
+        $.get("/newevents", function(data) {
                 //alert("Data Loaded: " + data);
-                var html = Mustache.to_html(template, data.events[0]);
-                console.log(data.events[0].id);
+                for(var i = 0; i < data.events.length; i++) {
+                var html = Mustache.to_html(template, data.events[i]);
+ 
                 //li.innerHTML = html;
                 $('#thelist').append(html);
                 $("ul li").click(clickOnUl);
+                }
                // $("a[data-role=button]").button('refresh');
                 myScroll.refresh();
                  
-                
             });
 //        var el, li, i;
 //        el = document.getElementById('thelist');
