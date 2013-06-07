@@ -17,7 +17,9 @@ function onClickLogin() {
             data: JSON.stringify(data),
             success: function(result) {
                 //Add the result to the who's in field
-                console.log(JSON.stringify(result));
+                if(result.retStatus === 'Success') {
+                    $.mobile.changePage("#homePage");
+                }
             }
           });
 }
