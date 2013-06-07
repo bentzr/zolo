@@ -392,11 +392,12 @@ app.put('/events/join/:id', function (req, res){
       };
       event['who'].push(new_user);
       res.json(event);
-  }
+  } else {
   res.json({
             "error": "400",
             "message" : "User already joined"
            });
+  }
 });
 
 app.post('/login', function (req, res) {
