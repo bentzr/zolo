@@ -292,7 +292,7 @@ function checkUserPassword(username, password) {
 }
 
 function checkAuth(req, res, next) {
-  if (!req.session.user_id) {
+  if (req.session.user_id === undefined) {
     console.log('Not authorized');
     res.send('You are not authorized to view this page');
   } else {
@@ -406,11 +406,11 @@ app.post('/login', function (req, res) {
     retStatus = 'Success';
     // res.redirect('/team');
     res.send({
-      retStatus : retStatus});
+      "retStatus" : retStatus});
   } else {
     retStatus = 'Failed';
     res.send({
-      retStatus : retStatus});
+      "retStatus" : retStatus});
   }
 });
 
