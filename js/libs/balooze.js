@@ -19,13 +19,14 @@ function clickOnJoin(event) {
     var data = 
             {
                 "id": userData.id,
-                "profile-url": userData.profile-url
+                "profile-url": userData['profile-url']
             };
     var url = "/events/join/" + eventId;        
     $.ajax({
         url: url,
+        contentType: 'application/json',
         type: 'PUT',
-        data: data,
+        data: JSON.stringify(data),
         success: function(result) {
             alert(result);
         }
