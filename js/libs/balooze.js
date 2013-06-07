@@ -8,12 +8,13 @@ function clickOnUl() {
 
     if (listItem.css('-webkit-transform') === "matrix(1, 0, 0, 1, 0, 0)") {
         listItem.css('-webkit-transform', 'translate3d(-100%, 0, 0)');
-    } else {
+    } else if(!isButtonClicked) {
         listItem.css('-webkit-transform', 'translate3d(0, 0, 0)');
     }
 }
 
 function clickOnJoin(event) {
+    isButtonClicked = true;
     var li = $(event.target).parents("li");
     var eventId = li.children("input").attr("value");
     var data = 
@@ -39,9 +40,10 @@ function clickOnJoin(event) {
                 alert("You have already joined to this looze!");
             }
         }
-      });        
+      }); 
 };
 
+var isButtonClicked = false;
 //The user Id
 var userData = {
     "id": 1,
@@ -66,7 +68,9 @@ jQuery(function($) {
     var $viewport = $('meta[name="viewport"]');
     $viewport.attr('content', 'initial-scale=1.0,maximum-scale=1.0,user-scalable=no');
     
-    $.get("/events", function(data) {
+    $("#homePage").live('pageshow', function () {
+    
+        $.get("/events", function(data) {
                 //alert("Data Loaded: " + data);
                     for(var i = 0; i < data.events.length; i++) {
                     var html = Mustache.to_html(template, data.events[i]);
@@ -75,12 +79,11 @@ jQuery(function($) {
                 }
                 $(".join").click(clickOnJoin);
                 myScroll.refresh();
-                 
+                $('#thelist').page();
             });
-    
-
+            
     // create ref for page
-    $('#thelist').page();
+    
     // Get a reference to the container.
     var container = $(".goesUp");
 
@@ -131,8 +134,8 @@ jQuery(function($) {
     });
 
     $("ul li").click(clickOnUl);
-
-
+    
+    });
 });
 
 var myScroll,
