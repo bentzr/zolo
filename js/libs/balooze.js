@@ -19,6 +19,8 @@ function onClickLogin() {
                 //Add the result to the who's in field
                 if(result.retStatus === 'Success') {
                     $.mobile.changePage("#homePage");
+                } else {
+                    alert(result.resStatus);
                 }
             }
           });

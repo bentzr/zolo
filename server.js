@@ -404,11 +404,11 @@ app.post('/login', function (req, res) {
   if (checkUserPassword(post.username, post.password)) {
     req.session.user_id = getUserId(post.username);
     retStatus = 'Success';
-    // res.redirect('/team');
+    //res.redirect('/team');
     res.send({
       "retStatus" : retStatus});
   } else {
-    retStatus = 'Failed';
+    retStatus = 'Failed login';
     res.send({
       "retStatus" : retStatus});
   }
