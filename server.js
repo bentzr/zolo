@@ -267,12 +267,12 @@ function findUser(username) {
     
 }
 function findById(id) {
-    arr = events['events'];
-    filtered = arr.filter(function(item) {
+    var arr = events['events'];
+    var filtered = arr.filter(function(item) {
         if (item.id === id)
             return item;
     });
-    if (filtered === undefined)
+    if (filtered === [])
         console.log("Can't find event id: " + id);
     return filtered[0];
 }
@@ -327,8 +327,8 @@ app.post('/events',function(req,res){
 app.put('/events/join/:id', function (req, res){
 
   var event_id = req.params.id;
-  user_id = req.body.id;
-  event = findById(event_id);
+  var user_id = req.body.id;
+  var event = findById(parseInt(event_id));
   console.log("event_id : " + event_id + " user_id: " + user_id +  " Got event: " + event);
   if (!checkIfJoined(event, user_id)) {
       new_user = { id: user_id,
