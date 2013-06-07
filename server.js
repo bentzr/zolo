@@ -275,6 +275,10 @@ function findUser(username) {
     return filtered[0];
 }
 
+function getUserId(username) {
+    return findUser(username).id;
+}
+
 function checkUserPassword(username, password) {
     user_json = findUser(username);
     if (user_json === undefined) {
@@ -394,7 +398,7 @@ app.put('/events/join/:id', function (req, res){
 app.post('/login', function (req, res) {
   var post = req.body;
   if (checkUserPassword(post.username, post.password)) {
-    req.session.user_id = post.userid;
+    req.session.user_id = getUserId(post.username);
     res.redirect('/#homePage');
   } else {
     res.send('Bad user/pass');
