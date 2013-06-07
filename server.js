@@ -241,6 +241,27 @@ var feed = {
     ]
 };
    
+function findById(id) {
+    arr = events['events'];
+    filtered = arr.filter(function(item) {
+        if (item.id === id)
+            return item;
+    });
+    if (filtered === undefined)
+        console.log("Can't find user id: " + id);
+    return filtered[0];
+}
+
+function checkIfJoined(event, id) {
+    filtered = event['who'].filter(function(item) {
+        if (item.id === id)
+            return item;
+    });
+    if (filtered.length == 0)
+        return false;
+    return true;
+}
+
 var app = express();
 app.configure(function(){
     app.use(express.logger('dev'));
@@ -277,4 +298,22 @@ app.post('/events',function(req,res){
         res.json(events);
    }
 });
+
+app.put('/events/join/:id', function (req, res){
+
+  var user_id = req.params.id;
+  event = findById(user_id);
+  if (!checkIfJoined(event, user_id)) {
+      new_user = { id: user_id,
+                   'profile-url' : req.body['profile-url']
+      };
+      event['who'].push(new_user);
+      res.json(event);
+  }
+  res.json({
+            "error": "400",
+            "message" : "User already joined"
+           });
+});
+
 app.listen(80); //Need to be changed to 80
