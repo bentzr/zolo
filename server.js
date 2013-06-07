@@ -402,7 +402,7 @@ app.put('/events/join/:id', function (req, res){
 app.post('/login', function (req, res) {
   var post = req.body;
   if (checkUserPassword(post.username, post.password)) {
-    req.session.userid = getUserId(post.username);
+    req.session.user_id = getUserId(post.username);
     retStatus = 'Success';
     // res.redirect('/team');
     res.send({
