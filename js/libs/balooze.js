@@ -30,14 +30,16 @@ function clickOnJoin(event) {
         type: 'PUT',
         data: JSON.stringify(data),
         success: function(result) {
-            alert(result);
             //Add the result to the who's in field
-            var html = Mustache.to_html(whosInTemplate, data);
-            li.find('tr').append(html);
+            console.log(JSON.stringify(result));
+            if(result['error'] === undefined) {
+                var html = Mustache.to_html(whosInTemplate, result);
+                li.find('table').html(html);
+            } else {
+                alert("You have already joined to this looze!");
+            }
         }
       });        
-    
-   // alert($(event.target).parents("li").children("input").attr("value"));
 };
 
 //The user Id
@@ -47,7 +49,7 @@ var userData = {
     "friends": [2, 3, 4, 5]
 }; //<--- Mock data, will be updated from the server
 
-var whosInTemplate = "<td><img class='avain' src='{{profile-url}}'></td>";
+var whosInTemplate = "<tr>{{#who}}<td><img class='avain' src='{{profile-url}}' /></td>{{/who}}</tr>";
 
 var template = "<li><input type='hidden'value='{{id}}'><div class='event'><img class='avatar' src='{{profile-url}}'/><img class='location' src='images/location.png'  /> <img class='time' src='images/time_orange.png'  />\n\
                                     <h2>{{title}}</h2><h1>{{where}}</h1><span class='time'>{{start-date}}</span></div>\n\
