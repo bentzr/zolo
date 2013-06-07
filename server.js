@@ -1,5 +1,9 @@
 var express = require('express');
 
+// this is only because we are not using database
+var user_counter = 3;
+var event_counter = 19;
+
 var events ={ 
     "events":
         [
@@ -283,11 +287,20 @@ function checkUserPassword(username, password) {
     return false;
 }
 
+function checkAuth(req, res, next) {
+  if (!req.session.user_id) {
+    res.send('You are not authorized to view this page');
+  } else {
+    next();
+  }
+}
+
 function signUp(username, password) {
-    new_user = { id: 3, 
+    new_user = { id: user_counter, 
                  "username": username,
                  "password": password };
     users.users.push(new_user);
+    user_counter += 1;
     res.json(new_user);
 }
 
@@ -320,18 +333,16 @@ app.configure(function(){
     app.use(express.bodyParser());
 });
 
-app.get('/events',function(req,res){
+app.get('/events',checkAuth, function(req,res){
       res.json(events);
 });
 
-app.get('/newevents',function(req,res){
+app.get('/newevents', checkAuth,function(req,res){
       res.json(newEvents);
 });
 
-
 app.get('/feed',function(req,res){
       res.json(feed);
-  
 });
 
 app.post('/events',function(req,res){
@@ -346,6 +357,19 @@ app.post('/events',function(req,res){
    } else{ 
         events.events.push(event);
         res.json(events);
+   }
+});
+
+app.post('/signup',function(req,res){
+    console.log(JSON.stringify(req.body));
+    var body = req.body;
+    if(body.username === undefined || body.password === undefined) {
+        res.json({
+            "error": "400",
+            "message" : "Invalid user password received!"
+                });
+   } else{ 
+        signUp(body.username, body.password);
    }
 });
 
@@ -366,5 +390,21 @@ app.put('/events/join/:id', function (req, res){
             "message" : "User already joined"
            });
 });
+
+app.post('/login', function (req, res) {
+  var post = req.body;
+  if (checkUserPassword(post.username, post.password)) {
+    req.session.user_id = post.userid;
+    res.redirect('/#homePage');
+  } else {
+    res.send('Bad user/pass');
+  }
+});
+
+app.get('/logout', function (req, res) {
+  delete req.session.user_id;
+  res.redirect('/login');
+});  
+
 
 app.listen(80); //Need to be changed to 80
