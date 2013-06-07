@@ -13,6 +13,34 @@ function clickOnUl() {
     }
 }
 
+function clickOnJoin(event) {
+    var li = $(event.target).parents("li");
+    var eventId = li.children("input").attr("value");
+    var data = 
+            {
+                "id": userData.id,
+                "profile-url": userData['profile-url']
+            };
+    var url = "/events/join/" + eventId;        
+    $.ajax({
+        url: url,
+        contentType: 'application/json',
+        type: 'PUT',
+        data: JSON.stringify(data),
+        success: function(result) {
+            alert(result);
+        }
+      });        
+    
+   // alert($(event.target).parents("li").children("input").attr("value"));
+};
+
+//The user Id
+var userData = {
+    "id": 1,
+    "profile-url": "images/avatar.jpg",
+    "friends": [2, 3, 4, 5]
+}; //<--- Mock data, will be updated from the server
 var template = "<li><input type='hidden'value='{{id}}'><div class='event'><img class='avatar' src='{{profile-url}}'/><img class='location' src='images/location.png'  /> <img class='time' src='images/time_orange.png'  />\n\
                                     <h2>{{title}}</h2><h1>{{where}}</h1><span class='time'>{{start-date}}</span></div>\n\
                                         <div class='eventinfo'><h2>Who's in?</h2><div class='whosin'>\n\
@@ -35,6 +63,7 @@ jQuery(function($) {
                     $('#thelist').append(html);
                     $("ul li").click(clickOnUl);
                 }
+                $(".join").click(clickOnJoin);
                 myScroll.refresh();
                  
             });
@@ -96,29 +125,6 @@ jQuery(function($) {
 
 });
 
-var listItem = '<li class="newli"><div class="event">\n\
-                <a id="clicklink" href="#favsPage" data-transition="slide">\n\
-                    <img class="avatar" src="images/avatar.jpg"  />\n\
-                </a><img class="location" src="images/location.png"  />\n\
-                    <img class="time" src="images/time.png"  />\n\
-                    <h2>Business diner</h2>\n\
-                    <h1>Dov airport, Tel Aviv</h1>\n\
-                    <span class="time">20:40</span>\n\
-                    </div>\n\
-                    <div class="eventinfo">\n\
-                        <h2>Whos in?</h2>\n\
-                        <div class="whosin">\n\
-                            <table><tr>\n\
-                                        <td><img class="avain" src="images/avatar.jpg"  /></td>\n\
-                                        <td><img class="avain" src="images/avatar1.jpg"  /></td>\n\
-                                        <td><img class="avain" src="images/avatar2.jpg"  />\n\</td>\n\
-                                        <td><img class="avain" src="images/avatar4.jpg"  /></td>\n\
-                                   </tr>\n\
-                            </table>\n\
-                            <a href="#" data-role="button" data-inline="true" data-theme="a" class="ui-btn ui-btn-up-a ui-btn-inline ui-btn-corner-all ui-shadow">\n\
-                               <span class="ui-btn-inner ui-btn-corner-all">\n\
-                                <span class="ui-btn-text">Join</span></span></a></div></div>\n\
-                </li>';
 var myScroll,
 pullDownEl, pullDownOffset,
 pullUpEl, pullUpOffset,
@@ -149,11 +155,11 @@ function pullUpAction() {
                 for(var i = 0; i < data.events.length; i++) {
                 var html = Mustache.to_html(template, data.events[i]);
  
-                //li.innerHTML = html;
                 $('#thelist').append(html);
                 $("ul li").click(clickOnUl);
         }
-               // $("a[data-role=button]").button('refresh');
+                //Add the listener to the join button
+                $(".join").click(clickOnJoin);
                 myScroll.refresh();
 
                  
