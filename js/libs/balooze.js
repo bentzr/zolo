@@ -1,4 +1,26 @@
 
+function onClickLogin() {
+//    $('#homeClick').click();
+//                $('#homePage').live('pageshow', function() {
+//                    myScroll.refresh();
+//                });
+    var url = "/login";
+    var data = {"username"  : $("#usernameInputField").val() ,
+                "password" : $("#passwordInputField").val()
+                
+                };
+    alert(JSON.stringify(data));            
+    $.ajax({
+            url: url,
+            contentType: 'application/json',
+            type: 'POST',
+            data: JSON.stringify(data),
+            success: function(result) {
+                //Add the result to the who's in field
+                console.log(JSON.stringify(result));
+            }
+          });
+}
 
 function clickOnUl() {
 
