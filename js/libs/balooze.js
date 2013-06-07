@@ -95,7 +95,6 @@ jQuery(function($) {
     $viewport.attr('content', 'initial-scale=1.0,maximum-scale=1.0,user-scalable=no');
     
     $("#homePage").live('pageshow', function () {
-        $.mobile.showPageLoadingMsg();
         $.get("/events", function(data) {
                 //alert("Data Loaded: " + data);
                     for(var i = 0; i < data.events.length; i++) {
@@ -106,7 +105,6 @@ jQuery(function($) {
                 $(".join").click(clickOnJoin);
                 myScroll.refresh();
                 $('#thelist').page();
-                $.mobile.hidePageLoadingMsg();
             });
             
     // create ref for page
