@@ -264,8 +264,33 @@ function findUser(username) {
         if (item.username === username)
             return item;
     });
-    
+    if (filtered === []){
+        console.log("Can't find username : " + username);
+        return;
+    }
+    return filtered[0];
 }
+
+function checkUserPassword(username, password) {
+    user_json = findUser(username);
+    if (user_json === undefined) {
+        console.log("error geting user");
+        return false;
+    }
+    if (user_json.password === password) {
+        return true;
+    }
+    return false;
+}
+
+function signUp(username, password) {
+    new_user = { id: 3, 
+                 "username": username,
+                 "password": password };
+    users.users.push(new_user);
+    res.json(new_user);
+}
+
 function findById(id) {
     var arr = events['events'];
     var filtered = arr.filter(function(item) {
@@ -325,7 +350,6 @@ app.post('/events',function(req,res){
 });
 
 app.put('/events/join/:id', function (req, res){
-
   var event_id = req.params.id;
   var user_id = req.body.id;
   var event = findById(parseInt(event_id));
