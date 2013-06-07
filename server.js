@@ -240,7 +240,32 @@ var feed = {
         
     ]
 };
-   
+
+var users = {
+    "users" : [
+        { "id": 0,
+          "username" : "bentz",
+          "password" : "1234"
+        },
+        { "id": 1,
+          "username" : "elad",
+          "password" : "1234"
+        },
+        { "id": 2,
+          "username" : "igor",
+          "password" : "1234"
+        }
+    ]
+};
+
+function findUser(username) {
+    user_list = users['users'];
+    filtered = user_list.filter(function(item) {
+        if (item.username === username)
+            return item;
+    });
+    
+}
 function findById(id) {
     arr = events['events'];
     filtered = arr.filter(function(item) {
@@ -248,7 +273,7 @@ function findById(id) {
             return item;
     });
     if (filtered === undefined)
-        console.log("Can't find user id: " + id);
+        console.log("Can't find event id: " + id);
     return filtered[0];
 }
 
@@ -257,7 +282,7 @@ function checkIfJoined(event, id) {
         if (item.id === id)
             return item;
     });
-    if (filtered.length == 0)
+    if (filtered.length === 0)
         return false;
     return true;
 }
@@ -301,8 +326,10 @@ app.post('/events',function(req,res){
 
 app.put('/events/join/:id', function (req, res){
 
-  var user_id = req.params.id;
-  event = findById(user_id);
+  var event_id = req.params.id;
+  user_id = req.body.id;
+  event = findById(event_id);
+  console.log("event_id : " + event_id + " user_id: " + user_id +  " Got event: " + event);
   if (!checkIfJoined(event, user_id)) {
       new_user = { id: user_id,
                    'profile-url' : req.body['profile-url']
