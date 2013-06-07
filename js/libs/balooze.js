@@ -30,11 +30,14 @@ function clickOnUl() {
 
     var index = $(this).index();
     var listItem = $($("ul li").get(index)).find(".event");
-    
+    if(isButtonClicked) {
+        isButtonClicked = false;
+        return;
+    }
 
     if (listItem.css('-webkit-transform') === "matrix(1, 0, 0, 1, 0, 0)") {
         listItem.css('-webkit-transform', 'translate3d(-100%, 0, 0)');
-    } else if(!isButtonClicked) {
+    } else {
         listItem.css('-webkit-transform', 'translate3d(0, 0, 0)');
     }
 }
