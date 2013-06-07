@@ -401,9 +401,14 @@ app.post('/login', function (req, res) {
   var post = req.body;
   if (checkUserPassword(post.username, post.password)) {
     req.session.userid = getUserId(post.username);
-    res.redirect('/#homePage');
+    retStatus = 'Success';
+    // res.redirect('/team');
+    res.send({
+      retStatus : retStatus});
   } else {
-    res.send('Bad user/pass');
+    retStatus = 'Failed';
+    res.send({
+      retStatus : retStatus});
   }
 });
 
