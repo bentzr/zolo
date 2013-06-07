@@ -21,7 +21,9 @@ function clickOnJoin(event) {
                 "id": userData.id,
                 "profile-url": userData['profile-url']
             };
-    var url = "/events/join/" + eventId;        
+    var url = "/events/join/" + eventId;
+    
+   
     $.ajax({
         url: url,
         contentType: 'application/json',
@@ -29,6 +31,9 @@ function clickOnJoin(event) {
         data: JSON.stringify(data),
         success: function(result) {
             alert(result);
+            //Add the result to the who's in field
+            var html = Mustache.to_html(whosInTemplate, data);
+            li.find('tr').append(html);
         }
       });        
     
@@ -41,6 +46,9 @@ var userData = {
     "profile-url": "images/avatar.jpg",
     "friends": [2, 3, 4, 5]
 }; //<--- Mock data, will be updated from the server
+
+var whosInTemplate = "<td><img class='avain' src='{{profile-url}}'></td>";
+
 var template = "<li><input type='hidden'value='{{id}}'><div class='event'><img class='avatar' src='{{profile-url}}'/><img class='location' src='images/location.png'  /> <img class='time' src='images/time_orange.png'  />\n\
                                     <h2>{{title}}</h2><h1>{{where}}</h1><span class='time'>{{start-date}}</span></div>\n\
                                         <div class='eventinfo'><h2>Who's in?</h2><div class='whosin'>\n\
