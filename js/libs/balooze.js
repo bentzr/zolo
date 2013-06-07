@@ -18,7 +18,7 @@ var template = "<li><input type='hidden'value='{{id}}'><div class='event'><img c
                                         <div class='eventinfo'><h2>Who's in?</h2><div class='whosin'>\n\
                                             <table><tr>{{#who}}<td><img class='avain' src='{{profile-url}}' /></td>{{/who}}</tr>\n\
                                             </table>\n\
-                                            <a href='#' data-role='button' data-inline='true'   data-theme='a'>Join</a>\n\
+                                            <a href='#' class='join' data-role='button' data-inline='true'   data-theme='a'>Join</a>\n\
                                         </div></div>\n\
                            </li>";
 
@@ -30,10 +30,10 @@ jQuery(function($) {
     
     $.get("/events", function(data) {
                 //alert("Data Loaded: " + data);
-                for(var i = 0; i < data.events.length; i++) {
-                var html = Mustache.to_html(template, data.events[i]);
-                $('#thelist').append(html);
-                $("ul li").click(clickOnUl);
+                    for(var i = 0; i < data.events.length; i++) {
+                    var html = Mustache.to_html(template, data.events[i]);
+                    $('#thelist').append(html);
+                    $("ul li").click(clickOnUl);
                 }
                 myScroll.refresh();
                  
@@ -152,7 +152,7 @@ function pullUpAction() {
                 //li.innerHTML = html;
                 $('#thelist').append(html);
                 $("ul li").click(clickOnUl);
-                }
+        }
                // $("a[data-role=button]").button('refresh');
                 myScroll.refresh();
 

@@ -10,7 +10,7 @@ var events ={
             "who": [{"id": 12, "profile-url": "images/avatar.jpg"},
                     {"id": 13, "profile-url": "images/avatar2.jpg"}
                    ],
-            "profile-url": "images/avatar2.jpg", 
+            "profile-url": "images/avatar1.jpg", 
             "user-id" : 1,
             "start-date": "18:30"
             },
@@ -21,7 +21,7 @@ var events ={
             "who": [{"id": 11, "profile-url": "images/avatar.jpg"},
                     {"id": 10, "profile-url": "images/avatar2.jpg"}
                    ],
-            "profile-url": "images/avatar4.jpg",
+            "profile-url": "images/avatar2.jpg",
             "user-id" : 1,
             "start-date": "20:00"
             },
@@ -32,7 +32,7 @@ var events ={
             "who": [{"id": 10, "profile-url": "images/avatar2.jpg"},
                     {"id": 12, "profile-url": "images/avatar3.jpg"}
                    ],
-            "profile-url": "images/avatar4.jpg",
+            "profile-url": "images/avatar.jpg",
             "user-id" : 1,
             "start-date": "20:00"
             },
@@ -54,27 +54,27 @@ var events ={
             "who": [{"id": 10, "profile-url": "images/avatar2.jpg"},
                     {"id": 12, "profile-url": "images/avatar3.jpg"}
                    ],
-            "profile-url": "images/avatar4.jpg",
+            "profile-url": "images/avatar2.jpg",
             "user-id" : 1,
             "start-date": "20:00"
             },
             {
             "id": 6,
-            "title": "Tennis game tonight!",
+            "title": "The Big Brother show!",
             "where": "Haoranim 13, Tel Aviv",
             "who": [{"id": 12, "profile-url": "images/avatar3.jpg"},
                     {"id": 13, "profile-url": "images/avatar4.jpg"}
                    ],
-            "profile-url": "images/avatar4.jpg",
+            "profile-url": "images/avatar5.jpg",
             "user-id" : 1,
-            "start-date": "20:00"
+            "start-date": "21:00"
             },
             {
             "id": 7,
-            "title": "Tennis game tonight!",
-            "where": "Haoranim 13, Tel Aviv",
+            "title": "Ruby Bar!",
+            "where": "Yirmiyahu 13, Tel Aviv",
             "who": [{"id": 12, "profile-url": "images/avatar3.jpg"},
-                    {"id": 13, "profile-url": "images/avatar4.jpg"}
+                    {"id": 10, "profile-url": "images/avatar.jpg"}
                    ],
             "profile-url": "images/avatar4.jpg",
             "user-id" : 1,
@@ -82,12 +82,12 @@ var events ={
             },
             {
             "id": 8,
-            "title": "Tennis game tonight!",
-            "where": "Haoranim 13, Tel Aviv",
+            "title": "Euro 2013 Israel Vs Spain",
+            "where": "Bloomfield, Tel Aviv",
             "who": [{"id": 12, "profile-url": "images/avatar3.jpg"},
                     {"id": 13, "profile-url": "images/avatar4.jpg"}
                    ],
-            "profile-url": "images/avatar4.jpg",
+            "profile-url": "images/avatar3.jpg",
             "user-id" : 1,
             "start-date": "20:00"
             },
@@ -109,7 +109,7 @@ var events ={
             "who": [{"id": 13, "profile-url": "images/avatar4.jpg"},
                     {"id": 14, "profile-url": "images/avatar5.jpg"}
                    ],
-            "profile-url": "images/avatar4.jpg",
+            "profile-url": "images/avatar5.jpg",
             "user-id" : 1,
             "start-date": "20:00"
             },
@@ -126,7 +126,7 @@ var events ={
             },
             {
             "id": 12,
-            "title": "Tennis game tonight!",
+            "title": "Strdying to exams :(",
             "where": "Haoranim 13, Tel Aviv",
             "who": [{"id": 13, "profile-url": "images/avatar4.jpg"},
                     {"id": 14, "profile-url": "images/avatar5.jpg"}
@@ -137,23 +137,23 @@ var events ={
             },
             {
             "id": 13,
-            "title": "Tennis game tonight!",
+            "title": "Movie night",
             "where": "Haoranim 13, Tel Aviv",
             "who": [{"id": 13, "profile-url": "images/avatar4.jpg"},
                     {"id": 14, "profile-url": "images/avatar5.jpg"}
                    ],
-            "profile-url": "images/avatar4.jpg",
+            "profile-url": "images/avatar1.jpg",
             "user-id" : 1,
             "start-date": "20:00"
             },
             {
             "id": 14,
-            "title": "Tennis game tonight!",
+            "title": "Going to the beach",
             "where": "Haoranim 13, Tel Aviv",
             "who": [{"id": 13, "profile-url": "images/avatar4.jpg"},
                     {"id": 14, "profile-url": "images/avatar5.jpg"}
                    ],
-            "profile-url": "images/avatar4.jpg",
+            "profile-url": "images/avatar3.jpg",
             "user-id" : 1,
             "start-date": "20:00"
             }
@@ -176,12 +176,12 @@ var newEvents ={
             },
             {
             "id": 16,
-            "title": "Tennis game tonight!",
+            "title": "Formula 1 Race",
             "where": "Haoranim 13, Tel Aviv",
             "who": [{"id": 11, "profile-url": "images/avatar.jpg"},
                     {"id": 10, "profile-url": "images/avatar2.jpg"}
                    ],
-            "profile-url": "images/avatar4.jpg",
+            "profile-url": "images/avatar5.jpg",
             "user-id" : 1,
             "start-date": "20:00"
             },
@@ -198,7 +198,6 @@ var newEvents ={
             }
         ]
     };
-
 
 var feed = {
     "feed":[ 
@@ -240,7 +239,7 @@ var feed = {
         
         
     ]
-}
+};
    
 var app = express();
 app.configure(function(){
