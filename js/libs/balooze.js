@@ -17,7 +17,11 @@ function onClickLogin() {
             data: JSON.stringify(data),
             success: function(result) {
                 //Add the result to the who's in field
-                console.log(JSON.stringify(result));
+                if(result.retStatus === 'Success') {
+                    $.mobile.changePage("#homePage");
+                } else {
+                    alert(result.resStatus);
+                }
             }
           });
 }
@@ -94,7 +98,6 @@ jQuery(function($) {
     $viewport.attr('content', 'initial-scale=1.0,maximum-scale=1.0,user-scalable=no');
     
     $("#homePage").live('pageshow', function () {
-    
         $.get("/events", function(data) {
                 //alert("Data Loaded: " + data);
                     for(var i = 0; i < data.events.length; i++) {

@@ -292,9 +292,11 @@ function checkUserPassword(username, password) {
 }
 
 function checkAuth(req, res, next) {
-  if (!req.session.user_id) {
+  if (req.session.user_id === undefined) {
+    console.log('Not authorized');
     res.send('You are not authorized to view this page');
   } else {
+    console.log('Authorized from ' + req.session.user_id);
     next();
   }
 }
@@ -335,6 +337,8 @@ app.configure(function(){
     console.log(__dirname);
     app.use(express.static(__dirname));
     app.use(express.bodyParser());
+    app.use(express.cookieParser());
+    app.use(express.session({ secret:"baloze123"}));
 });
 
 app.get('/events',checkAuth, function(req,res){
@@ -399,9 +403,14 @@ app.post('/login', function (req, res) {
   var post = req.body;
   if (checkUserPassword(post.username, post.password)) {
     req.session.user_id = getUserId(post.username);
-    res.redirect('/#homePage');
+    retStatus = 'Success';
+    //res.redirect('/team');
+    res.send({
+      "retStatus" : retStatus});
   } else {
-    res.send('Bad user/pass');
+    retStatus = 'Failed login';
+    res.send({
+      "retStatus" : retStatus});
   }
 });
 
