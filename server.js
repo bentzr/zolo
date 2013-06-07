@@ -335,6 +335,8 @@ app.configure(function(){
     console.log(__dirname);
     app.use(express.static(__dirname));
     app.use(express.bodyParser());
+    app.use(express.cookieParser());
+    app.use(express.session({ secret:"baloze123"}));
 });
 
 app.get('/events',checkAuth, function(req,res){
@@ -398,7 +400,7 @@ app.put('/events/join/:id', function (req, res){
 app.post('/login', function (req, res) {
   var post = req.body;
   if (checkUserPassword(post.username, post.password)) {
-    req.session.user_id = getUserId(post.username);
+    req.session.userid = getUserId(post.username);
     res.redirect('/#homePage');
   } else {
     res.send('Bad user/pass');
