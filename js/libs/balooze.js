@@ -8,8 +8,7 @@ function onClickLogin() {
     var data = {"username"  : $("#usernameInputField").val() ,
                 "password" : $("#passwordInputField").val()
                 
-                };
-    alert(JSON.stringify(data));            
+                };           
     $.ajax({
             url: url,
             contentType: 'application/json',
@@ -30,16 +29,17 @@ function clickOnUl() {
 
     var index = $(this).index();
     var listItem = $($("ul li").get(index)).find(".event");
-    if(isButtonClicked) {
-        isButtonClicked = false;
-        return;
-    }
+//    if(isButtonClicked) {
+//        isButtonClicked = false;
+//        return;
+//    }
 
     if (listItem.css('-webkit-transform') === "matrix(1, 0, 0, 1, 0, 0)") {
         listItem.css('-webkit-transform', 'translate3d(-100%, 0, 0)');
-    } else {
+    } else if(!isButtonClicked) {
         listItem.css('-webkit-transform', 'translate3d(0, 0, 0)');
     }
+    
 }
 
 function clickOnJoin(event) {
@@ -53,24 +53,71 @@ function clickOnJoin(event) {
             };
     var url = "/events/join/" + eventId;
     
-   
-    $.ajax({
-        url: url,
-        contentType: 'application/json',
-        type: 'PUT',
-        data: JSON.stringify(data),
-        success: function(result) {
-            //Add the result to the who's in field
-            console.log(JSON.stringify(result));
-            if(result['error'] === undefined) {
-                var html = Mustache.to_html(whosInTemplate, result);
-                li.find('table').html(html);
-            } else {
-                alert("You have already joined to this looze!");
+   if($($(event.target)).text() === "Join") {
+        $.ajax({
+            url: url,
+            contentType: 'application/json',
+            type: 'PUT',
+            data: JSON.stringify(data),
+            success: function(result) {
+                //Add the result to the who's in field
+                console.log(JSON.stringify(result));
+                if(result['error'] === undefined) {
+                    var html = Mustache.to_html(whosInTemplate, result);
+                    li.find('table').html(html);
+                    $($(event.target)).text("Leave");
+                    
+                } else {
+                    alert("You have already joined to this looze!");
+                    $($(event.target)).text("Leave");
+                    $('#thelist').refresh();
+                }
+                isButtonClicked = false;
             }
-        }
-      }); 
+          });
+    }else{
+        $.ajax({
+            url: url,
+            contentType: 'application/json',
+            type: 'DELETE',
+            data: JSON.stringify(data),
+            success: function(result) {
+                //Add the result to the who's in field
+                console.log(JSON.stringify(result));
+                if(result['error'] === undefined) {
+                    var html = Mustache.to_html(whosInTemplate, result);
+                    li.find('table').html(html);
+                    $($(event.target)).text("Join");
+                } else {
+                    alert("You have already left this looze!");
+                    $($(event.target)).text("Join");
+                }
+                isButtonClicked = false;
+            }
+          });
+    }     
 };
+
+function onLoozeIt() {
+    $("#whatuptos").val();
+   console.log();
+    
+}
+
+function getEvents() {
+    $.get("/events", function(data) {
+                    $('#thelist').empty();
+                    for(var i = 0; i < data.events.length; i++) {
+                    var html = Mustache.to_html(template, data.events[i]);
+                    $('#thelist').append(html);
+                    $("ul li").click(clickOnUl);
+                }
+                $(".join").click(clickOnJoin);
+                myScroll.refresh();
+                $('#thelist').page();
+                $('#thelist').page('destroy').page();
+            });
+}
 
 var isButtonClicked = false;
 //The user Id
@@ -98,70 +145,61 @@ jQuery(function($) {
     $viewport.attr('content', 'initial-scale=1.0,maximum-scale=1.0,user-scalable=no');
     
     $("#homePage").live('pageshow', function () {
-        $.get("/events", function(data) {
-                //alert("Data Loaded: " + data);
-                    for(var i = 0; i < data.events.length; i++) {
-                    var html = Mustache.to_html(template, data.events[i]);
-                    $('#thelist').append(html);
-                    $("ul li").click(clickOnUl);
-                }
-                $(".join").click(clickOnJoin);
-                myScroll.refresh();
-                $('#thelist').page();
-            });
-            
-    // create ref for page
-    
-    // Get a reference to the container.
-    var container = $(".goesUp");
+        
+        getEvents();
+        // create ref for page
 
-    // Bind the link to toggle the slide.
-    $(".logo").click(function(event) {
-        var subContainer;
-        // Prevent the default event.
-        event.preventDefault();
-
-        var pageId = $.mobile.activePage[0].id;
-        if (pageId === "homePage")
-            subContainer = $(container[0]);
-        if (pageId === "favsPage")
-            subContainer = $(container[1]);
-        if (pageId === "myPage")
-            subContainer = $(container[2]);
-        if (pageId === "loozePage")
-            subContainer = $(container[3]);
-        if (pageId === "friendsPage")
-            subContainer = $(container[4]);
-
-        // Toggle the slide based on its current
-
-        if (subContainer.css('-webkit-transform') === "matrix(1, 0, 0, 1, 0, 0)") {
-            subContainer.css('-webkit-transform', 'translate3d(0, -137px, 0)');
-
-        } else {
-            subContainer.css('-webkit-transform', 'translate3d(0, 0, 0)');
-        }
-    }
-    );
-
-
-    $("#whatupto").click(function(event) {
-        event.preventDefault();
+        // Get a reference to the container.
         var container = $(".goesUp");
-        var pageId = $.mobile.activePage[0].id;
-        if (pageId === "homePage")
-            subContainer = $(container[0]);
 
-        if (subContainer.css('-webkit-transform') === "matrix(1, 0, 0, 1, 0, 0)") {
-            subContainer.css('-webkit-transform', 'translate3d(0, +220px, 0)');
+        // Bind the link to toggle the slide.
+        $(".logo").click(function(event) {
+            var subContainer;
+            // Prevent the default event.
+            event.preventDefault();
 
-        } else {
-            subContainer.css('-webkit-transform', 'translate3d(0, 0, 0)');
+            var pageId = $.mobile.activePage[0].id;
+            if (pageId === "homePage")
+                subContainer = $(container[0]);
+            if (pageId === "favsPage")
+                subContainer = $(container[1]);
+            if (pageId === "myPage")
+                subContainer = $(container[2]);
+            if (pageId === "loozePage")
+                subContainer = $(container[3]);
+            if (pageId === "friendsPage")
+                subContainer = $(container[4]);
+
+            // Toggle the slide based on its current
+
+            if (subContainer.css('-webkit-transform') === "matrix(1, 0, 0, 1, 0, 0)") {
+                subContainer.css('-webkit-transform', 'translate3d(0, -137px, 0)');
+
+            } else {
+                subContainer.css('-webkit-transform', 'translate3d(0, 0, 0)');
+            }
         }
+        );
+
+
+        $("#whatupto").click(function(event) {
+            event.preventDefault();
+            var container = $(".goesUp");
+            var pageId = $.mobile.activePage[0].id;
+            if (pageId === "homePage")
+                subContainer = $(container[0]);
+
+            if (subContainer.css('-webkit-transform') === "matrix(1, 0, 0, 1, 0, 0)") {
+                subContainer.css('-webkit-transform', 'translate3d(0, +220px, 0)');
+
+            } else {
+                subContainer.css('-webkit-transform', 'translate3d(0, 0, 0)');
+            }
 
     });
 
     $("ul li").click(clickOnUl);
+    $("#loozeItbtn").click(onLoozeIt);
     
     });
 });

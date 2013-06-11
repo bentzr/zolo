@@ -706,3 +706,7 @@ to { -webkit-transform:rotate(360deg) translateZ(0); }
 #thelist2 li span {
     color: #3b5998;
 }
+
+input {
+    color: white !important;
+}
