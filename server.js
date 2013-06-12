@@ -494,7 +494,7 @@ app.delete('/events/remove/:id', function (req, res){
   var event_id = req.params.id;
   var user_id = req.session.user_id;
   var event = findById(parseInt(event_id));
-  console.log("leave: event_id : " + event_id + " Got event: " + event + " event user-id: " + event['user-id']);
+  console.log("leave: event_id : " + event_id + " user id : " + user_id + " Got event: " + event + " event user-id: " + event['user-id']);
   if (event['user-id'] === user_id) {
         removeEvent(event_id, events);
         res.json(events);
