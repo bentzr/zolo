@@ -434,7 +434,7 @@ app.delete('/events/join/:id', function (req, res){
             "message" : "User already out"
            });
   } else {
-    return leaveEvent(event, user_id);
+    res.json(leaveEvent(event, user_id));
   }
 });
 
