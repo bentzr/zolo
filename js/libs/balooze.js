@@ -42,7 +42,9 @@ function onClickSignUp() {
                 if(result.retCode === "200") {
                     showPopUp("Welcome to Balooze!"); 
                     $.mobile.changePage("#loginPage");
-                } else {
+                }else if(result.retCode === "300"){
+                    showPopUp("Username already exists"); 
+                }else {
                     showPopUp("Wrong username and password!"); 
                 }
             }
