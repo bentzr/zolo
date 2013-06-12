@@ -72,6 +72,7 @@ function clickOnUl() {
 
 function clickOnJoin(event) {
     isButtonClicked = true;
+    console.log($(event.target).attr("class"));
     var li = $(event.target).parents("li");
     var eventId = li.children("input").attr("value");
     var data = 
@@ -94,12 +95,20 @@ function clickOnJoin(event) {
                     showPopUp("Success!");
                     var html = Mustache.to_html(whosInTemplate, result);
                     li.find('table').html(html);
-                    $($(event.target)).text("Leave");
+                    if($(event.target).attr("class") === "ui-btn-text") {
+                        $($(event.target)).text("Leave");
+                    }else {
+                       $(event.target).children('span').children('span').text("Leave");
+                    }
                     
                 } else {
                     //alert("You have already joined to this looze!");
                     showPopUp("You have already joined this looze!");
-                    $($(event.target)).text("Leave");
+                    if($(event.target).attr("class") === "ui-btn-text") {
+                        $($(event.target)).text("Leave");
+                    }else {
+                       $(event.target).children('span').children('span').text("Leave");
+                    }
                     $($('#thelist')).refresh();
                 }
                 isButtonClicked = false;
@@ -118,10 +127,19 @@ function clickOnJoin(event) {
                     showPopUp("Success!");
                     var html = Mustache.to_html(whosInTemplate, result);
                     li.find('table').html(html);
-                    $($(event.target)).text("Join");
+                    if($(event.target).attr("class") === "ui-btn-text") {
+                        $($(event.target)).text("Join");
+                    }else {
+                       $(event.target).children('span').children('span').text("Join");
+                    }
+                    $($(event.target)).refresh();
                 } else {
                     showPopUp("You have already left this looze!");
-                    $($(event.target)).text("Join");
+                   if($(event.target).attr("class") === "ui-btn-text") {
+                        $($(event.target)).text("Join");
+                    }else {
+                       $(event.target).children('span').children('span').text("Join");
+                    }
                 }
                 isButtonClicked = false;
             }
@@ -353,14 +371,11 @@ function pullUpAction() {
                 myScroll.refresh();
                 $('#thelist').page('destroy').page();
                 getNewEvents = false;
-
             });
 }
 
 
 function loaded() {
-    pullDownEl = document.getElementById('pullDown');
-    pullDownOffset = pullDownEl.offsetHeight;
     pullUpEl = document.getElementById('pullUp');
     pullUpOffset = pullUpEl.offsetHeight;
 
@@ -368,24 +383,12 @@ function loaded() {
         useTransition: true,
         topOffset: pullDownOffset,
         onRefresh: function() {
-        if (pullDownEl.className.match('loading')) {
-        pullDownEl.className = '';
-        pullDownEl.querySelector('.pullDownLabel').innerHTML = 'Pull down to refresh...';
-        } else if (pullUpEl.className.match('loading')) {
+            if (pullUpEl.className.match('loading')) {
         pullUpEl.className = '';
         pullUpEl.querySelector('.pullUpLabel').innerHTML = 'Pull up to load more...';
         }
     },
     onScrollMove: function() {
-//        if (this.y > 5 && !pullDownEl.className.match('flip')) {
-//        pullDownEl.className = 'flip';
-//        pullDownEl.querySelector('.pullDownLabel').innerHTML = 'Release to refresh...';
-//        this.minScrollY = 0;
-//        } else if (this.y < 5 && pullDownEl.className.match('flip')) {
-//        pullDownEl.className = '';
-//        pullDownEl.querySelector('.pullDownLabel').innerHTML = 'Pull down to refresh...';
-//        this.minScrollY = -pullDownOffset;
-//        } else 
             if (this.y < (this.maxScrollY - 5) && !pullUpEl.className.match('flip')) {
         pullUpEl.className = 'flip';
         pullUpEl.querySelector('.pullUpLabel').innerHTML = 'Release to refresh...';
@@ -397,11 +400,7 @@ function loaded() {
         }
     },
     onScrollEnd: function() {
-        if (pullDownEl.className.match('flip')) {
-        pullDownEl.className = 'loading';
-        pullDownEl.querySelector('.pullDownLabel').innerHTML = 'Loading...';
-        //pullDownAction();	// Execute custom function (ajax call?)
-        } else if (pullUpEl.className.match('flip')) {
+        if (pullUpEl.className.match('flip')) {
         pullUpEl.className = 'loading';
         pullUpEl.querySelector('.pullUpLabel').innerHTML = 'Loading...';
         pullUpAction();	// Execute custom function (ajax call?)
