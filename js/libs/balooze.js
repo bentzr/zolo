@@ -11,8 +11,10 @@ function onClickLogin() {
             data: JSON.stringify(data),
             success: function(result) {
                 //Add the result to the who's in field
-                if(result.retStatus === 'Success') {
+                if(result.retStatus === undefined) {
                     $.mobile.changePage("#homePage");
+                    userData = data;
+                    console.log(JSON.stringify(userData));
                 } else {
                     showPopUp("Wrong username and password!"); 
                 }
