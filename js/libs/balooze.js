@@ -41,7 +41,7 @@ function onClickSignUp() {
                 //Add the result to the who's in field
                 if(result.retCode === "200") {
                     showPopUp("Welcome to Balooze!"); 
-                    $.mobile.changePage("#homePage");
+                    $.mobile.changePage("#loginPage");
                 } else {
                     showPopUp("Wrong username and password!"); 
                 }
