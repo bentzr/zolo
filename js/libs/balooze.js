@@ -23,7 +23,32 @@ function onClickLogin() {
 }
 
 function onClickSignUp() {
-    $.mobile.changePage("#loginPage");
+     var url = "/signup";
+    var data = {"username"  : $("#usernameInputField2").val() ,
+                "password" : $("#passwordInputField2").val()
+                };
+    if(data.username === "" || data.username === undefined) {
+        showPopUp("Please enter a user name");
+    }else if(data.password === "" || data.password === undefined){
+        showPopUp("Please enter a password");
+    }else {            
+    $.ajax({
+            url: url,
+            contentType: 'application/json',
+            type: 'PUT',
+            data: JSON.stringify(data),
+            success: function(result) {
+                //Add the result to the who's in field
+                if(result.retCode === "200") {
+                    showPopUp("Welcome to Balooze!"); 
+                    $.mobile.changePage("#homePage");
+                } else {
+                    showPopUp("Wrong username and password!"); 
+                }
+            }
+          });
+    }
+    
 }
 
 function clickOnUl() {
