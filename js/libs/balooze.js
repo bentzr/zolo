@@ -64,6 +64,7 @@ function clickOnJoin(event) {
                 //Add the result to the who's in field
                 console.log(JSON.stringify(result));
                 if(result['error'] === undefined) {
+                    showPopUp("Success!");
                     var html = Mustache.to_html(whosInTemplate, result);
                     li.find('table').html(html);
                     $($(event.target)).text("Leave");
@@ -87,6 +88,7 @@ function clickOnJoin(event) {
                 //Add the result to the who's in field
                 console.log(JSON.stringify(result));
                 if(result['error'] === undefined) {
+                    showPopUp("Success!");
                     var html = Mustache.to_html(whosInTemplate, result);
                     li.find('table').html(html);
                     $($(event.target)).text("Join");
@@ -138,6 +140,7 @@ function onLoozeIt() {
                     console.log("Trying to Loozeit");
                     $("#whatupto").click();
                     getEvents();
+                    showPopUp("Success!");
                     
                 } else {
                     showPopUp("Could not save your event!");
