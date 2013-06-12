@@ -338,7 +338,7 @@ function signUp(username, password) {
                     "lname": "",
                     "friends" : [] };
     users.users.push(new_user);
-    users_info.push(new_profile);
+    users_info.users.push(new_profile);
     user_counter += 1;
     return new_user;
 }
