@@ -3,7 +3,6 @@ function onClickLogin() {
     var url = "/login";
     var data = {"username"  : $("#usernameInputField").val() ,
                 "password" : $("#passwordInputField").val()
-                
                 };           
     $.ajax({
             url: url,
@@ -15,7 +14,7 @@ function onClickLogin() {
                 if(result.retStatus === 'Success') {
                     $.mobile.changePage("#homePage");
                 } else {
-                    alert(result.resStatus);
+                    showPopUp("Wrong username and password!"); 
                 }
             }
           });
@@ -68,9 +67,10 @@ function clickOnJoin(event) {
                     $($(event.target)).text("Leave");
                     
                 } else {
-                    alert("You have already joined to this looze!");
+                    //alert("You have already joined to this looze!");
+                    showPopUp("You have already joined this looze!");
                     $($(event.target)).text("Leave");
-                    $('#thelist').refresh();
+                    $($('#thelist')).refresh();
                 }
                 isButtonClicked = false;
             }
@@ -89,7 +89,7 @@ function clickOnJoin(event) {
                     li.find('table').html(html);
                     $($(event.target)).text("Join");
                 } else {
-                    alert("You have already left this looze!");
+                    showPopUp("You have already left this looze!");
                     $($(event.target)).text("Join");
                 }
                 isButtonClicked = false;
@@ -97,6 +97,17 @@ function clickOnJoin(event) {
           });
     }     
 };
+
+function showPopUp(msg) {
+    $($("#popup")).text(msg);
+                    //$($("#popup")).css('visibility', 'visible');
+                    $($("#popup")).fadeIn();
+                    setTimeout(function() {
+                        console.log("Here!!");
+                        $($("#popup")).fadeOut();
+                        //$($("#popup")).css('visibility', 'hidden');
+                    }, 2000);
+}
 
 function onLoozeIt() {
     
@@ -129,7 +140,7 @@ function onLoozeIt() {
                     getEvents();
                     
                 } else {
-                    alert("Couldn't save the event");
+                    showPopUp("Could not save your event!");
                 }
             }
           });
@@ -259,9 +270,10 @@ function pullDownAction() {
         myScroll.refresh();		// Remember to refresh when contents are loaded (ie: on ajax completion)
     }, 1000);	// <-- Simulate network congestion, remove setTimeout from production!
 }
-
+var getNewEvents = true;
 function pullUpAction() {
-    //setTimeout(function() {	// <-- Simulate network congestion, remove setTimeout from production!
+    if(getNewEvents) {
+        
         $.get("/newevents", function(data) {
                 //alert("Data Loaded: " + data);
                 for(var i = 0; i < data.events.length; i++) {
@@ -273,24 +285,14 @@ function pullUpAction() {
                 //Add the listener to the join button
                 $(".join").click(clickOnJoin);
                 myScroll.refresh();
-
-                 
-
                 $('#thelist').page('destroy').page();
+                getNewEvents = false;
 
             });
-//        var el, li, i;
-//        el = document.getElementById('thelist');
-//
-//        for (i = 0; i < data.events.length; i++) {
-//        li = document.createElement('li');
-//        li.innerHTML = listItem;
-//        //el.appendChild(li, el.childNodes[0]);
-//        $('#thelist').append(listItem)
-//        }
-//        $(".newli").click(clickOnUl);
-//        myScroll.refresh();		// Remember to refresh when contents are loaded (ie: on ajax completion)
-      //  }, 1000);	// <-- Simulate network congestion, remove setTimeout from production!
+   
+    }else {
+        alert("No more new events!");
+    }
 }
 
 
