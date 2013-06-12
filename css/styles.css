@@ -730,3 +730,14 @@ input {
     font-style: inherit;
     font-weight: bold;
 }
+
+.deleteButton {
+   background-color: rgb(220,86,29);
+   height: 20px;
+   width: 20px;
+   position: absolute;
+   left: 13px;
+   top: 2px;
+   border-radius: 8px;
+   box-shadow: 5px 4px 9px rgba(50, 50, 50, 0.6);
+}
