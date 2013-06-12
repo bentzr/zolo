@@ -108,7 +108,7 @@ function showPopUp(msg) {
                     setTimeout(function() {
                         
                         $($("#popup")).fadeOut();
-                    }, 2000);
+                    }, 1000);
 }
 
 function onLoozeIt() {
@@ -148,7 +148,32 @@ function onLoozeIt() {
             }
           });
    }
+}
+
+function clickOnDelete(event) {
     
+    var li = $(event.target).parents("li");
+    var eventId = li.children("input").attr("value");
+    var url = "/events/remove/" + eventId;
+    
+    $.ajax({
+            url: url,
+            contentType: 'application/json',
+            type: 'DELETE',
+            success: function(result) {
+                //Add the result to the who's in field
+                console.log(JSON.stringify(result));
+                if(result['retCode'] === undefined) {
+                    
+                    showPopUp("Success!");
+                    getEvents();
+                    
+                } else {
+                    showPopUp("Could not delete the event");
+                  
+                }
+            }
+          });
 }
 
 var deleteButton = "<div class='deleteButton'>X</div>"
@@ -165,6 +190,7 @@ function getEvents() {
                     $("ul li").click(clickOnUl);
                 }
                 $(".join").click(clickOnJoin);
+                $(".deleteButton").click(clickOnDelete);
                 myScroll.refresh();
                 $('#thelist').page();
                 $('#thelist').page('destroy').page();
