@@ -372,13 +372,23 @@ Array.prototype.remove = function(from, to) {
   return this.push.apply(this, rest);
 };
 
-function leaveEvent(event, id) {
-    who = event['who'];
-    who.forEach(function (item, index) {
+function removeElement(id, arr) {
+    arr.forEach(function (item, index) {
         if (item.id === id) {
-            who.remove(index);
+            arr.remove(index);
         }
     });
+}
+
+function removeEvent(id, events) {
+    events_arr = events['events'];
+    removeElement(id, events_arr);
+    return events;
+}
+
+function leaveEvent(event, id) {
+    who = event['who'];
+    removeElement(id, who);
     return event;
 }
 
