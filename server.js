@@ -26,7 +26,7 @@ var events ={
                     {"id": 10, "profile-url": "images/avatar2.jpg"}
                    ],
             "profile-url": "images/avatar2.jpg",
-            "user-id" : 1,
+            "user-id" : 2,
             "start-date": "15:00"
             },
             {
@@ -48,7 +48,7 @@ var events ={
                     {"id": 12, "profile-url": "images/avatar3.jpg"}
                    ],
             "profile-url": "images/avatar4.jpg",
-            "user-id" : 1,
+            "user-id" : 2,
             "start-date": "20:00"
             },
             {
@@ -70,7 +70,7 @@ var events ={
                     {"id": 13, "profile-url": "images/avatar4.jpg"}
                    ],
             "profile-url": "images/avatar5.jpg",
-            "user-id" : 1,
+            "user-id" : 0,
             "start-date": "21:00"
             },
             {
@@ -81,7 +81,7 @@ var events ={
                     {"id": 10, "profile-url": "images/avatar.jpg"}
                    ],
             "profile-url": "images/avatar4.jpg",
-            "user-id" : 1,
+            "user-id" : 0,
             "start-date": "21:30"
             },
             {
@@ -114,7 +114,7 @@ var events ={
                     {"id": 14, "profile-url": "images/avatar5.jpg"}
                    ],
             "profile-url": "images/avatar5.jpg",
-            "user-id" : 1,
+            "user-id" : 2,
             "start-date": "20:00"
             },
             {
@@ -136,7 +136,7 @@ var events ={
                     {"id": 14, "profile-url": "images/avatar5.jpg"}
                    ],
             "profile-url": "images/avatar4.jpg",
-            "user-id" : 1,
+            "user-id" : 2,
             "start-date": "13:00"
             },
             {
@@ -147,7 +147,7 @@ var events ={
                     {"id": 14, "profile-url": "images/avatar5.jpg"}
                    ],
             "profile-url": "images/avatar1.jpg",
-            "user-id" : 1,
+            "user-id" : 2,
             "start-date": "20:00"
             },
             {
@@ -175,7 +175,7 @@ var newEvents ={
                     {"id": 13, "profile-url": "images/avatar2.jpg"}
                    ],
             "profile-url": "images/avatar2.jpg", 
-            "user-id" : 1,
+            "user-id" : 0,
             "start-date": "20:30"
             },
             {
@@ -186,7 +186,7 @@ var newEvents ={
                     {"id": 10, "profile-url": "images/avatar2.jpg"}
                    ],
             "profile-url": "images/avatar5.jpg",
-            "user-id" : 1,
+            "user-id" : 2,
             "start-date": "19:00"
             },
             {
