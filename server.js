@@ -331,7 +331,14 @@ function signUp(username, password) {
     new_user = { id: user_counter, 
                  "username": username,
                  "password": password };
+    new_profile = { "id" : user_counter,
+                    "username": username,
+                    "profile-url": "",
+                    "fname": "",
+                    "lname": "",
+                    "friends" : [] };
     users.users.push(new_user);
+    users_info.push(new_profile);
     user_counter += 1;
     return new_user;
 }
@@ -452,11 +459,18 @@ app.put('/signup',function(req,res){
             "message" : "Invalid user password received!"
                 });
    } else{ 
+        if (findUser(body.username, users)) {
+            res.json({
+            "retCode": "300",
+            "message" : "User already exists"
+                });
+        } else  {
         signUp(body.username, body.password);
         res.json({
             "retCode": "200",
             "message" : "User added"
                 });
+        }
    }
 });
 
@@ -509,6 +523,7 @@ app.delete('/events/remove/:id', function (req, res){
 
 app.post('/login', function (req, res) {
   var post = req.body;
+  var retStatus;
   if (checkUserPassword(post.username, post.password)) {
     req.session.user_id = getUserId(post.username);
     retStatus = 'Success';
