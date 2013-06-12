@@ -14,7 +14,6 @@ function onClickLogin() {
                 if(result.id !== undefined) {
                     $.mobile.changePage("#homePage");
                     userData = result;
-                    console.log(JSON.stringify(userData));
                 } else {
                     showPopUp("Wrong username and password!"); 
                 }
@@ -109,7 +108,7 @@ function clickOnJoin(event) {
                     }else {
                        $(event.target).children('span').children('span').text("Leave");
                     }
-                    $($('#thelist')).refresh();
+                    //$($('#thelist')).refresh();
                 }
                 isButtonClicked = false;
             }
@@ -122,7 +121,7 @@ function clickOnJoin(event) {
             data: JSON.stringify(data),
             success: function(result) {
                 //Add the result to the who's in field
-                console.log(JSON.stringify(result));
+                
                 if(result['retCode'] === undefined) {
                     showPopUp("Success!");
                     var html = Mustache.to_html(whosInTemplate, result);
@@ -132,7 +131,6 @@ function clickOnJoin(event) {
                     }else {
                        $(event.target).children('span').children('span').text("Join");
                     }
-                    $($(event.target)).refresh();
                 } else {
                     showPopUp("You have already left this looze!");
                    if($(event.target).attr("class") === "ui-btn-text") {
@@ -158,7 +156,6 @@ function showPopUp(msg) {
 
 function onLoozeIt() {
     
-    
     $("#whoisinto").val();
     var event = {
             "title": $("#whatuptos").val(),
@@ -168,7 +165,7 @@ function onLoozeIt() {
             "user-id" : userData['id'],
             "start-date": $("#whenupto").val()
             };
-   console.log(JSON.stringify(event));
+   
    
    var url = "/events";
    if(sendRequest){
@@ -207,7 +204,7 @@ function clickOnDelete(event) {
             type: 'DELETE',
             success: function(result) {
                 //Add the result to the who's in field
-                console.log(JSON.stringify(result));
+                
                 if(result['retCode'] === undefined) {
                     
                     showPopUp("Success!");
@@ -229,7 +226,6 @@ function getEvents() {
                     var html = Mustache.to_html(template, data.events[i]);
                     if(data.events[i]['user-id'] === userData.id){
                         html = $(html).children('.eventinfo').append(deleteButton).parents('li');
-                        console.log("Found Owner event: " + html);
                     }
                     $('#thelist').append(html);
                     $("ul li").click(clickOnUl);
@@ -269,7 +265,7 @@ jQuery(function($) {
     $viewport.attr('content', 'initial-scale=1.0,maximum-scale=1.0,user-scalable=no');
     
     $("#homePage").live('pageshow', function () {
-        console.log("Im here!!");
+        
         getEvents();
         // create ref for page
 
