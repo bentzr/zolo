@@ -331,6 +331,31 @@ function checkIfJoined(event, id) {
     return true;
 }
 
+// use this to enhance array functions, for element removal from array
+Array.prototype.remove = function(from, to) {
+  var rest = this.slice((to || from) + 1 || this.length);
+  this.length = from < 0 ? this.length + from : from;
+  return this.push.apply(this, rest);
+};
+
+function leaveEvent(event, id) {
+    who = event['who'];
+    who.forEach(function (item, index) {
+        if (item.id === id) {
+            who.remove(index);
+        }
+    });
+    return event;
+}
+
+function joinEvent(event, user_id, profile_url) {
+      new_user = { id: user_id,
+                   'profile-url' : profile_url
+      };
+      event['who'].push(new_user);
+      return event;
+}
+
 var app = express();
 app.configure(function(){
     app.use(express.logger('dev'));
@@ -389,16 +414,27 @@ app.put('/events/join/:id', function (req, res){
   var event = findById(parseInt(event_id));
   console.log("event_id : " + event_id + " user_id: " + user_id +  " Got event: " + event);
   if (!checkIfJoined(event, user_id)) {
-      new_user = { id: user_id,
-                   'profile-url' : req.body['profile-url']
-      };
-      event['who'].push(new_user);
-      res.json(event);
+    res.json(joinEvent(event, user_id, req.body['profile-url']));
   } else {
   res.json({
             "error": "400",
             "message" : "User already joined"
            });
+  }
+});
+
+app.delete('/events/leave/:id', function (req, res){
+  var event_id = req.params.id;
+  var user_id = req.body.id;
+  var event = findById(parseInt(event_id));
+  console.log("leave: event_id : " + event_id + " user_id: " + user_id +  " Got event: " + event);
+  if (!checkIfJoined(event, user_id)) {
+    res.json({
+            "error": "400",
+            "message" : "User already out"
+           });
+  } else {
+    return leaveEvent(event, user_id);
   }
 });
 
