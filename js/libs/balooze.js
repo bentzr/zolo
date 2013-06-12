@@ -21,6 +21,10 @@ function onClickLogin() {
           });
 }
 
+function onClickSignUp() {
+    $.mobile.changePage("#loginPage");
+}
+
 function clickOnUl() {
 
     var index = $(this).index();
@@ -123,6 +127,7 @@ function onLoozeIt() {
                     
                     $("#whatupto").click();
                     getEvents();
+                    
                 } else {
                     alert("Couldn't save the event");
                 }
@@ -173,7 +178,7 @@ jQuery(function($) {
     $viewport.attr('content', 'initial-scale=1.0,maximum-scale=1.0,user-scalable=no');
     
     $("#homePage").live('pageshow', function () {
-        
+        console.log("Im here!!");
         getEvents();
         // create ref for page
 
@@ -308,15 +313,16 @@ function loaded() {
         }
     },
     onScrollMove: function() {
-        if (this.y > 5 && !pullDownEl.className.match('flip')) {
-        pullDownEl.className = 'flip';
-        pullDownEl.querySelector('.pullDownLabel').innerHTML = 'Release to refresh...';
-        this.minScrollY = 0;
-        } else if (this.y < 5 && pullDownEl.className.match('flip')) {
-        pullDownEl.className = '';
-        pullDownEl.querySelector('.pullDownLabel').innerHTML = 'Pull down to refresh...';
-        this.minScrollY = -pullDownOffset;
-        } else if (this.y < (this.maxScrollY - 5) && !pullUpEl.className.match('flip')) {
+//        if (this.y > 5 && !pullDownEl.className.match('flip')) {
+//        pullDownEl.className = 'flip';
+//        pullDownEl.querySelector('.pullDownLabel').innerHTML = 'Release to refresh...';
+//        this.minScrollY = 0;
+//        } else if (this.y < 5 && pullDownEl.className.match('flip')) {
+//        pullDownEl.className = '';
+//        pullDownEl.querySelector('.pullDownLabel').innerHTML = 'Pull down to refresh...';
+//        this.minScrollY = -pullDownOffset;
+//        } else 
+            if (this.y < (this.maxScrollY - 5) && !pullUpEl.className.match('flip')) {
         pullUpEl.className = 'flip';
         pullUpEl.querySelector('.pullUpLabel').innerHTML = 'Release to refresh...';
         this.maxScrollY = this.maxScrollY;
