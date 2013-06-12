@@ -438,11 +438,15 @@ app.post('/signup',function(req,res){
     var body = req.body;
     if(body.username === undefined || body.password === undefined) {
         res.json({
-            "error": "400",
+            "retCode": "400",
             "message" : "Invalid user password received!"
                 });
    } else{ 
         signUp(body.username, body.password);
+        res.json({
+            "retCode": "200",
+            "message" : "User added"
+                });
    }
 });
 
@@ -455,7 +459,7 @@ app.put('/events/join/:id', function (req, res){
     res.json(joinEvent(event, user_id, req.body['profile-url']));
   } else {
   res.json({
-            "error": "400",
+            "retCode": "400",
             "message" : "User already joined"
            });
   }
@@ -468,7 +472,7 @@ app.delete('/events/join/:id', function (req, res){
   console.log("leave: event_id : " + event_id + " user_id: " + user_id +  " Got event: " + event);
   if (!checkIfJoined(event, user_id)) {
     res.json({
-            "error": "400",
+            "retCode": "400",
             "message" : "User already out"
            });
   } else {
@@ -486,7 +490,8 @@ app.post('/login', function (req, res) {
   } else {
     retStatus = 'Failed login';
     res.send({
-      "retStatus" : retStatus});
+      "retCode" : "400",
+      "message" : resStatus});
   }
 });
 
