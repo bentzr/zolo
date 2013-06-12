@@ -443,7 +443,7 @@ app.post('/events',function(req,res){
    }
 });
 
-app.post('/signup',function(req,res){
+app.put('/signup',function(req,res){
     console.log(JSON.stringify(req.body));
     var body = req.body;
     if(body.username === undefined || body.password === undefined) {
