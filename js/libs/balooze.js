@@ -151,7 +151,7 @@ function onLoozeIt() {
     
 }
 
-var deleteButton = "<div class='deleteButton'></div>"
+var deleteButton = "<div class='deleteButton'>X</div>"
 function getEvents() {
     $.get("/events", function(data) {
                     $('#thelist').empty();
