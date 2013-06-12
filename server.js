@@ -438,7 +438,7 @@ app.post('/events',function(req,res){
     if(event.title === "" || event.who === undefined || 
              event.where === "" || event['start-date'] === "") {
         res.json({
-            "error": "400",
+            "retStatus": "400",
             "message" : "Invalid event received!"
                 });
    } else{
