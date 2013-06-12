@@ -333,12 +333,12 @@ function signUp(username, password) {
                  "password": password };
     new_profile = { "id" : user_counter,
                     "username": username,
-                    "profile-url": "",
+                    "profile-url": "images/noavatar.jpg",
                     "fname": "",
                     "lname": "",
                     "friends" : [] };
     users.users.push(new_user);
-    users_info.push(new_profile);
+    users_info.users.push(new_profile);
     user_counter += 1;
     return new_user;
 }
@@ -523,14 +523,14 @@ app.delete('/events/remove/:id', function (req, res){
 
 app.post('/login', function (req, res) {
   var post = req.body;
-  var retStatus;
+  var resStatus;
   if (checkUserPassword(post.username, post.password)) {
     req.session.user_id = getUserId(post.username);
-    retStatus = 'Success';
+    resStatus = 'Success';
     //res.redirect('/team');
     res.json(findUser(post.username, users_info));
   } else {
-    retStatus = 'Failed login';
+    resStatus = 'Failed login';
     res.send({
       "retCode" : "400",
       "message" : resStatus});
