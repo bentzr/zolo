@@ -333,7 +333,7 @@ function signUp(username, password) {
                  "password": password };
     new_profile = { "id" : user_counter,
                     "username": username,
-                    "profile-url": "images/avatar1.jpg",
+                    "profile-url": "images/noavatar.jpg",
                     "fname": "",
                     "lname": "",
                     "friends" : [] };
