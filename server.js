@@ -262,7 +262,33 @@ var users = {
     ]
 };
 
-function findUser(username) {
+var users_info = {
+    "users" : [
+        { "id" : 0,
+          "username" : "bentz",
+          "profile-url": "images/avatar2.jpg",
+          "fname": "Ben",
+          "lname": "Reuveni",
+          "friends" : [1, 3 , 5 , 6]
+        },
+        { "id" : 1,
+          "username" : "elad",
+          "profile-url": "images/avatar1.jpg",
+          "fname": "Elad",
+          "lname": "Levy",
+          "friends" : [3, 0 , 1 , 2]
+        },
+        { "id" : 2,
+          "username" : "igor",
+          "profile-url": "images/avatar3.jpg",
+          "fname": "Igor",
+          "lname": "Rami",
+          "friends" : [1, 3 , 5 , 6]
+        }
+    ]
+};
+
+function findUser(username, users) {
     user_list = users['users'];
     filtered = user_list.filter(function(item) {
         if (item.username === username)
@@ -276,11 +302,11 @@ function findUser(username) {
 }
 
 function getUserId(username) {
-    return findUser(username).id;
+    return findUser(username, users).id;
 }
 
 function checkUserPassword(username, password) {
-    user_json = findUser(username);
+    user_json = findUser(username, users);
     if (user_json === undefined) {
         console.log("error geting user");
         return false;
@@ -423,7 +449,7 @@ app.put('/events/join/:id', function (req, res){
   }
 });
 
-app.delete('/events/leave/:id', function (req, res){
+app.delete('/events/join/:id', function (req, res){
   var event_id = req.params.id;
   var user_id = req.body.id;
   var event = findById(parseInt(event_id));
@@ -434,7 +460,7 @@ app.delete('/events/leave/:id', function (req, res){
             "message" : "User already out"
            });
   } else {
-    return leaveEvent(event, user_id);
+    res.json(leaveEvent(event, user_id));
   }
 });
 
@@ -444,8 +470,7 @@ app.post('/login', function (req, res) {
     req.session.user_id = getUserId(post.username);
     retStatus = 'Success';
     //res.redirect('/team');
-    res.send({
-      "retStatus" : retStatus});
+    res.json(findUser(post.username, users_info));
   } else {
     retStatus = 'Failed login';
     res.send({
