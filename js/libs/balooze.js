@@ -11,8 +11,10 @@ function onClickLogin() {
             data: JSON.stringify(data),
             success: function(result) {
                 //Add the result to the who's in field
-                if(result.retStatus === 'Success') {
+                if(result.id !== undefined) {
                     $.mobile.changePage("#homePage");
+                    userData = result;
+                    console.log(JSON.stringify(userData));
                 } else {
                     showPopUp("Wrong username and password!"); 
                 }
@@ -100,12 +102,10 @@ function clickOnJoin(event) {
 
 function showPopUp(msg) {
     $($("#popup")).text(msg);
-                    //$($("#popup")).css('visibility', 'visible');
                     $($("#popup")).fadeIn();
                     setTimeout(function() {
                         console.log("Here!!");
                         $($("#popup")).fadeOut();
-                        //$($("#popup")).css('visibility', 'hidden');
                     }, 2000);
 }
 
