@@ -1,9 +1,5 @@
 
 function onClickLogin() {
-//    $('#homeClick').click();
-//                $('#homePage').live('pageshow', function() {
-//                    myScroll.refresh();
-//                });
     var url = "/login";
     var data = {"username"  : $("#usernameInputField").val() ,
                 "password" : $("#passwordInputField").val()
@@ -99,8 +95,40 @@ function clickOnJoin(event) {
 };
 
 function onLoozeIt() {
-    $("#whatuptos").val();
-   console.log();
+    
+    
+    $("#whoisinto").val();
+    
+    
+    var event = {
+            "title": $("#whatuptos").val(),
+            "where": $("#whereat").val(),
+            "who": [],
+            "profile-url": userData['profile-url'], 
+            "user-id" : userData['id'],
+            "start-date": $("#whenupto").val()
+            };
+   console.log(JSON.stringify(event));
+   
+   var url = "/events";
+         
+    $.ajax({
+            url: url,
+            contentType: 'application/json',
+            type: 'POST',
+            data: JSON.stringify(event),
+            success: function(result) {
+                //Send the new event to the server
+                if(result.error === undefined) {
+                    
+                    $("#whatupto").click();
+                    getEvents();
+                } else {
+                    alert("Couldn't save the event");
+                }
+            }
+          });
+   
     
 }
 

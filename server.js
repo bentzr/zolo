@@ -2,7 +2,7 @@ var express = require('express');
 
 // this is only because we are not using database
 var user_counter = 3;
-var event_counter = 19;
+var event_counter = 18;
 
 var events ={ 
     "events":
@@ -356,15 +356,17 @@ app.get('/feed',function(req,res){
 app.post('/events',function(req,res){
     console.log(JSON.stringify(req.body));
     var event = req.body;
-    if(event.title === undefined || event.who === undefined || 
-            event.title === undefined || event.where === undefined || event['start-date'] === undefined) {
+    if(event.title === "" || event.who === undefined || 
+             event.where === "" || event['start-date'] === "") {
         res.json({
             "error": "400",
             "message" : "Invalid event received!"
                 });
-   } else{ 
+   } else{
+        event.id = event_counter;
         events.events.push(event);
         res.json(events);
+        event_counter++;
    }
 });
 
