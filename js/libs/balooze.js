@@ -63,7 +63,7 @@ function clickOnJoin(event) {
             success: function(result) {
                 //Add the result to the who's in field
                 console.log(JSON.stringify(result));
-                if(result['error'] === undefined) {
+                if(result['retCode'] === undefined) {
                     showPopUp("Success!");
                     var html = Mustache.to_html(whosInTemplate, result);
                     li.find('table').html(html);
@@ -87,7 +87,7 @@ function clickOnJoin(event) {
             success: function(result) {
                 //Add the result to the who's in field
                 console.log(JSON.stringify(result));
-                if(result['error'] === undefined) {
+                if(result['retCode'] === undefined) {
                     showPopUp("Success!");
                     var html = Mustache.to_html(whosInTemplate, result);
                     li.find('table').html(html);
@@ -135,7 +135,7 @@ function onLoozeIt() {
             data: JSON.stringify(event),
             success: function(result) {
                 //Send the new event to the server
-                if(result.error === undefined) {
+                if(result.retCode === undefined) {
                     sendRequest = true;
                     console.log("Trying to Loozeit");
                     $("#whatupto").click();
@@ -151,11 +151,16 @@ function onLoozeIt() {
     
 }
 
+var deleteButton = "<div class='deleteButton'></div>"
 function getEvents() {
     $.get("/events", function(data) {
                     $('#thelist').empty();
                     for(var i = 0; i < data.events.length; i++) {
                     var html = Mustache.to_html(template, data.events[i]);
+                    if(data.events[i]['user-id'] === userData.id){
+                        html = $(html).children('.eventinfo').append(deleteButton).parents('li');
+                        console.log("Found Owner event: " + html);
+                    }
                     $('#thelist').append(html);
                     $("ul li").click(clickOnUl);
                 }
