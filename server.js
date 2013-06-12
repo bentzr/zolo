@@ -490,6 +490,22 @@ app.delete('/events/join/:id', function (req, res){
   }
 });
 
+app.delete('/events/remove/:id', function (req, res){
+  var event_id = req.params.id;
+  var event = findById(parseInt(event_id));
+  console.log("leave: event_id : " + event_id + " Got event: " + event + " event user-id: " + event['user-id']);
+  if (event['user-id'] === user_id) {
+        removeEvent(event_id, events);
+        res.json(events);
+  } else {
+    res.json({
+            "retCode": "400",
+            "message" : "User cant delete"
+           });
+  }
+});
+
+
 app.post('/login', function (req, res) {
   var post = req.body;
   if (checkUserPassword(post.username, post.password)) {
