@@ -376,8 +376,6 @@ function pullUpAction() {
 
 
 function loaded() {
-    pullDownEl = document.getElementById('pullDown');
-    pullDownOffset = pullDownEl.offsetHeight;
     pullUpEl = document.getElementById('pullUp');
     pullUpOffset = pullUpEl.offsetHeight;
 
@@ -385,24 +383,12 @@ function loaded() {
         useTransition: true,
         topOffset: pullDownOffset,
         onRefresh: function() {
-        if (pullDownEl.className.match('loading')) {
-        pullDownEl.className = '';
-        pullDownEl.querySelector('.pullDownLabel').innerHTML = 'Pull down to refresh...';
-        } else if (pullUpEl.className.match('loading')) {
+            if (pullUpEl.className.match('loading')) {
         pullUpEl.className = '';
         pullUpEl.querySelector('.pullUpLabel').innerHTML = 'Pull up to load more...';
         }
     },
     onScrollMove: function() {
-//        if (this.y > 5 && !pullDownEl.className.match('flip')) {
-//        pullDownEl.className = 'flip';
-//        pullDownEl.querySelector('.pullDownLabel').innerHTML = 'Release to refresh...';
-//        this.minScrollY = 0;
-//        } else if (this.y < 5 && pullDownEl.className.match('flip')) {
-//        pullDownEl.className = '';
-//        pullDownEl.querySelector('.pullDownLabel').innerHTML = 'Pull down to refresh...';
-//        this.minScrollY = -pullDownOffset;
-//        } else 
             if (this.y < (this.maxScrollY - 5) && !pullUpEl.className.match('flip')) {
         pullUpEl.className = 'flip';
         pullUpEl.querySelector('.pullUpLabel').innerHTML = 'Release to refresh...';
@@ -414,11 +400,7 @@ function loaded() {
         }
     },
     onScrollEnd: function() {
-        if (pullDownEl.className.match('flip')) {
-        pullDownEl.className = 'loading';
-        pullDownEl.querySelector('.pullDownLabel').innerHTML = 'Loading...';
-        //pullDownAction();	// Execute custom function (ajax call?)
-        } else if (pullUpEl.className.match('flip')) {
+        if (pullUpEl.className.match('flip')) {
         pullUpEl.className = 'loading';
         pullUpEl.querySelector('.pullUpLabel').innerHTML = 'Loading...';
         pullUpAction();	// Execute custom function (ajax call?)
