@@ -11,7 +11,7 @@ function onClickLogin() {
             data: JSON.stringify(data),
             success: function(result) {
                 //Add the result to the who's in field
-                if(result.retStatus === undefined) {
+                if(result.id !== undefined) {
                     $.mobile.changePage("#homePage");
                     userData = data;
                     console.log(JSON.stringify(userData));
@@ -102,12 +102,10 @@ function clickOnJoin(event) {
 
 function showPopUp(msg) {
     $($("#popup")).text(msg);
-                    //$($("#popup")).css('visibility', 'visible');
                     $($("#popup")).fadeIn();
                     setTimeout(function() {
                         console.log("Here!!");
                         $($("#popup")).fadeOut();
-                        //$($("#popup")).css('visibility', 'hidden');
                     }, 2000);
 }
 
