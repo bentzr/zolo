@@ -265,18 +265,21 @@ var users = {
 var users_info = {
     "users" : [
         { "id" : 0,
+          "username" : "bentz",
           "profile-url": "images/avatar2.jpg",
           "fname": "Ben",
           "lname": "Reuveni",
           "friends" : [1, 3 , 5 , 6]
         },
         { "id" : 1,
+          "username" : "elad",
           "profile-url": "images/avatar1.jpg",
           "fname": "Elad",
           "lname": "Levy",
           "friends" : [3, 0 , 1 , 2]
         },
         { "id" : 2,
+          "username" : "igor",
           "profile-url": "images/avatar3.jpg",
           "fname": "Igor",
           "lname": "Rami",
@@ -467,7 +470,7 @@ app.post('/login', function (req, res) {
     req.session.user_id = getUserId(post.username);
     retStatus = 'Success';
     //res.redirect('/team');
-    res.json(findUser(req.session.user_id, users_info));
+    res.json(findUser(post.username, users_info));
   } else {
     retStatus = 'Failed login';
     res.send({
