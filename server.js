@@ -333,7 +333,7 @@ function signUp(username, password) {
                  "password": password };
     users.users.push(new_user);
     user_counter += 1;
-    res.json(new_user);
+    return new_user;
 }
 
 function findById(id) {
