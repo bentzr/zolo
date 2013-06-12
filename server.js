@@ -26,7 +26,7 @@ var events ={
                     {"id": 10, "profile-url": "images/avatar2.jpg"}
                    ],
             "profile-url": "images/avatar2.jpg",
-            "user-id" : 1,
+            "user-id" : 2,
             "start-date": "15:00"
             },
             {
@@ -48,7 +48,7 @@ var events ={
                     {"id": 12, "profile-url": "images/avatar3.jpg"}
                    ],
             "profile-url": "images/avatar4.jpg",
-            "user-id" : 1,
+            "user-id" : 2,
             "start-date": "20:00"
             },
             {
@@ -70,7 +70,7 @@ var events ={
                     {"id": 13, "profile-url": "images/avatar4.jpg"}
                    ],
             "profile-url": "images/avatar5.jpg",
-            "user-id" : 1,
+            "user-id" : 0,
             "start-date": "21:00"
             },
             {
@@ -81,7 +81,7 @@ var events ={
                     {"id": 10, "profile-url": "images/avatar.jpg"}
                    ],
             "profile-url": "images/avatar4.jpg",
-            "user-id" : 1,
+            "user-id" : 0,
             "start-date": "21:30"
             },
             {
@@ -114,7 +114,7 @@ var events ={
                     {"id": 14, "profile-url": "images/avatar5.jpg"}
                    ],
             "profile-url": "images/avatar5.jpg",
-            "user-id" : 1,
+            "user-id" : 2,
             "start-date": "20:00"
             },
             {
@@ -136,7 +136,7 @@ var events ={
                     {"id": 14, "profile-url": "images/avatar5.jpg"}
                    ],
             "profile-url": "images/avatar4.jpg",
-            "user-id" : 1,
+            "user-id" : 2,
             "start-date": "13:00"
             },
             {
@@ -147,7 +147,7 @@ var events ={
                     {"id": 14, "profile-url": "images/avatar5.jpg"}
                    ],
             "profile-url": "images/avatar1.jpg",
-            "user-id" : 1,
+            "user-id" : 2,
             "start-date": "20:00"
             },
             {
@@ -175,7 +175,7 @@ var newEvents ={
                     {"id": 13, "profile-url": "images/avatar2.jpg"}
                    ],
             "profile-url": "images/avatar2.jpg", 
-            "user-id" : 1,
+            "user-id" : 0,
             "start-date": "20:30"
             },
             {
@@ -186,7 +186,7 @@ var newEvents ={
                     {"id": 10, "profile-url": "images/avatar2.jpg"}
                    ],
             "profile-url": "images/avatar5.jpg",
-            "user-id" : 1,
+            "user-id" : 2,
             "start-date": "19:00"
             },
             {
@@ -438,11 +438,15 @@ app.post('/signup',function(req,res){
     var body = req.body;
     if(body.username === undefined || body.password === undefined) {
         res.json({
-            "error": "400",
+            "retCode": "400",
             "message" : "Invalid user password received!"
                 });
    } else{ 
         signUp(body.username, body.password);
+        res.json({
+            "retCode": "200",
+            "message" : "User added"
+                });
    }
 });
 
@@ -455,7 +459,7 @@ app.put('/events/join/:id', function (req, res){
     res.json(joinEvent(event, user_id, req.body['profile-url']));
   } else {
   res.json({
-            "error": "400",
+            "retCode": "400",
             "message" : "User already joined"
            });
   }
@@ -468,7 +472,7 @@ app.delete('/events/join/:id', function (req, res){
   console.log("leave: event_id : " + event_id + " user_id: " + user_id +  " Got event: " + event);
   if (!checkIfJoined(event, user_id)) {
     res.json({
-            "error": "400",
+            "retCode": "400",
             "message" : "User already out"
            });
   } else {
@@ -486,7 +490,8 @@ app.post('/login', function (req, res) {
   } else {
     retStatus = 'Failed login';
     res.send({
-      "retStatus" : retStatus});
+      "retCode" : "400",
+      "message" : resStatus});
   }
 });
 
