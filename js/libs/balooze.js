@@ -108,7 +108,7 @@ function showPopUp(msg) {
                     setTimeout(function() {
                         
                         $($("#popup")).fadeOut();
-                    }, 2000);
+                    }, 1000);
 }
 
 function onLoozeIt() {
