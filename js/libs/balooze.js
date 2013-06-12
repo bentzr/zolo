@@ -13,7 +13,7 @@ function onClickLogin() {
                 //Add the result to the who's in field
                 if(result.id !== undefined) {
                     $.mobile.changePage("#homePage");
-                    userData = data;
+                    userData = result;
                     console.log(JSON.stringify(userData));
                 } else {
                     showPopUp("Wrong username and password!"); 
