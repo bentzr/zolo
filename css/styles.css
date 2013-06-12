@@ -710,3 +710,23 @@ to { -webkit-transform:rotate(360deg) translateZ(0); }
 input {
     color: white !important;
 }
+
+#popup {
+    width: 240px;
+    height: 50px;
+    position: relative;
+    top:50%;
+    margin:auto;
+    border-radius: 10px;
+    box-shadow: 5px 4px 9px rgba(50, 50, 50, 0.6);
+    /* Webkit (Safari/Chrome 10) */ 
+    background-image: -webkit-gradient(radial, center center, 0, center center, 506, color-stop(0, #FFFFFF), color-stop(1, #BED1C0));
+    /* Webkit (Chrome 11+) */ 
+    background-image: -webkit-radial-gradient(center, ellipse farthest-corner, #FFFFFF 0%, #BED1C0 100%);
+    display: none;
+    text-align: center;
+    padding: 10px;
+    padding-top: 30px;
+    font-style: inherit;
+    font-weight: bold;
+}
