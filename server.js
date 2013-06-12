@@ -358,7 +358,7 @@ function checkIfJoined(event, id) {
 }
 
 function sortEvents(events) {
-    return events['events'].sort(function(a,b) {
+    events['events'].sort(function(a,b) {
         a = a['start-date'];
         b = b['start-date'];
         return a<b?-1:a>b?1:0;
@@ -401,7 +401,8 @@ app.configure(function(){
 });
 
 app.get('/events',checkAuth, function(req,res){
-      res.json(sortEvents(events));
+      sortEvents(events);
+      res.json(events);
 });
 
 app.get('/newevents', checkAuth,function(req,res){
@@ -426,7 +427,8 @@ app.post('/events',function(req,res){
    } else{
         event.id = event_counter;
         events.events.push(event);
-        res.json(sortEvents(events));
+        sortEvents(events);
+        res.json(events);
         event_counter++;
    }
 });
