@@ -423,7 +423,7 @@ app.put('/events/join/:id', function (req, res){
   }
 });
 
-app.delete('/events/leave/:id', function (req, res){
+app.delete('/events/join/:id', function (req, res){
   var event_id = req.params.id;
   var user_id = req.body.id;
   var event = findById(parseInt(event_id));
