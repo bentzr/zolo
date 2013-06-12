@@ -27,7 +27,7 @@ var events ={
                    ],
             "profile-url": "images/avatar2.jpg",
             "user-id" : 1,
-            "start-date": "20:00"
+            "start-date": "15:00"
             },
             {
             "id": 3,
@@ -38,7 +38,7 @@ var events ={
                    ],
             "profile-url": "images/avatar.jpg",
             "user-id" : 1,
-            "start-date": "20:00"
+            "start-date": "16:00"
             },
             {
             "id": 4,
@@ -82,7 +82,7 @@ var events ={
                    ],
             "profile-url": "images/avatar4.jpg",
             "user-id" : 1,
-            "start-date": "20:00"
+            "start-date": "21:30"
             },
             {
             "id": 8,
@@ -93,7 +93,7 @@ var events ={
                    ],
             "profile-url": "images/avatar3.jpg",
             "user-id" : 1,
-            "start-date": "20:00"
+            "start-date": "23:00"
             },
             {
             "id": 9,
@@ -104,7 +104,7 @@ var events ={
                    ],
             "profile-url": "images/avatar4.jpg",
             "user-id" : 1,
-            "start-date": "20:00"
+            "start-date": "22:00"
             },
             {
             "id": 10,
@@ -137,7 +137,7 @@ var events ={
                    ],
             "profile-url": "images/avatar4.jpg",
             "user-id" : 1,
-            "start-date": "20:00"
+            "start-date": "13:00"
             },
             {
             "id": 13,
@@ -176,7 +176,7 @@ var newEvents ={
                    ],
             "profile-url": "images/avatar2.jpg", 
             "user-id" : 1,
-            "start-date": "18:30"
+            "start-date": "20:30"
             },
             {
             "id": 16,
@@ -187,7 +187,7 @@ var newEvents ={
                    ],
             "profile-url": "images/avatar5.jpg",
             "user-id" : 1,
-            "start-date": "20:00"
+            "start-date": "19:00"
             },
             {
             "id": 17,
@@ -357,6 +357,14 @@ function checkIfJoined(event, id) {
     return true;
 }
 
+function sortEvents(events) {
+    events['events'].sort(function(a,b) {
+        a = a['start-date'];
+        b = b['start-date'];
+        return a<b?-1:a>b?1:0;
+    });
+}
+
 // use this to enhance array functions, for element removal from array
 Array.prototype.remove = function(from, to) {
   var rest = this.slice((to || from) + 1 || this.length);
@@ -393,11 +401,14 @@ app.configure(function(){
 });
 
 app.get('/events',checkAuth, function(req,res){
+      sortEvents(events);
       res.json(events);
 });
 
 app.get('/newevents', checkAuth,function(req,res){
       res.json(newEvents);
+      events.events.push(newEvents.events);
+      newEvents = { "events" : [] };
 });
 
 app.get('/feed',function(req,res){
@@ -416,6 +427,7 @@ app.post('/events',function(req,res){
    } else{
         event.id = event_counter;
         events.events.push(event);
+        sortEvents(events);
         res.json(events);
         event_counter++;
    }
