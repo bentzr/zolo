@@ -271,12 +271,16 @@ function pullDownAction() {
         myScroll.refresh();		// Remember to refresh when contents are loaded (ie: on ajax completion)
     }, 1000);	// <-- Simulate network congestion, remove setTimeout from production!
 }
-var getNewEvents = true;
+
 function pullUpAction() {
-    if(getNewEvents) {
+   
         
         $.get("/newevents", function(data) {
                 //alert("Data Loaded: " + data);
+                if(data.events.length === 0) {
+                    showPopUp("No more new events from the server!");
+                    return;
+                }
                 for(var i = 0; i < data.events.length; i++) {
                 var html = Mustache.to_html(template, data.events[i]);
  
@@ -290,10 +294,6 @@ function pullUpAction() {
                 getNewEvents = false;
 
             });
-   
-    }else {
-        showPopUp("No more new events!");
-    }
 }
 
 
