@@ -523,14 +523,14 @@ app.delete('/events/remove/:id', function (req, res){
 
 app.post('/login', function (req, res) {
   var post = req.body;
-  var retStatus;
+  var resStatus;
   if (checkUserPassword(post.username, post.password)) {
     req.session.user_id = getUserId(post.username);
-    retStatus = 'Success';
+    resStatus = 'Success';
     //res.redirect('/team');
     res.json(findUser(post.username, users_info));
   } else {
-    retStatus = 'Failed login';
+    resStatus = 'Failed login';
     res.send({
       "retCode" : "400",
       "message" : resStatus});
