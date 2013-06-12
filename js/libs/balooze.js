@@ -72,6 +72,7 @@ function clickOnUl() {
 
 function clickOnJoin(event) {
     isButtonClicked = true;
+    console.log($(event.target).attr("class"));
     var li = $(event.target).parents("li");
     var eventId = li.children("input").attr("value");
     var data = 
@@ -94,12 +95,20 @@ function clickOnJoin(event) {
                     showPopUp("Success!");
                     var html = Mustache.to_html(whosInTemplate, result);
                     li.find('table').html(html);
-                    $($(event.target)).text("Leave");
+                    if($(event.target).attr("class") === "ui-btn-text") {
+                        $($(event.target)).text("Leave");
+                    }else {
+                       $(event.target).children('span').children('span').text("Leave");
+                    }
                     
                 } else {
                     //alert("You have already joined to this looze!");
                     showPopUp("You have already joined this looze!");
-                    $($(event.target)).text("Leave");
+                    if($(event.target).attr("class") === "ui-btn-text") {
+                        $($(event.target)).text("Leave");
+                    }else {
+                       $(event.target).children('span').children('span').text("Leave");
+                    }
                     $($('#thelist')).refresh();
                 }
                 isButtonClicked = false;
@@ -118,10 +127,19 @@ function clickOnJoin(event) {
                     showPopUp("Success!");
                     var html = Mustache.to_html(whosInTemplate, result);
                     li.find('table').html(html);
-                    $($(event.target)).text("Join");
+                    if($(event.target).attr("class") === "ui-btn-text") {
+                        $($(event.target)).text("Join");
+                    }else {
+                       $(event.target).children('span').children('span').text("Join");
+                    }
+                    $($(event.target)).refresh();
                 } else {
                     showPopUp("You have already left this looze!");
-                    $($(event.target)).text("Join");
+                   if($(event.target).attr("class") === "ui-btn-text") {
+                        $($(event.target)).text("Join");
+                    }else {
+                       $(event.target).children('span').children('span').text("Join");
+                    }
                 }
                 isButtonClicked = false;
             }
@@ -353,7 +371,6 @@ function pullUpAction() {
                 myScroll.refresh();
                 $('#thelist').page('destroy').page();
                 getNewEvents = false;
-
             });
 }
 
