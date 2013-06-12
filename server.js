@@ -407,7 +407,7 @@ app.get('/events',checkAuth, function(req,res){
 
 app.get('/newevents', checkAuth,function(req,res){
       res.json(newEvents);
-      events.events.push(newEvents.events);
+      events.events.concat(newEvents.events);
       newEvents = { "events" : [] };
 });
 
