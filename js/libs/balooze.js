@@ -104,7 +104,7 @@ function showPopUp(msg) {
     $($("#popup")).text(msg);
                     $($("#popup")).fadeIn();
                     setTimeout(function() {
-                        console.log("Here!!");
+                        
                         $($("#popup")).fadeOut();
                     }, 2000);
 }
@@ -113,8 +113,6 @@ function onLoozeIt() {
     
     
     $("#whoisinto").val();
-    
-    
     var event = {
             "title": $("#whatuptos").val(),
             "where": $("#whereat").val(),
@@ -126,7 +124,8 @@ function onLoozeIt() {
    console.log(JSON.stringify(event));
    
    var url = "/events";
-         
+   if(sendRequest){
+       sendRequest = false;
     $.ajax({
             url: url,
             contentType: 'application/json',
@@ -135,7 +134,8 @@ function onLoozeIt() {
             success: function(result) {
                 //Send the new event to the server
                 if(result.error === undefined) {
-                    
+                    sendRequest = true;
+                    console.log("Trying to Loozeit");
                     $("#whatupto").click();
                     getEvents();
                     
@@ -144,7 +144,7 @@ function onLoozeIt() {
                 }
             }
           });
-   
+   }
     
 }
 
@@ -163,6 +163,7 @@ function getEvents() {
             });
 }
 
+var sendRequest = true;
 var isButtonClicked = false;
 //The user Id
 var userData = {
@@ -291,7 +292,7 @@ function pullUpAction() {
             });
    
     }else {
-        alert("No more new events!");
+        showPopUp("No more new events!");
     }
 }
 
