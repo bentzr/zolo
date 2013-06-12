@@ -64,6 +64,7 @@ function clickOnJoin(event) {
                 //Add the result to the who's in field
                 console.log(JSON.stringify(result));
                 if(result['error'] === undefined) {
+                    showPopUp("Success!");
                     var html = Mustache.to_html(whosInTemplate, result);
                     li.find('table').html(html);
                     $($(event.target)).text("Leave");
@@ -87,6 +88,7 @@ function clickOnJoin(event) {
                 //Add the result to the who's in field
                 console.log(JSON.stringify(result));
                 if(result['error'] === undefined) {
+                    showPopUp("Success!");
                     var html = Mustache.to_html(whosInTemplate, result);
                     li.find('table').html(html);
                     $($(event.target)).text("Join");
@@ -138,6 +140,7 @@ function onLoozeIt() {
                     console.log("Trying to Loozeit");
                     $("#whatupto").click();
                     getEvents();
+                    showPopUp("Success!");
                     
                 } else {
                     showPopUp("Could not save your event!");
@@ -271,12 +274,16 @@ function pullDownAction() {
         myScroll.refresh();		// Remember to refresh when contents are loaded (ie: on ajax completion)
     }, 1000);	// <-- Simulate network congestion, remove setTimeout from production!
 }
-var getNewEvents = true;
+
 function pullUpAction() {
-    if(getNewEvents) {
+   
         
         $.get("/newevents", function(data) {
                 //alert("Data Loaded: " + data);
+                if(data.events.length === 0) {
+                    showPopUp("No more new events from the server!");
+                    return;
+                }
                 for(var i = 0; i < data.events.length; i++) {
                 var html = Mustache.to_html(template, data.events[i]);
  
@@ -290,10 +297,6 @@ function pullUpAction() {
                 getNewEvents = false;
 
             });
-   
-    }else {
-        showPopUp("No more new events!");
-    }
 }
 
 
