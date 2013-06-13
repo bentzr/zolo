@@ -184,6 +184,11 @@ function onLoozeIt() {
                     getEvents();
                     showPopUp("Success!");
                     
+                    //Clear fields
+                    $("#whereat").val("");
+                    $("#whatuptos").val("");
+                    $("#whenupto").val("");
+                    
                 } else {
                     showPopUp("Could not save your event!");
                 }
@@ -365,7 +370,7 @@ function pullUpAction() {
                 //Add the listener to the join button
                 $(".join").click(clickOnJoin);
                 $('#thelist').page('destroy').page();
-                myScroll.refresh();
+                myScroll.refresh();  
                 getNewEvents = false;
             });
 }
