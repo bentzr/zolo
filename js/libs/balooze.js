@@ -364,8 +364,8 @@ function pullUpAction() {
         }
                 //Add the listener to the join button
                 $(".join").click(clickOnJoin);
-                myScroll.refresh();
                 $('#thelist').page('destroy').page();
+                myScroll.refresh();
                 getNewEvents = false;
             });
 }
