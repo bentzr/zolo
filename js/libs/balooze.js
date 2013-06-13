@@ -56,10 +56,6 @@ function clickOnUl() {
 
     var index = $(this).index();
     var listItem = $($("ul li").get(index)).find(".event");
-//    if(isButtonClicked) {
-//        isButtonClicked = false;
-//        return;
-//    }
 
     if (listItem.css('-webkit-transform') === "matrix(1, 0, 0, 1, 0, 0)") {
         listItem.css('-webkit-transform', 'translate3d(-100%, 0, 0)');
@@ -101,14 +97,12 @@ function clickOnJoin(event) {
                     }
                     
                 } else {
-                    //alert("You have already joined to this looze!");
                     showPopUp("You have already joined this looze!");
                     if($(event.target).attr("class") === "ui-btn-text") {
                         $($(event.target)).text("Leave");
                     }else {
                        $(event.target).children('span').children('span').text("Leave");
                     }
-                    //$($('#thelist')).refresh();
                 }
                 isButtonClicked = false;
             }
@@ -209,7 +203,6 @@ function clickOnDelete(event) {
             type: 'DELETE',
             success: function(result) {
                 //Add the result to the who's in field
-                
                 if(result['retCode'] === undefined) {
                     
                     showPopUp("Success!");
@@ -272,7 +265,6 @@ jQuery(function($) {
     $("#homePage").live('pageshow', function () {
         
         getEvents();
-        // create ref for page
 
         // Get a reference to the container.
         var container = $(".goesUp");
@@ -333,24 +325,6 @@ var myScroll,
 pullDownEl, pullDownOffset,
 pullUpEl, pullUpOffset,
 generatedCount = 0;
-
-function pullDownAction() {
-    setTimeout(function() {	// <-- Simulate network congestion, remove setTimeout from production!
-        var el, li, i;
-        el = document.getElementById('thelist');
-
-        for (i = 0; i < 3; i++) {
-            li = document.createElement('li');
-            li.innerHTML = listItem;
-            //el.insertBefore(li, el.childNodes[0]);
-            $('#thelist').prepend(listItem)
-        }
-
-        $(".newli").click(clickOnUl);
-        myScroll.scrollTo(0, -300, 700);
-        myScroll.refresh();		// Remember to refresh when contents are loaded (ie: on ajax completion)
-    }, 1000);	// <-- Simulate network congestion, remove setTimeout from production!
-}
 
 function pullUpAction() {
    
