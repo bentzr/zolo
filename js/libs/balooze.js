@@ -177,7 +177,7 @@ function onLoozeIt() {
             data: JSON.stringify(event),
             success: function(result) {
                 //Send the new event to the server
-                if(result.retCode === undefined) {
+                if(result.retStatus === undefined) {
                     sendRequest = true;
                     console.log("Trying to Loozeit");
                     $("#whatupto").click();
